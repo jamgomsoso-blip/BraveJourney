@@ -30,11 +30,16 @@ public class PlayerController : MonoBehaviour
     private const int MaxJumpCount = 2;
 
     private bool isSliding;
+    public bool IsSliding => isSliding;
 
     private bool isParrying;
     private float parryTimer;
     private float parryCooldownTimer;
-
+    public bool IsParrying => isParrying;
+    public float ParryCooldownRemaining =>
+    Mathf.Max(parryCooldownTimer, 0f);
+    public float ParryCooldownDuration =>
+    parryCooldown;
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
