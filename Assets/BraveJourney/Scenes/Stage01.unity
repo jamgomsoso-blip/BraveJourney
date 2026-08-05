@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 954996077}
   - component: {fileID: 954996078}
   - component: {fileID: 954996079}
+  - component: {fileID: 954996080}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -951,6 +952,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 12
   jumpForce: 7.5
+  bossMoveSpeed: 6
+  bossScreenPadding: 0.3
   groundCheck: {fileID: 1140123367}
   groundCheckRadius: 0.12
   groundLayer:
@@ -985,6 +988,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023846feb81e26345abe92a7473b67cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParryCooldownUI
+--- !u!114 &954996080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954996071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2946592750c33c5469f41e32b677882c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerPunch
+  punchKey: 97
+  attackOffsetX: 0.8
+  attackRadius: 0.8
+  attackDamage: 1
+  attackCooldown: 0.35
 --- !u!1 &1032451928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1219,51 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 954996072}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1162233743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162233745}
+  - component: {fileID: 1162233744}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1162233744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162233743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7e6aedd48b0b940a53655d63f0358a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageTransition
+  transitionDelay: 2
+--- !u!4 &1162233745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162233743}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.21794, y: 1.55533, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207213370
 GameObject:
@@ -1475,8 +1540,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1373919073}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1309183705
@@ -1586,6 +1650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
   maxHealth: 3
+  stunDuration: 3
 --- !u!61 &1373919071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1700,12 +1765,12 @@ Transform:
   m_GameObject: {fileID: 1373919068}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: -1.2, z: 20}
+  m_LocalPosition: {x: 82, y: -1.2, z: 0}
   m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1294544864}
-  m_Father: {fileID: 1309183704}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1418007175
 GameObject:
@@ -2214,6 +2279,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1373919073}
   - {fileID: 1309183704}
   - {fileID: 1769088232}
   - {fileID: 954996072}
@@ -2227,3 +2293,4 @@ SceneRoots:
   - {fileID: 886972944}
   - {fileID: 1045386484}
   - {fileID: 2088568393}
+  - {fileID: 1162233745}
