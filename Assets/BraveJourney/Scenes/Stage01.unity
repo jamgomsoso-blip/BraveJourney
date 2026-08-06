@@ -976,6 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 3
   invincibleDuration: 1
+  uiFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
 --- !u!114 &954996079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,6 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023846feb81e26345abe92a7473b67cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParryCooldownUI
+  uiFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
 --- !u!114 &954996080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,6 +1232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1162233745}
   - component: {fileID: 1162233744}
+  - component: {fileID: 1162233746}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1250,6 +1253,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageTransition
   transitionDelay: 2
+--- !u!114 &1162233746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162233743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f85ae14f78f4825a31f616495e1c84d, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::StageCourseBuilder
+  player: {fileID: 954996072}
+  boss: {fileID: 1373919073}
+  bossStartTrigger: {fileID: 2088568393}
+  lowJumpObstacleTemplate: {fileID: 886972941}
+  highJumpObstacleTemplate: {fileID: 1045386481}
+  slideObstacleTemplate: {fileID: 1207213370}
+  uiFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
+  runnerSpeed: 12
+  targetRunDuration: 34
+  bossSpacing: 12
+  groundSurfaceY: -3.5
+  additionalObstacleTimes:
+  - 8
+  - 11
+  - 13.5
+  - 16.5
+  - 19
+  - 21.5
+  - 24.5
+  - 27
+  - 29.5
+  - 32
+  runnerHazardTimes:
+  - 6.8
+  - 15
+  - 23
+  - 30.5
 --- !u!4 &1162233745
 Transform:
   m_ObjectHideFlags: 0
@@ -1614,6 +1656,7 @@ GameObject:
   - component: {fileID: 1373919071}
   - component: {fileID: 1373919070}
   - component: {fileID: 1373919069}
+  - component: {fileID: 1373919074}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1635,8 +1678,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossShooter
   projectilePrefab: {fileID: 9103518476265814379, guid: 0ce8bccde4080f24d870c4a1b180ec8a, type: 3}
   firePoint: {fileID: 1294544864}
-  firstShotDelay: 1
-  fireInterval: 1.5
+  firstShotDelay: 1.2
+  fireInterval: 2.2
+  pressureDialogues:
+  - 야근하고 가!
+  - 이것만 끝내고 가!
+  - 다들 하는데 왜 못 해?
+  - 주말에 잠깐 나올 수 있지?
+  - 요즘 회사가 어렵잖아!
+  - 어딜 가려고?!
+  - 퇴사는 승인 못 해!
 --- !u!114 &1373919070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,6 +1702,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
   maxHealth: 3
   stunDuration: 3
+  bossName: 주임
+  uiFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
+  placeholderController: {fileID: 9100000, guid: fd7403ee4c22a9b47b64b519f25d7485, type: 2}
+  idleStateName: Idle
+  stunnedStateName: HitDamage
+  defeatedStateName: Die
+--- !u!114 &1373919074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373919068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eca329fdc784ee1963764ffad395bb2, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::BossHazardController
+  firstAttackDelay: 2.5
+  attackInterval: 4.5
+  warningDuration: 0.9
+  dangerDuration: 1.1
+  groundSurfaceY: -3.5
+  fallingSpeed: 12
+  targetOffsets:
+  - 0
+  - 1.8
+  - -1.4
 --- !u!61 &1373919071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1765,8 +1844,8 @@ Transform:
   m_GameObject: {fileID: 1373919068}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82, y: -1.2, z: 0}
-  m_LocalScale: {x: 1.5, y: 2, z: 1}
+  m_LocalPosition: {x: 412, y: -2.75, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1294544864}
@@ -2269,7 +2348,7 @@ Transform:
   m_GameObject: {fileID: 2088568390}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70, y: -1, z: 0}
+  m_LocalPosition: {x: 400, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

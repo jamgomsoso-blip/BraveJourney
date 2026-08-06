@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health")]
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float invincibleDuration = 1f;
+    [SerializeField] private Font uiFont;
 
     private int currentHealth;
     private bool isInvincible;
@@ -80,6 +81,11 @@ public class PlayerHealth : MonoBehaviour
 
         isInvincible = true;
         invincibleTimer = invincibleDuration;
+
+        if (playerController != null)
+        {
+            playerController.PlayHitDamage();
+        }
     }
 
     private void GameOver()
@@ -92,6 +98,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (playerController != null)
         {
+            playerController.PlayDeath();
             playerController.enabled = false;
         }
 
@@ -113,17 +120,28 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnGUI()
     {
-        GUIStyle lifeStyle = new GUIStyle(
-            GUI.skin.label
+        GUI.depth = isGameOver ? -100 : 0;
+
+        GUIStyle lifeStyle = CreateStyle(
+            24,
+            TextAnchor.MiddleLeft
         );
 
-        lifeStyle.fontSize = 28;
-        lifeStyle.fontStyle = FontStyle.Bold;
-        lifeStyle.normal.textColor = Color.white;
+        Rect lifePanel = new Rect(18f, 18f, 190f, 48f);
+
+        DrawPanel(
+            lifePanel,
+            new Color(0f, 0f, 0f, 0.72f)
+        );
 
         GUI.Label(
-            new Rect(20, 20, 300, 50),
-            "LIFE : " + currentHealth,
+            new Rect(
+                lifePanel.x + 16f,
+                lifePanel.y,
+                lifePanel.width - 24f,
+                lifePanel.height
+            ),
+            "LIFE  " + currentHealth + " / " + maxHealth,
             lifeStyle
         );
 
@@ -132,17 +150,20 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        GUIStyle gameOverStyle = new GUIStyle(
-            GUI.skin.label
+        DrawPanel(
+            new Rect(
+                0f,
+                0f,
+                Screen.width,
+                Screen.height
+            ),
+            new Color(0f, 0f, 0f, 0.78f)
         );
 
-        gameOverStyle.fontSize = 48;
-        gameOverStyle.fontStyle = FontStyle.Bold;
-        gameOverStyle.alignment =
-            TextAnchor.MiddleCenter;
-
-        gameOverStyle.normal.textColor =
-            Color.white;
+        GUIStyle gameOverStyle = CreateStyle(
+            52,
+            TextAnchor.MiddleCenter
+        );
 
         GUI.Label(
             new Rect(
@@ -151,11 +172,11 @@ public class PlayerHealth : MonoBehaviour
                 Screen.width,
                 70
             ),
-            "GAME OVER",
+            "퇴사 실패",
             gameOverStyle
         );
 
-        gameOverStyle.fontSize = 24;
+        gameOverStyle.fontSize = 22;
 
         GUI.Label(
             new Rect(
@@ -164,8 +185,35 @@ public class PlayerHealth : MonoBehaviour
                 Screen.width,
                 50
             ),
-            "R : RESTART",
+            "R - 다시 출근하기",
             gameOverStyle
         );
+    }
+
+    private GUIStyle CreateStyle(
+        int fontSize,
+        TextAnchor alignment
+    )
+    {
+        GUIStyle style = new GUIStyle(GUI.skin.label);
+
+        style.font = uiFont != null
+            ? uiFont
+            : GUI.skin.font;
+
+        style.fontSize = fontSize;
+        style.fontStyle = FontStyle.Bold;
+        style.alignment = alignment;
+        style.normal.textColor = Color.white;
+
+        return style;
+    }
+
+    private static void DrawPanel(Rect rect, Color color)
+    {
+        Color previousColor = GUI.color;
+        GUI.color = color;
+        GUI.DrawTexture(rect, Texture2D.whiteTexture);
+        GUI.color = previousColor;
     }
 }

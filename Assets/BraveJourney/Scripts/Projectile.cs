@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour
 {
@@ -10,6 +11,17 @@ public class Projectile : MonoBehaviour
     [Header("Damage")]
     [SerializeField] private int damage = 1;
 
+    [Header("Dialogue")]
+    [SerializeField] private string hostileDialogue = "";
+    [SerializeField] private string reflectedDialogue = "퇴사하렵니다!";
+    [SerializeField] private Color hostileColor = Color.red;
+    [SerializeField] private Color reflectedColor = Color.cyan;
+    [SerializeField] private Font dialogueFont;
+    [SerializeField] private int dialogueFontSize = 64;
+    [SerializeField] private float dialogueCharacterSize = 0.3f;
+    [SerializeField] private Vector3 dialogueLocalPosition =
+        new Vector3(0f, 2.2f, 0f);
+
     private Transform target;
     private Vector3 moveDirection;
 
@@ -17,26 +29,47 @@ public class Projectile : MonoBehaviour
     private bool hasResolved;
 
     private SpriteRenderer spriteRenderer;
+    private TextMesh dialogueTextMesh;
+    private Text dialogueText;
 
     private void Awake()
     {
         spriteRenderer =
             GetComponent<SpriteRenderer>();
+
+        dialogueTextMesh =
+            GetComponentInChildren<TextMesh>(true);
+
+        dialogueText =
+            GetComponentInChildren<Text>(true);
+
+        EnsureDialogueText();
     }
 
     private void Start()
     {
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.red;
-        }
+        ApplyProjectileVisual(false);
     }
 
     public void Initialize(Transform playerTarget)
     {
+        Initialize(playerTarget, hostileDialogue);
+    }
+
+    public void Initialize(
+        Transform playerTarget,
+        string dialogue
+    )
+    {
         target = playerTarget;
 
+        if (!string.IsNullOrWhiteSpace(dialogue))
+        {
+            hostileDialogue = dialogue;
+        }
+
         UpdateDirectionToTarget();
+        ApplyProjectileVisual(false);
     }
 
     private void Update()
@@ -126,7 +159,7 @@ public class Projectile : MonoBehaviour
         }
 
         BossHealth bossHealth =
-            other.GetComponent<BossHealth>();
+            other.GetComponentInParent<BossHealth>();
 
         if (bossHealth != null)
         {
@@ -145,13 +178,10 @@ public class Projectile : MonoBehaviour
 
         speed *= reflectedSpeedMultiplier;
 
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = Color.cyan;
-        }
+        ApplyProjectileVisual(true);
 
         BossHealth bossHealth =
-            FindObjectOfType<BossHealth>();
+            FindFirstObjectByType<BossHealth>();
 
         if (bossHealth != null)
         {
@@ -179,6 +209,115 @@ public class Projectile : MonoBehaviour
         else
         {
             moveDirection = Vector3.right;
+        }
+    }
+
+    private void ApplyProjectileVisual(bool reflected)
+    {
+        Color projectileColor =
+            reflected ? reflectedColor : hostileColor;
+
+        string dialogue =
+            reflected ? reflectedDialogue : hostileDialogue;
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = projectileColor;
+        }
+
+        if (dialogueTextMesh != null)
+        {
+            if (!string.IsNullOrEmpty(dialogue))
+            {
+                dialogueTextMesh.text = dialogue;
+            }
+
+            dialogueTextMesh.color = projectileColor;
+        }
+
+        if (dialogueText != null)
+        {
+            if (!string.IsNullOrEmpty(dialogue))
+            {
+                dialogueText.text = dialogue;
+            }
+
+            dialogueText.color = projectileColor;
+        }
+    }
+
+    private void EnsureDialogueText()
+    {
+        if (dialogueTextMesh != null)
+        {
+            ConfigureDialogueText(dialogueTextMesh);
+            return;
+        }
+
+        GameObject dialogueObject =
+            new GameObject("DialogueText");
+
+        dialogueObject.transform.SetParent(
+            transform,
+            false
+        );
+
+        dialogueObject.transform.localPosition =
+            dialogueLocalPosition;
+
+        float inverseScale =
+            Mathf.Abs(transform.localScale.x) > 0.001f
+                ? 1f / Mathf.Abs(transform.localScale.x)
+                : 1f;
+
+        dialogueObject.transform.localScale =
+            new Vector3(
+                inverseScale,
+                inverseScale,
+                1f
+            );
+
+        dialogueTextMesh =
+            dialogueObject.AddComponent<TextMesh>();
+
+        ConfigureDialogueText(dialogueTextMesh);
+    }
+
+    private void ConfigureDialogueText(TextMesh textMesh)
+    {
+        textMesh.anchor = TextAnchor.MiddleCenter;
+        textMesh.alignment = TextAlignment.Center;
+        textMesh.fontSize = dialogueFontSize;
+        textMesh.characterSize = dialogueCharacterSize;
+        textMesh.fontStyle = FontStyle.Bold;
+        textMesh.richText = false;
+
+        if (dialogueFont != null)
+        {
+            textMesh.font = dialogueFont;
+        }
+
+        MeshRenderer textRenderer =
+            textMesh.GetComponent<MeshRenderer>();
+
+        if (textRenderer == null)
+        {
+            return;
+        }
+
+        if (dialogueFont != null)
+        {
+            textRenderer.sharedMaterial =
+                dialogueFont.material;
+        }
+
+        if (spriteRenderer != null)
+        {
+            textRenderer.sortingLayerID =
+                spriteRenderer.sortingLayerID;
+
+            textRenderer.sortingOrder =
+                spriteRenderer.sortingOrder + 1;
         }
     }
 }

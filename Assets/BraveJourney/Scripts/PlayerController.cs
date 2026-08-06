@@ -19,8 +19,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float slideColliderHeightRatio = 0.5f;
 
     [Header("Parry")]
-    [SerializeField] private float parryDuration = 0.1f;
+    [SerializeField] private float parryDuration = 0.2f;
     [SerializeField] private float parryCooldown = 1f;
+
+    [Header("Animation States")]
+    [SerializeField] private string sprintStateName = "Sprint";
+    [SerializeField] private string bossIdleStateName = "Idle";
+    [SerializeField] private string bossRunStateName = "Run";
+    [SerializeField] private string bossRunToIdleStateName = "RunToIdle";
+    [SerializeField] private string bossRunToIdleClipName = "IdleTransition";
+    [SerializeField] private string jumpStateName = "Jump";
+    [SerializeField] private string doubleJumpStateName = "FrontFlip";
+    [SerializeField] private string slideStateName = "Slide";
+    [SerializeField] private string parryStateName = "PunchC";
+    [SerializeField] private string kickStateName = "KickC";
+    [SerializeField] private string hitDamageStateName = "HitDamage";
+    [SerializeField] private string dieStateName = "Die";
+    [SerializeField] private float animationCrossFadeTime = 0.03f;
+    [SerializeField] private float fallbackActionDuration = 0.35f;
 
     private Rigidbody2D playerRigidbody;
     private Animator playerAnimator;
@@ -36,15 +52,38 @@ public class PlayerController : MonoBehaviour
 
     private bool isSliding;
     private bool isParrying;
+    private bool isParryAnimating;
     private bool isBossBattle;
+    private bool isKicking;
+    private bool isHitReacting;
+    private bool isDead;
+    private bool bossWasMoving;
+    private bool isPlayingBossRunToIdle;
 
     private float parryTimer;
+    private float parryAnimationTimer;
     private float parryCooldownTimer;
     private float normalGravityScale;
+    private float kickTimer;
+    private float hitReactionTimer;
+    private float bossRunToIdleTimer;
+
+    private bool hasIsGroundedParameter;
+    private bool hasVerticalVelocityParameter;
+    private bool hasIsSlidingParameter;
+    private bool hasIsParryingParameter;
+    private bool hasDoubleJumpParameter;
+
+    private string currentAnimationStateName;
+
+    private const int BaseLayerIndex = 0;
+    private const string BaseLayerName = "Base Layer";
 
     public bool IsSliding => isSliding;
     public bool IsParrying => isParrying;
     public bool IsBossBattle => isBossBattle;
+    public bool IsKicking => isKicking;
+    public bool IsDead => isDead;
 
     public float ParryCooldownRemaining =>
         Mathf.Max(parryCooldownTimer, 0f);
@@ -61,6 +100,8 @@ public class PlayerController : MonoBehaviour
 
         normalGravityScale = playerRigidbody.gravityScale;
 
+        CacheAnimatorParameters();
+
         Transform effectTransform =
             transform.Find("DoubleJumpEffect");
 
@@ -75,6 +116,8 @@ public class PlayerController : MonoBehaviour
             normalColliderSize = playerCollider.size;
             normalColliderOffset = playerCollider.offset;
         }
+
+        PlayAnimationState(sprintStateName, true);
     }
 
     private void Update()
@@ -95,6 +138,15 @@ public class PlayerController : MonoBehaviour
             jumpCount = 0;
         }
 
+        UpdateHitReaction();
+
+        if (isHitReacting)
+        {
+            UpdateAnimator(isGrounded);
+            return;
+        }
+
+        UpdateKick();
         UpdateParry(isGrounded);
         HandleSlide(isGrounded);
         HandleJump();
@@ -116,22 +168,32 @@ public class PlayerController : MonoBehaviour
             canParry &&
             !isSliding &&
             !isParrying &&
+            !isParryAnimating &&
+            !isKicking &&
             parryCooldownTimer <= 0f
         )
         {
             StartParry();
         }
 
-        if (!isParrying)
+        if (isParrying)
         {
-            return;
+            parryTimer -= Time.deltaTime;
+
+            if (parryTimer <= 0f)
+            {
+                EndParry();
+            }
         }
 
-        parryTimer -= Time.deltaTime;
-
-        if (parryTimer <= 0f)
+        if (isParryAnimating)
         {
-            EndParry();
+            parryAnimationTimer -= Time.deltaTime;
+
+            if (parryAnimationTimer <= 0f)
+            {
+                isParryAnimating = false;
+            }
         }
     }
 
@@ -154,7 +216,9 @@ public class PlayerController : MonoBehaviour
         bool wantsToSlide =
             slideKeyPressed &&
             isGrounded &&
-            !isParrying;
+            !isParrying &&
+            !isParryAnimating &&
+            !isKicking;
 
         if (wantsToSlide && !isSliding)
         {
@@ -185,7 +249,9 @@ public class PlayerController : MonoBehaviour
         if (
             !jumpKeyPressed ||
             jumpCount >= MaxJumpCount ||
-            isParrying
+            isParrying ||
+            isParryAnimating ||
+            isKicking
         )
         {
             return;
@@ -208,13 +274,16 @@ public class PlayerController : MonoBehaviour
 
         if (!isDoubleJump)
         {
+            PlayAnimationState(jumpStateName, true);
             return;
         }
 
-        if (playerAnimator != null)
-        {
-            playerAnimator.SetTrigger("DoubleJump");
-        }
+        SetAnimatorTriggerIfAvailable(
+            "DoubleJump",
+            hasDoubleJumpParameter
+        );
+
+        PlayAnimationState(doubleJumpStateName, true);
 
         if (doubleJumpEffectAnimator != null)
         {
@@ -222,6 +291,127 @@ public class PlayerController : MonoBehaviour
                 "PlayEffect"
             );
         }
+    }
+
+    public bool TryStartKick()
+    {
+        if (
+            !isBossBattle ||
+            isParrying ||
+            isParryAnimating ||
+            isKicking ||
+            isHitReacting ||
+            isDead ||
+            !isActiveAndEnabled
+        )
+        {
+            return false;
+        }
+
+        if (isSliding)
+        {
+            EndSlide();
+        }
+
+        isKicking = true;
+        kickTimer =
+            GetAnimationDuration(
+                kickStateName,
+                fallbackActionDuration
+            );
+
+        StopBossRunToIdle();
+        PlayAnimationState(kickStateName, true);
+
+        return true;
+    }
+
+    public void PlayHitDamage()
+    {
+        if (isDead || !isActiveAndEnabled)
+        {
+            return;
+        }
+
+        CancelCurrentAction();
+
+        isHitReacting = true;
+        hitReactionTimer =
+            GetAnimationDuration(
+                hitDamageStateName,
+                fallbackActionDuration
+            );
+
+        PlayAnimationState(hitDamageStateName, true);
+    }
+
+    public void PlayDeath()
+    {
+        if (isDead)
+        {
+            return;
+        }
+
+        isDead = true;
+        CancelCurrentAction();
+        PlayAnimationState(dieStateName, true);
+    }
+
+    private void UpdateKick()
+    {
+        if (!isKicking)
+        {
+            return;
+        }
+
+        kickTimer -= Time.deltaTime;
+
+        if (kickTimer > 0f)
+        {
+            return;
+        }
+
+        isKicking = false;
+    }
+
+    private void UpdateHitReaction()
+    {
+        if (!isHitReacting)
+        {
+            return;
+        }
+
+        hitReactionTimer -= Time.deltaTime;
+
+        if (hitReactionTimer > 0f)
+        {
+            return;
+        }
+
+        isHitReacting = false;
+    }
+
+    private void CancelCurrentAction()
+    {
+        if (isParrying)
+        {
+            EndParry();
+        }
+
+        isParryAnimating = false;
+        parryAnimationTimer = 0f;
+
+        isKicking = false;
+        kickTimer = 0f;
+        isHitReacting = false;
+        hitReactionTimer = 0f;
+
+        if (isSliding)
+        {
+            EndSlide();
+        }
+
+        StopBossRunToIdle();
     }
 
     private void FixedUpdate()
@@ -241,17 +431,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleBossMovement()
     {
-        float horizontalInput = 0f;
-
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            horizontalInput -= 1f;
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            horizontalInput += 1f;
-        }
+        float horizontalInput = ReadBossHorizontalInput();
 
         float horizontalVelocity =
             horizontalInput * bossMoveSpeed;
@@ -333,6 +513,10 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.linearVelocity =
             Vector2.zero;
 
+        bossWasMoving = false;
+        StopBossRunToIdle();
+        PlayAnimationState(bossIdleStateName, true);
+
         Debug.Log("BOSS BATTLE START");
     }
 
@@ -382,8 +566,17 @@ public class PlayerController : MonoBehaviour
     private void StartParry()
     {
         isParrying = true;
+        isParryAnimating = true;
         parryTimer = parryDuration;
+        parryAnimationTimer =
+            GetAnimationDuration(
+                parryStateName,
+                fallbackActionDuration
+            );
         parryCooldownTimer = parryCooldown;
+
+        StopBossRunToIdle();
+        PlayAnimationState(parryStateName, true);
     }
 
     private void EndParry()
@@ -398,25 +591,373 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        playerAnimator.SetBool(
+        SetAnimatorBoolIfAvailable(
             "IsGrounded",
+            hasIsGroundedParameter,
             isGrounded
         );
 
-        playerAnimator.SetFloat(
+        SetAnimatorFloatIfAvailable(
             "VerticalVelocity",
+            hasVerticalVelocityParameter,
             playerRigidbody.linearVelocity.y
         );
 
-        playerAnimator.SetBool(
+        SetAnimatorBoolIfAvailable(
             "IsSliding",
+            hasIsSlidingParameter,
             isSliding
         );
 
-        playerAnimator.SetBool(
+        SetAnimatorBoolIfAvailable(
             "IsParrying",
+            hasIsParryingParameter,
             isParrying
         );
+
+        UpdateAnimationState(isGrounded);
+    }
+
+    private void UpdateAnimationState(bool isGrounded)
+    {
+        if (
+            playerAnimator == null ||
+            isParrying ||
+            isParryAnimating ||
+            isKicking ||
+            isHitReacting ||
+            isDead
+        )
+        {
+            return;
+        }
+
+        bool isAnimationGrounded =
+            isGrounded &&
+            playerRigidbody.linearVelocity.y <= 0.05f;
+
+        if (isBossBattle)
+        {
+            UpdateBossBattleAnimation(isAnimationGrounded);
+            return;
+        }
+
+        StopBossRunToIdle();
+
+        if (isSliding)
+        {
+            PlayAnimationState(slideStateName);
+            return;
+        }
+
+        if (!isAnimationGrounded)
+        {
+            PlayAirborneAnimation();
+            return;
+        }
+
+        PlayAnimationState(sprintStateName);
+    }
+
+    private void UpdateBossBattleAnimation(
+        bool isAnimationGrounded
+    )
+    {
+        if (isSliding)
+        {
+            StopBossRunToIdle();
+            PlayAnimationState(slideStateName);
+            bossWasMoving = false;
+            return;
+        }
+
+        if (!isAnimationGrounded)
+        {
+            StopBossRunToIdle();
+            PlayAirborneAnimation();
+            bossWasMoving = false;
+            return;
+        }
+
+        bool isMoving =
+            Mathf.Abs(ReadBossHorizontalInput()) > 0.01f;
+
+        if (isMoving)
+        {
+            StopBossRunToIdle();
+            PlayAnimationState(bossRunStateName);
+            bossWasMoving = true;
+            return;
+        }
+
+        if (bossWasMoving && !isPlayingBossRunToIdle)
+        {
+            StartBossRunToIdle();
+        }
+
+        bossWasMoving = false;
+
+        if (isPlayingBossRunToIdle)
+        {
+            bossRunToIdleTimer -= Time.deltaTime;
+
+            if (bossRunToIdleTimer > 0f)
+            {
+                return;
+            }
+
+            isPlayingBossRunToIdle = false;
+        }
+
+        PlayAnimationState(bossIdleStateName);
+    }
+
+    private void PlayAirborneAnimation()
+    {
+        if (jumpCount >= MaxJumpCount)
+        {
+            PlayAnimationState(doubleJumpStateName);
+            return;
+        }
+
+        PlayAnimationState(jumpStateName);
+    }
+
+    private void StartBossRunToIdle()
+    {
+        bossRunToIdleTimer =
+            GetAnimationDuration(
+                bossRunToIdleClipName,
+                fallbackActionDuration
+            );
+
+        isPlayingBossRunToIdle =
+            PlayAnimationState(
+                bossRunToIdleStateName,
+                true
+            );
+
+        if (!isPlayingBossRunToIdle)
+        {
+            bossRunToIdleTimer = 0f;
+        }
+    }
+
+    private void StopBossRunToIdle()
+    {
+        isPlayingBossRunToIdle = false;
+        bossRunToIdleTimer = 0f;
+    }
+
+    private float ReadBossHorizontalInput()
+    {
+        float horizontalInput = 0f;
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            horizontalInput -= 1f;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            horizontalInput += 1f;
+        }
+
+        return horizontalInput;
+    }
+
+    private bool PlayAnimationState(
+        string stateName,
+        bool restart = false
+    )
+    {
+        if (
+            playerAnimator == null ||
+            string.IsNullOrEmpty(stateName)
+        )
+        {
+            return false;
+        }
+
+        string resolvedStateName =
+            ResolveAnimationStateName(stateName);
+
+        if (string.IsNullOrEmpty(resolvedStateName))
+        {
+            return false;
+        }
+
+        if (
+            !restart &&
+            currentAnimationStateName == stateName
+        )
+        {
+            return true;
+        }
+
+        if (animationCrossFadeTime > 0f)
+        {
+            playerAnimator.CrossFadeInFixedTime(
+                resolvedStateName,
+                animationCrossFadeTime,
+                BaseLayerIndex,
+                0f
+            );
+        }
+        else
+        {
+            playerAnimator.Play(
+                resolvedStateName,
+                BaseLayerIndex,
+                0f
+            );
+        }
+
+        currentAnimationStateName = stateName;
+        return true;
+    }
+
+    private string ResolveAnimationStateName(
+        string stateName
+    )
+    {
+        int shortNameHash =
+            Animator.StringToHash(stateName);
+
+        if (
+            playerAnimator.HasState(
+                BaseLayerIndex,
+                shortNameHash
+            )
+        )
+        {
+            return stateName;
+        }
+
+        string fullStateName =
+            BaseLayerName + "." + stateName;
+
+        int fullPathHash =
+            Animator.StringToHash(fullStateName);
+
+        if (
+            playerAnimator.HasState(
+                BaseLayerIndex,
+                fullPathHash
+            )
+        )
+        {
+            return fullStateName;
+        }
+
+        return null;
+    }
+
+    private float GetAnimationDuration(
+        string clipName,
+        float fallbackDuration
+    )
+    {
+        if (
+            playerAnimator == null ||
+            playerAnimator.runtimeAnimatorController == null
+        )
+        {
+            return fallbackDuration;
+        }
+
+        AnimationClip[] clips =
+            playerAnimator
+                .runtimeAnimatorController
+                .animationClips;
+
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name != clipName)
+            {
+                continue;
+            }
+
+            return Mathf.Max(clip.length, 0.05f);
+        }
+
+        return fallbackDuration;
+    }
+
+    private void CacheAnimatorParameters()
+    {
+        if (playerAnimator == null)
+        {
+            return;
+        }
+
+        foreach (
+            AnimatorControllerParameter parameter in
+            playerAnimator.parameters
+        )
+        {
+            if (parameter.name == "IsGrounded")
+            {
+                hasIsGroundedParameter = true;
+            }
+            else if (parameter.name == "VerticalVelocity")
+            {
+                hasVerticalVelocityParameter = true;
+            }
+            else if (parameter.name == "IsSliding")
+            {
+                hasIsSlidingParameter = true;
+            }
+            else if (parameter.name == "IsParrying")
+            {
+                hasIsParryingParameter = true;
+            }
+            else if (parameter.name == "DoubleJump")
+            {
+                hasDoubleJumpParameter = true;
+            }
+        }
+    }
+
+    private void SetAnimatorBoolIfAvailable(
+        string parameterName,
+        bool hasParameter,
+        bool value
+    )
+    {
+        if (!hasParameter)
+        {
+            return;
+        }
+
+        playerAnimator.SetBool(parameterName, value);
+    }
+
+    private void SetAnimatorFloatIfAvailable(
+        string parameterName,
+        bool hasParameter,
+        float value
+    )
+    {
+        if (!hasParameter)
+        {
+            return;
+        }
+
+        playerAnimator.SetFloat(parameterName, value);
+    }
+
+    private void SetAnimatorTriggerIfAvailable(
+        string parameterName,
+        bool hasParameter
+    )
+    {
+        if (!hasParameter)
+        {
+            return;
+        }
+
+        playerAnimator.SetTrigger(parameterName);
     }
 
     private void OnDisable()

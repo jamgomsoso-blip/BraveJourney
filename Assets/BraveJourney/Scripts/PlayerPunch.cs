@@ -2,14 +2,25 @@ using UnityEngine;
 
 public class PlayerPunch : MonoBehaviour
 {
-    [Header("Punch")]
+    [Header("Kick")]
     [SerializeField] private KeyCode punchKey = KeyCode.A;
     [SerializeField] private float attackOffsetX = 1f;
     [SerializeField] private float attackRadius = 1.5f;
     [SerializeField] private int attackDamage = 1;
     [SerializeField] private float attackCooldown = 0.35f;
 
+    private PlayerController playerController;
+    private PlayerHealth playerHealth;
     private float attackCooldownTimer;
+
+    private void Awake()
+    {
+        playerController =
+            GetComponent<PlayerController>();
+
+        playerHealth =
+            GetComponent<PlayerHealth>();
+    }
 
     private void Update()
     {
@@ -23,12 +34,35 @@ public class PlayerPunch : MonoBehaviour
             attackCooldownTimer <= 0f
         )
         {
-            attackCooldownTimer = attackCooldown;
-            TryPunch();
+            TryKick();
         }
     }
 
-    private void TryPunch()
+    private void TryKick()
+    {
+        if (
+            playerHealth != null &&
+            playerHealth.IsGameOver
+        )
+        {
+            return;
+        }
+
+        if (
+            playerController == null ||
+            !playerController.isActiveAndEnabled ||
+            !playerController.IsBossBattle ||
+            !playerController.TryStartKick()
+        )
+        {
+            return;
+        }
+
+        attackCooldownTimer = attackCooldown;
+        TryDamageBoss();
+    }
+
+    private void TryDamageBoss()
     {
         Vector2 attackCenter =
             (Vector2)transform.position +
@@ -69,7 +103,7 @@ public class PlayerPunch : MonoBehaviour
 
             if (didDamage)
             {
-                Debug.Log("PUNCH HIT");
+                Debug.Log("KICK HIT");
             }
             else
             {

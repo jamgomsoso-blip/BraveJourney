@@ -173,3 +173,11 @@ MonoBehaviour:
   reflectedSpeedMultiplier: 2
   lifeTime: 8
   damage: 1
+  hostileDialogue: 야근하고 가!
+  reflectedDialogue: 퇴사하렵니다!
+  hostileColor: {r: 1, g: 0.12, b: 0.12, a: 1}
+  reflectedColor: {r: 0.1, g: 0.9, b: 0.85, a: 1}
+  dialogueFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
+  dialogueFontSize: 64
+  dialogueCharacterSize: 0.3
+  dialogueLocalPosition: {x: 0, y: 2.2, z: 0}

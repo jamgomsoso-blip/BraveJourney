@@ -10,17 +10,45 @@ public class BossShooter : MonoBehaviour
     [SerializeField] private float firstShotDelay = 1f;
     [SerializeField] private float fireInterval = 1.5f;
 
+    [Header("Pressure Dialogue")]
+    [SerializeField] private string[] pressureDialogues =
+    {
+        "야근하고 가!",
+        "이것만 끝내고 가!",
+        "다들 하는데 왜 못 해?",
+        "주말에 잠깐 나올 수 있지?",
+        "요즘 회사가 어렵잖아!",
+        "어딜 가려고?!",
+        "퇴사는 승인 못 해!"
+    };
+
     private Transform playerTarget;
+    private BossHealth bossHealth;
     private float fireTimer;
+    private int dialogueIndex;
+
+    private void Awake()
+    {
+        bossHealth = GetComponent<BossHealth>();
+    }
 
     private void OnEnable()
     {
         FindPlayerTarget();
         fireTimer = firstShotDelay;
+        dialogueIndex = 0;
     }
 
     private void Update()
     {
+        if (
+            bossHealth != null &&
+            (bossHealth.IsStunned || bossHealth.IsDefeated)
+        )
+        {
+            return;
+        }
+
         if (playerTarget == null)
         {
             FindPlayerTarget();
@@ -38,7 +66,7 @@ public class BossShooter : MonoBehaviour
     private void FindPlayerTarget()
     {
         PlayerController playerController =
-            FindObjectOfType<PlayerController>();
+            FindFirstObjectByType<PlayerController>();
 
         if (playerController == null)
         {
@@ -91,6 +119,31 @@ public class BossShooter : MonoBehaviour
                 projectileParent
             );
 
-        newProjectile.Initialize(playerTarget);
+        newProjectile.Initialize(
+            playerTarget,
+            GetNextDialogue()
+        );
+    }
+
+    private string GetNextDialogue()
+    {
+        if (
+            pressureDialogues == null ||
+            pressureDialogues.Length == 0
+        )
+        {
+            return string.Empty;
+        }
+
+        string dialogue =
+            pressureDialogues[
+                dialogueIndex % pressureDialogues.Length
+            ];
+
+        dialogueIndex =
+            (dialogueIndex + 1) %
+            pressureDialogues.Length;
+
+        return dialogue;
     }
 }

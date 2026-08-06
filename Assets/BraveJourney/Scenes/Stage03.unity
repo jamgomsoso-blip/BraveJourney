@@ -976,6 +976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 3
   invincibleDuration: 1
+  uiFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
 --- !u!114 &954996079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,6 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023846feb81e26345abe92a7473b67cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParryCooldownUI
+  uiFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
 --- !u!114 &954996080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,6 +1608,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
   maxHealth: 3
   stunDuration: 3
+  bossName: 과장
+  uiFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
+  placeholderController: {fileID: 9100000, guid: fd7403ee4c22a9b47b64b519f25d7485, type: 2}
+  idleStateName: Idle
+  stunnedStateName: HitDamage
+  defeatedStateName: Die
 --- !u!61 &1373919071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1720,8 +1728,8 @@ Transform:
   m_GameObject: {fileID: 1373919068}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82, y: -1.2, z: 0}
-  m_LocalScale: {x: 1.5, y: 2, z: 1}
+  m_LocalPosition: {x: 82, y: -2.75, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1294544864}
