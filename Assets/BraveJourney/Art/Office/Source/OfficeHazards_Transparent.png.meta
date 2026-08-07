@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 938cea3e29a080246a475dc645916377
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3265564462696944449
+    second: OfficeHazards_Transparent_0
+  - first:
+      213: 2255344865791206450
+    second: OfficeHazards_Transparent_1
+  - first:
+      213: 8194305146486215199
+    second: OfficeHazards_Transparent_2
+  - first:
+      213: -2306439266496494059
+    second: OfficeHazards_Transparent_3
+  - first:
+      213: 3501878795660866408
+    second: OfficeHazards_Transparent_4
+  - first:
+      213: -1419285255530321351
+    second: OfficeHazards_Transparent_5
+  - first:
+      213: -383327340208952319
+    second: OfficeHazards_Transparent_6
+  - first:
+      213: -4565967513948535060
+    second: OfficeHazards_Transparent_7
+  - first:
+      213: 8639821934480233359
+    second: OfficeHazards_Transparent_8
+  - first:
+      213: 3649559333105889799
+    second: OfficeHazards_Transparent_9
+  - first:
+      213: 809320249685897586
+    second: OfficeHazards_Transparent_10
+  - first:
+      213: 2719952937538995881
+    second: OfficeHazards_Transparent_11
+  - first:
+      213: 6307664205890175034
+    second: OfficeHazards_Transparent_12
+  - first:
+      213: -1700704855103393263
+    second: OfficeHazards_Transparent_13
+  - first:
+      213: 284411436151961321
+    second: OfficeHazards_Transparent_14
+  - first:
+      213: 5957111613201919393
+    second: OfficeHazards_Transparent_15
+  - first:
+      213: -6498911006064673552
+    second: OfficeHazards_Transparent_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_0
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 579
+        width: 258
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 143d03eb39d915d20800000000000000
+      internalID: 3265564462696944449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_1
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 608
+        width: 298
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2346c73c4389c4f10800000000000000
+      internalID: 2255344865791206450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_2
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 738
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12577d8d1508b170800000000000000
+      internalID: 8194305146486215199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_3
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 623
+        width: 299
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516c67805b1edffd0800000000000000
+      internalID: -2306439266496494059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_4
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 623
+        width: 299
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863b6ddf53c299030800000000000000
+      internalID: 3501878795660866408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_5
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 639
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a6a2d649fad4ce0800000000000000
+      internalID: -1419285255530321351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_6
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 189
+        width: 314
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c6626a0d52eaaf0800000000000000
+      internalID: -383327340208952319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_7
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 161
+        width: 304
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce6cf13dcbc62a0c0800000000000000
+      internalID: -4565967513948535060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_8
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 375
+        width: 122
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f83925f0640d6e770800000000000000
+      internalID: 8639821934480233359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_9
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 444
+        width: 10
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702fc7490e6d5a230800000000000000
+      internalID: 3649559333105889799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_10
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 442
+        width: 9
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 271fe08aa784b3b00800000000000000
+      internalID: 809320249685897586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_11
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 399
+        width: 10
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a6cac729c63fb520800000000000000
+      internalID: 2719952937538995881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_12
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 429
+        width: 10
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30c7820d23598750800000000000000
+      internalID: 6307664205890175034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_13
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 202
+        width: 293
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112b7cbe1f1e568e0800000000000000
+      internalID: -1700704855103393263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_14
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 321
+        width: 114
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e675edb1be62f300800000000000000
+      internalID: 284411436151961321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_15
+      rect:
+        serializedVersion: 2
+        x: 1202
+        y: 209
+        width: 270
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad21483379eba250800000000000000
+      internalID: 5957111613201919393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeHazards_Transparent_16
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 253
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc73a86fda3fc5a0800000000000000
+      internalID: -6498911006064673552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OfficeHazards_Transparent_0: 3265564462696944449
+      OfficeHazards_Transparent_1: 2255344865791206450
+      OfficeHazards_Transparent_10: 809320249685897586
+      OfficeHazards_Transparent_11: 2719952937538995881
+      OfficeHazards_Transparent_12: 6307664205890175034
+      OfficeHazards_Transparent_13: -1700704855103393263
+      OfficeHazards_Transparent_14: 284411436151961321
+      OfficeHazards_Transparent_15: 5957111613201919393
+      OfficeHazards_Transparent_16: -6498911006064673552
+      OfficeHazards_Transparent_2: 8194305146486215199
+      OfficeHazards_Transparent_3: -2306439266496494059
+      OfficeHazards_Transparent_4: 3501878795660866408
+      OfficeHazards_Transparent_5: -1419285255530321351
+      OfficeHazards_Transparent_6: -383327340208952319
+      OfficeHazards_Transparent_7: -4565967513948535060
+      OfficeHazards_Transparent_8: 8639821934480233359
+      OfficeHazards_Transparent_9: 3649559333105889799
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

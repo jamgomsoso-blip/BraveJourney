@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float parryDuration = 0.2f;
     [SerializeField] private float parryCooldown = 1f;
 
+    [Header("Parry Timing Assist")]
+    [SerializeField] private float parryAssistLeadTime = 0.65f;
+    [SerializeField] private float parryAssistActivationTime = 0.16f;
+
     [Header("Animation States")]
     [SerializeField] private string sprintStateName = "Sprint";
     [SerializeField] private string bossIdleStateName = "Idle";
@@ -56,9 +60,11 @@ public class PlayerController : MonoBehaviour
     private bool isBossBattle;
     private bool isKicking;
     private bool isHitReacting;
+    private bool isGrounded;
     private bool isDead;
     private bool bossWasMoving;
     private bool isPlayingBossRunToIdle;
+    private bool isParryQueued;
 
     private float parryTimer;
     private float parryAnimationTimer;
@@ -82,8 +88,16 @@ public class PlayerController : MonoBehaviour
     public bool IsSliding => isSliding;
     public bool IsParrying => isParrying;
     public bool IsBossBattle => isBossBattle;
+    public bool IsGrounded => isGrounded;
     public bool IsKicking => isKicking;
     public bool IsDead => isDead;
+    public bool IsParryQueued => isParryQueued;
+
+    public float ParryAssistLeadTime =>
+        parryAssistLeadTime;
+
+    public float ParryAssistActivationTime =>
+        parryAssistActivationTime;
 
     public float ParryCooldownRemaining =>
         Mathf.Max(parryCooldownTimer, 0f);
@@ -122,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        bool isGrounded =
+        isGrounded =
             groundCheck != null &&
             Physics2D.OverlapCircle(
                 groundCheck.position,
@@ -163,17 +177,26 @@ public class PlayerController : MonoBehaviour
         bool canParry =
             isBossBattle || isGrounded;
 
-        if (
-            Input.GetKeyDown(KeyCode.Space) &&
+        bool canPrepareParry =
             canParry &&
             !isSliding &&
             !isParrying &&
             !isParryAnimating &&
             !isKicking &&
-            parryCooldownTimer <= 0f
+            parryCooldownTimer <= 0f;
+
+        UpdateQueuedParry(canPrepareParry);
+
+        if (
+            Input.GetKeyDown(KeyCode.Space) &&
+            canPrepareParry &&
+            !isParryQueued
         )
         {
-            StartParry();
+            if (!TryQueueAssistedParry())
+            {
+                StartParry();
+            }
         }
 
         if (isParrying)
@@ -271,6 +294,7 @@ public class PlayerController : MonoBehaviour
             );
 
         jumpCount++;
+        GameAudioFeedback.Play(GameSoundCue.Jump);
 
         if (!isDoubleJump)
         {
@@ -291,6 +315,53 @@ public class PlayerController : MonoBehaviour
                 "PlayEffect"
             );
         }
+    }
+
+    private bool TryQueueAssistedParry()
+    {
+        if (
+            !isBossBattle ||
+            !Projectile.TryGetIncomingParryTime(
+                transform,
+                out float secondsToContact
+            ) ||
+            secondsToContact > parryAssistLeadTime ||
+            secondsToContact <= parryAssistActivationTime
+        )
+        {
+            return false;
+        }
+
+        isParryQueued = true;
+        return true;
+    }
+
+    private void UpdateQueuedParry(bool canPrepareParry)
+    {
+        if (!isParryQueued)
+        {
+            return;
+        }
+
+        if (
+            !canPrepareParry ||
+            !Projectile.TryGetIncomingParryTime(
+                transform,
+                out float secondsToContact
+            )
+        )
+        {
+            isParryQueued = false;
+            return;
+        }
+
+        if (secondsToContact > parryAssistActivationTime)
+        {
+            return;
+        }
+
+        isParryQueued = false;
+        StartParry();
     }
 
     public bool TryStartKick()
@@ -393,6 +464,8 @@ public class PlayerController : MonoBehaviour
 
     private void CancelCurrentAction()
     {
+        isParryQueued = false;
+
         if (isParrying)
         {
             EndParry();
@@ -501,6 +574,7 @@ public class PlayerController : MonoBehaviour
         }
 
         isBossBattle = true;
+        GameAudioFeedback.SetBossBattle(true);
 
         if (isSliding)
         {
@@ -565,6 +639,7 @@ public class PlayerController : MonoBehaviour
 
     private void StartParry()
     {
+        isParryQueued = false;
         isParrying = true;
         isParryAnimating = true;
         parryTimer = parryDuration;

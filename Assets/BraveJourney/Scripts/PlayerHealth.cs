@@ -66,6 +66,10 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Max(currentHealth, 0);
 
+        GameAudioFeedback.Play(
+            GameSoundCue.PlayerHit
+        );
+
         Debug.Log(
             "플레이어 체력: " +
             currentHealth +
@@ -121,36 +125,62 @@ public class PlayerHealth : MonoBehaviour
     private void OnGUI()
     {
         GUI.depth = isGameOver ? -100 : 0;
+        float scale = OfficeHudTheme.Scale;
+        float heartSize = 32f * scale;
+        float panelWidth =
+            76f * scale + maxHealth * heartSize;
 
-        GUIStyle lifeStyle = CreateStyle(
-            24,
-            TextAnchor.MiddleLeft
+        Rect lifePanel = new Rect(
+            18f * scale,
+            18f * scale,
+            panelWidth,
+            62f * scale
         );
 
-        Rect lifePanel = new Rect(18f, 18f, 190f, 48f);
-
-        DrawPanel(
+        OfficeHudTheme.DrawPanel(
             lifePanel,
-            new Color(0f, 0f, 0f, 0.72f)
+            OfficeHudTheme.Red
         );
+
+        GUIStyle lifeStyle =
+            OfficeHudTheme.CreateTextStyle(
+                uiFont,
+                Mathf.RoundToInt(15f * scale),
+                TextAnchor.MiddleCenter,
+                OfficeHudTheme.Ink
+            );
 
         GUI.Label(
             new Rect(
-                lifePanel.x + 16f,
-                lifePanel.y,
-                lifePanel.width - 24f,
-                lifePanel.height
+                lifePanel.x + 10f * scale,
+                lifePanel.y + 15f * scale,
+                54f * scale,
+                36f * scale
             ),
-            "LIFE  " + currentHealth + " / " + maxHealth,
+            "LIFE",
             lifeStyle
         );
+
+        for (int index = 0; index < maxHealth; index++)
+        {
+            OfficeHudTheme.DrawHeart(
+                new Rect(
+                    lifePanel.x +
+                    (65f + index * 31f) * scale,
+                    lifePanel.y + 17f * scale,
+                    heartSize,
+                    heartSize
+                ),
+                index < currentHealth
+            );
+        }
 
         if (!isGameOver)
         {
             return;
         }
 
-        DrawPanel(
+        OfficeHudTheme.DrawRect(
             new Rect(
                 0f,
                 0f,
@@ -160,60 +190,52 @@ public class PlayerHealth : MonoBehaviour
             new Color(0f, 0f, 0f, 0.78f)
         );
 
-        GUIStyle gameOverStyle = CreateStyle(
-            52,
-            TextAnchor.MiddleCenter
+        Rect gameOverPanel = new Rect(
+            Screen.width * 0.5f - 230f * scale,
+            Screen.height * 0.5f - 105f * scale,
+            460f * scale,
+            210f * scale
         );
+
+        OfficeHudTheme.DrawPanel(
+            gameOverPanel,
+            OfficeHudTheme.Red,
+            false
+        );
+
+        GUIStyle gameOverStyle =
+            OfficeHudTheme.CreateTextStyle(
+                uiFont,
+                Mathf.RoundToInt(46f * scale),
+                TextAnchor.MiddleCenter,
+                OfficeHudTheme.Red
+            );
 
         GUI.Label(
             new Rect(
-                0,
-                Screen.height / 2 - 70,
-                Screen.width,
-                70
+                gameOverPanel.x + 20f * scale,
+                gameOverPanel.y + 35f * scale,
+                gameOverPanel.width - 40f * scale,
+                70f * scale
             ),
             "퇴사 실패",
             gameOverStyle
         );
 
-        gameOverStyle.fontSize = 22;
+        gameOverStyle.fontSize =
+            Mathf.RoundToInt(21f * scale);
+        gameOverStyle.normal.textColor =
+            OfficeHudTheme.Ink;
 
         GUI.Label(
             new Rect(
-                0,
-                Screen.height / 2,
-                Screen.width,
-                50
+                gameOverPanel.x + 20f * scale,
+                gameOverPanel.y + 120f * scale,
+                gameOverPanel.width - 40f * scale,
+                48f * scale
             ),
             "R - 다시 출근하기",
             gameOverStyle
         );
-    }
-
-    private GUIStyle CreateStyle(
-        int fontSize,
-        TextAnchor alignment
-    )
-    {
-        GUIStyle style = new GUIStyle(GUI.skin.label);
-
-        style.font = uiFont != null
-            ? uiFont
-            : GUI.skin.font;
-
-        style.fontSize = fontSize;
-        style.fontStyle = FontStyle.Bold;
-        style.alignment = alignment;
-        style.normal.textColor = Color.white;
-
-        return style;
-    }
-
-    private static void DrawPanel(Rect rect, Color color)
-    {
-        Color previousColor = GUI.color;
-        GUI.color = color;
-        GUI.DrawTexture(rect, Texture2D.whiteTexture);
-        GUI.color = previousColor;
     }
 }

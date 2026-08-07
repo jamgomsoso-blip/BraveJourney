@@ -103,6 +103,10 @@ public class PlayerPunch : MonoBehaviour
 
             if (didDamage)
             {
+                GameAudioFeedback.Play(
+                    GameSoundCue.KickHit
+                );
+
                 Debug.Log("KICK HIT");
             }
             else

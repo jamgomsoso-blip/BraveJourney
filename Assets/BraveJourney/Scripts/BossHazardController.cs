@@ -27,9 +27,45 @@ public sealed class BossHazardController : MonoBehaviour
     private Transform playerTarget;
     private float attackTimer;
     private int attackIndex;
+    private StageHazardType[] hazardPattern;
+    private StageHazardTheme[] hazardThemes;
+
+    public float AttackInterval => attackInterval;
+    public float FallingSpeed => fallingSpeed;
+    public StageHazardType[] HazardPattern => hazardPattern;
+    public StageHazardTheme[] HazardThemes => hazardThemes;
+
+    public static BossHazardController EnsureOnBoss(
+        GameObject bossObject
+    )
+    {
+        if (bossObject == null)
+        {
+            return null;
+        }
+
+        BossHazardController controller =
+            bossObject.GetComponent<BossHazardController>();
+
+        return controller != null
+            ? controller
+            : bossObject.AddComponent<BossHazardController>();
+    }
 
     private void Awake()
     {
+        if (StageProfileCatalog.TryGetCurrent(out StageProfile profile))
+        {
+            firstAttackDelay = profile.FirstHazardDelay;
+            attackInterval = profile.HazardInterval;
+            warningDuration = profile.WarningDuration;
+            dangerDuration = profile.DangerDuration;
+            fallingSpeed = profile.FallingSpeed;
+            targetOffsets = profile.BossTargetOffsets;
+            hazardPattern = profile.BossHazardPattern;
+            hazardThemes = profile.BossHazardThemes;
+        }
+
         bossHealth = GetComponent<BossHealth>();
         bossRenderer = GetComponent<SpriteRenderer>();
     }
@@ -106,16 +142,30 @@ public sealed class BossHazardController : MonoBehaviour
             playerTarget.position.x + offset
         );
 
-        StageHazardType hazardType =
+        StageHazardType hazardType = GetPatternItem(
+            hazardPattern,
+            attackIndex,
             attackIndex % 2 == 0
                 ? StageHazardType.Ground
-                : StageHazardType.Falling;
+                : StageHazardType.Falling
+        );
+
+        StageHazardTheme hazardTheme = GetPatternItem(
+            hazardThemes,
+            attackIndex,
+            StageHazardTheme.Standard
+        );
 
         GameObject hazardObject =
             new GameObject(
                 "BossHazard_" +
                 (attackIndex + 1).ToString("00")
             );
+
+        if (bossHealth != null)
+        {
+            bossHealth.PlayAttackAnimation();
+        }
 
         StageHazard hazard =
             hazardObject.AddComponent<StageHazard>();
@@ -127,7 +177,11 @@ public sealed class BossHazardController : MonoBehaviour
             groundSurfaceY,
             warningDuration,
             dangerDuration,
-            fallingSpeed
+            fallingSpeed,
+            hazardTheme,
+            bossHealth != null
+                ? bossHealth.UiFont
+                : null
         );
 
         activeHazards.Add(hazard);
@@ -178,6 +232,20 @@ public sealed class BossHazardController : MonoBehaviour
                 activeHazards.RemoveAt(index);
             }
         }
+    }
+
+    private static T GetPatternItem<T>(
+        T[] pattern,
+        int index,
+        T fallback
+    )
+    {
+        if (pattern == null || pattern.Length == 0)
+        {
+            return fallback;
+        }
+
+        return pattern[index % pattern.Length];
     }
 
     private void OnDisable()

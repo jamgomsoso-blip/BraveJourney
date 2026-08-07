@@ -173,11 +173,26 @@ MonoBehaviour:
   reflectedSpeedMultiplier: 2
   lifeTime: 8
   damage: 1
+  parryContactDistance: 0.6
   hostileDialogue: 야근하고 가!
   reflectedDialogue: 퇴사하렵니다!
   hostileColor: {r: 1, g: 0.12, b: 0.12, a: 1}
   reflectedColor: {r: 0.1, g: 0.9, b: 0.85, a: 1}
-  dialogueFont: {fileID: 12800000, guid: cf1b1b5d0996f4c49a5cefe3c61b9336, type: 3}
+  hostileTextColor: {r: 0.68, g: 0.04, b: 0.04, a: 1}
+  reflectedTextColor: {r: 0, g: 0.42, b: 0.42, a: 1}
+  dialogueFont: {fileID: 12800000, guid: fdf05640035d436fa020538b8743898b, type: 3}
   dialogueFontSize: 64
-  dialogueCharacterSize: 0.3
-  dialogueLocalPosition: {x: 0, y: 2.2, z: 0}
+  dialogueCharacterSize: 0.06
+  dialogueMinimumCharacterSize: 0.04
+  dialogueLocalPosition: {x: 0, y: 1.35, z: 0}
+  dialogueBackgroundColor: {r: 1, g: 0.98, b: 0.9, a: 0.96}
+  bubbleOuterColor: {r: 0.08, g: 0.09, b: 0.12, a: 1}
+  bubbleMinimumWidth: 1.8
+  bubbleMaximumWidth: 4.6
+  bubbleWidthPerCharacter: 0.14
+  bubbleHeight: 0.52
+  bubbleHorizontalPadding: 0.48
+  bubbleVerticalPadding: 0.16
+  bubbleBorderSize: 0.1
+  bubbleOuterBorderSize: 0.18
+  bubbleTailSize: 0.24

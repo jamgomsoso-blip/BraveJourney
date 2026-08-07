@@ -6,6 +6,22 @@ public class BossStartTrigger : MonoBehaviour
 
     private bool hasStarted;
 
+    private void Awake()
+    {
+        if (bossObject == null)
+        {
+            return;
+        }
+
+        StageCourseBuilder.EnsureForScene(
+            transform,
+            bossObject.transform
+        );
+
+        StageTransition.EnsureForScene(gameObject);
+        BossHazardController.EnsureOnBoss(bossObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (hasStarted)

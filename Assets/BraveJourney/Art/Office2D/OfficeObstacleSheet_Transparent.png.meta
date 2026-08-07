@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: c3b161096a085f34cac3f5b5bc8e1e3a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6293158268488521765
+    second: OfficeObstacleSheet_Transparent_0
+  - first:
+      213: -8854456007053136804
+    second: OfficeObstacleSheet_Transparent_1
+  - first:
+      213: -8909724921862953825
+    second: OfficeObstacleSheet_Transparent_2
+  - first:
+      213: 3237752677285706831
+    second: OfficeObstacleSheet_Transparent_3
+  - first:
+      213: 299110978705291831
+    second: OfficeObstacleSheet_Transparent_4
+  - first:
+      213: -7264526282767227262
+    second: OfficeObstacleSheet_Transparent_5
+  - first:
+      213: 48005651944530534
+    second: OfficeObstacleSheet_Transparent_6
+  - first:
+      213: -8900751410239723435
+    second: OfficeObstacleSheet_Transparent_7
+  - first:
+      213: -5928956411049670768
+    second: OfficeObstacleSheet_Transparent_8
+  - first:
+      213: 4263840585831771686
+    second: OfficeObstacleSheet_Transparent_9
+  - first:
+      213: -5334999059915729199
+    second: OfficeObstacleSheet_Transparent_10
+  - first:
+      213: -2490695078122948148
+    second: OfficeObstacleSheet_Transparent_11
+  - first:
+      213: 2548815330831268884
+    second: OfficeObstacleSheet_Transparent_12
+  - first:
+      213: 898706214537367559
+    second: OfficeObstacleSheet_Transparent_13
+  - first:
+      213: 6552669057813882456
+    second: OfficeObstacleSheet_Transparent_14
+  - first:
+      213: -5189319854701488134
+    second: OfficeObstacleSheet_Transparent_15
+  - first:
+      213: -7586975469349571476
+    second: OfficeObstacleSheet_Transparent_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_0
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 990
+        width: 213
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7ed6bb5e53aa8a0800000000000000
+      internalID: -6293158268488521765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_1
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 961
+        width: 158
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c264cac27ae1580800000000000000
+      internalID: -8854456007053136804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_2
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 993
+        width: 177
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f94e9e9a36c4a5480800000000000000
+      internalID: -8909724921862953825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_3
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 984
+        width: 198
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4c3f28d7eeceec20800000000000000
+      internalID: 3237752677285706831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 655
+        width: 131
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73af522b9d7a62400800000000000000
+      internalID: 299110978705291831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_5
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 673
+        width: 176
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 286ab2eb5d73f2b90800000000000000
+      internalID: -7264526282767227262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_6
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 665
+        width: 182
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6626d57d2ec8aa000800000000000000
+      internalID: 48005651944530534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_7
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 661
+        width: 170
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 558aa9620cd2a7480800000000000000
+      internalID: -8900751410239723435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_8
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 390
+        width: 257
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0970c9e9e8d18bda0800000000000000
+      internalID: -5928956411049670768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_9
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 387
+        width: 229
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e65690c643c2b30800000000000000
+      internalID: 4263840585831771686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_10
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 378
+        width: 236
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d61eacfe9646f5b0800000000000000
+      internalID: -5334999059915729199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_11
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 418
+        width: 195
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc9faa0d5064f6dd0800000000000000
+      internalID: -2490695078122948148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_12
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 119
+        width: 239
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41c74480a063f5320800000000000000
+      internalID: 2548815330831268884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_13
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 103
+        width: 42
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7009fe26a88d87c00800000000000000
+      internalID: 898706214537367559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_14
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 97
+        width: 244
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856a0b16ac1cfea50800000000000000
+      internalID: 6552669057813882456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_15
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 73
+        width: 178
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af7d2aa1615dbf7b0800000000000000
+      internalID: -5189319854701488134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OfficeObstacleSheet_Transparent_16
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 77
+        width: 171
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64f0d51206a5b690800000000000000
+      internalID: -7586975469349571476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      OfficeObstacleSheet_Transparent_0: -6293158268488521765
+      OfficeObstacleSheet_Transparent_1: -8854456007053136804
+      OfficeObstacleSheet_Transparent_10: -5334999059915729199
+      OfficeObstacleSheet_Transparent_11: -2490695078122948148
+      OfficeObstacleSheet_Transparent_12: 2548815330831268884
+      OfficeObstacleSheet_Transparent_13: 898706214537367559
+      OfficeObstacleSheet_Transparent_14: 6552669057813882456
+      OfficeObstacleSheet_Transparent_15: -5189319854701488134
+      OfficeObstacleSheet_Transparent_16: -7586975469349571476
+      OfficeObstacleSheet_Transparent_2: -8909724921862953825
+      OfficeObstacleSheet_Transparent_3: 3237752677285706831
+      OfficeObstacleSheet_Transparent_4: 299110978705291831
+      OfficeObstacleSheet_Transparent_5: -7264526282767227262
+      OfficeObstacleSheet_Transparent_6: 48005651944530534
+      OfficeObstacleSheet_Transparent_7: -8900751410239723435
+      OfficeObstacleSheet_Transparent_8: -5928956411049670768
+      OfficeObstacleSheet_Transparent_9: 4263840585831771686
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

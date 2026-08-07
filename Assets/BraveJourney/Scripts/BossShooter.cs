@@ -11,6 +11,9 @@ public class BossShooter : MonoBehaviour
     [SerializeField] private float fireInterval = 1.5f;
 
     [Header("Pressure Dialogue")]
+    [SerializeField] private string reflectedDialogue =
+        "퇴사하렵니다!";
+
     [SerializeField] private string[] pressureDialogues =
     {
         "야근하고 가!",
@@ -27,8 +30,20 @@ public class BossShooter : MonoBehaviour
     private float fireTimer;
     private int dialogueIndex;
 
+    public float FireInterval => fireInterval;
+    public string ReflectedDialogue => reflectedDialogue;
+    public string[] PressureDialogues => pressureDialogues;
+
     private void Awake()
     {
+        if (StageProfileCatalog.TryGetCurrent(out StageProfile profile))
+        {
+            firstShotDelay = profile.FirstShotDelay;
+            fireInterval = profile.FireInterval;
+            pressureDialogues = profile.PressureDialogues;
+            reflectedDialogue = profile.ReflectedDialogue;
+        }
+
         bossHealth = GetComponent<BossHealth>();
     }
 
@@ -111,6 +126,11 @@ public class BossShooter : MonoBehaviour
                 Camera.main.transform;
         }
 
+        if (bossHealth != null)
+        {
+            bossHealth.PlayAttackAnimation();
+        }
+
         Projectile newProjectile =
             Instantiate(
                 projectilePrefab,
@@ -119,9 +139,20 @@ public class BossShooter : MonoBehaviour
                 projectileParent
             );
 
+        string dialogue = GetNextDialogue();
+
         newProjectile.Initialize(
             playerTarget,
-            GetNextDialogue()
+            string.Empty,
+            reflectedDialogue
+        );
+
+        CombatSpeechBubble.Show(
+            transform,
+            dialogue,
+            newProjectile.DialogueFont,
+            newProjectile.HostileTextColor,
+            2.4f
         );
     }
 

@@ -11,9 +11,11 @@ public class BossHealth : MonoBehaviour
 
     [Header("Presentation")]
     [SerializeField] private string bossName = "주임";
+    [SerializeField] private bool faceLeft = true;
     [SerializeField] private Font uiFont;
     [SerializeField] private RuntimeAnimatorController placeholderController;
     [SerializeField] private string idleStateName = "Idle";
+    [SerializeField] private string attackStateName = "PunchC";
     [SerializeField] private string stunnedStateName = "HitDamage";
     [SerializeField] private string defeatedStateName = "Die";
 
@@ -25,17 +27,29 @@ public class BossHealth : MonoBehaviour
     private Coroutine stunCoroutine;
     private BossShooter bossShooter;
     private BossHazardController bossHazardController;
+    private BossVisualAnimator bossVisualAnimator;
     private Animator bossAnimator;
     private SpriteRenderer spriteRenderer;
     private Collider2D bossCollider;
     private Color normalColor = Color.white;
+    private int stageNumber = 1;
 
     public bool IsDefeated => isDefeated;
     public bool IsStunned => isStunned;
     public string BossName => bossName;
+    public int CurrentHealth => currentHealth;
+    public int MaxHealth => maxHealth;
+    public Font UiFont => uiFont;
 
     private void Awake()
     {
+        if (StageProfileCatalog.TryGetCurrent(out StageProfile profile))
+        {
+            stageNumber = profile.StageNumber;
+            maxHealth = profile.BossHealth;
+            bossName = profile.BossName;
+        }
+
         currentHealth = maxHealth;
 
         bossShooter = GetComponent<BossShooter>();
@@ -45,6 +59,13 @@ public class BossHealth : MonoBehaviour
         bossAnimator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         bossCollider = GetComponent<Collider2D>();
+        bossVisualAnimator =
+            BossVisualAnimator.EnsureOn(gameObject);
+
+        if (bossVisualAnimator != null)
+        {
+            bossVisualAnimator.ConfigureForBoss(bossName);
+        }
 
         if (
             bossAnimator == null &&
@@ -58,7 +79,14 @@ public class BossHealth : MonoBehaviour
 
         if (spriteRenderer != null)
         {
+            spriteRenderer.flipX = faceLeft;
             normalColor = spriteRenderer.color;
+        }
+
+        if (bossVisualAnimator != null)
+        {
+            bossVisualAnimator.SetFacingLeft(faceLeft);
+            bossVisualAnimator.SetTint(normalColor);
         }
 
         PlayBossAnimation(idleStateName);
@@ -144,6 +172,11 @@ public class BossHealth : MonoBehaviour
             spriteRenderer.color = Color.yellow;
         }
 
+        if (bossVisualAnimator != null)
+        {
+            bossVisualAnimator.SetTint(Color.yellow);
+        }
+
         Debug.Log(
             "BOSS STUN - 발차기 공격 가능"
         );
@@ -165,6 +198,11 @@ public class BossHealth : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.color = normalColor;
+        }
+
+        if (bossVisualAnimator != null)
+        {
+            bossVisualAnimator.SetTint(normalColor);
         }
 
         PlayBossAnimation(idleStateName);
@@ -197,6 +235,11 @@ public class BossHealth : MonoBehaviour
             spriteRenderer.color = Color.gray;
         }
 
+        if (bossVisualAnimator != null)
+        {
+            bossVisualAnimator.SetTint(Color.gray);
+        }
+
         PlayBossAnimation(defeatedStateName);
 
         Projectile[] projectiles =
@@ -207,6 +250,16 @@ public class BossHealth : MonoBehaviour
         foreach (Projectile projectile in projectiles)
         {
             Destroy(projectile.gameObject);
+        }
+
+        StageHazard[] hazards =
+            FindObjectsByType<StageHazard>(
+                FindObjectsSortMode.None
+            );
+
+        foreach (StageHazard hazard in hazards)
+        {
+            hazard.CancelHazard();
         }
 
         PlayerController playerController =
@@ -226,6 +279,10 @@ public class BossHealth : MonoBehaviour
             }
         }
 
+        GameAudioFeedback.Play(
+            GameSoundCue.StageClear
+        );
+
         Debug.Log("STAGE CLEAR");
     }
 
@@ -240,6 +297,21 @@ public class BossHealth : MonoBehaviour
         {
             bossHazardController.enabled = isEnabled;
         }
+    }
+
+    public void PlayAttackAnimation()
+    {
+        if (isStunned || isDefeated)
+        {
+            return;
+        }
+
+        if (bossVisualAnimator != null)
+        {
+            bossVisualAnimator.PlayAttack();
+        }
+
+        PlayLegacyBossAnimation(attackStateName);
     }
 
     private void ClearActiveProjectiles()
@@ -258,44 +330,49 @@ public class BossHealth : MonoBehaviour
 
     private void OnGUI()
     {
-        GUIStyle bossStyle = CreateStyle(
-            24,
-            TextAnchor.MiddleCenter
-        );
+        GUI.depth = isDefeated ? -90 : -10;
+        float scale = OfficeHudTheme.Scale;
+        GUIStyle bossStyle =
+            OfficeHudTheme.CreateTextStyle(
+                uiFont,
+                Mathf.RoundToInt(22f * scale),
+                TextAnchor.MiddleCenter,
+                OfficeHudTheme.Ink
+            );
 
         Rect panelRect = new Rect(
-            Screen.width * 0.5f - 190f,
-            18f,
-            380f,
-            72f
+            Screen.width * 0.5f - 230f * scale,
+            18f * scale,
+            460f * scale,
+            88f * scale
         );
 
-        DrawPanel(panelRect, new Color(0f, 0f, 0f, 0.72f));
+        OfficeHudTheme.DrawPanel(
+            panelRect,
+            isStunned
+                ? OfficeHudTheme.Gold
+                : OfficeHudTheme.Red
+        );
 
         string bossState =
-            isStunned ? "  [기절]" : string.Empty;
+            isStunned ? "  ·  기절" : string.Empty;
 
         GUI.Label(
             new Rect(
-                panelRect.x,
-                panelRect.y + 2f,
-                panelRect.width,
-                32f
+                panelRect.x + 24f * scale,
+                panelRect.y + 12f * scale,
+                panelRect.width - 48f * scale,
+                34f * scale
             ),
-            bossName + bossState,
+            "BOSS  ·  " + bossName + bossState,
             bossStyle
         );
 
         Rect healthBackground = new Rect(
-            panelRect.x + 24f,
-            panelRect.y + 43f,
-            panelRect.width - 48f,
-            14f
-        );
-
-        DrawPanel(
-            healthBackground,
-            new Color(0.18f, 0.18f, 0.18f, 1f)
+            panelRect.x + 26f * scale,
+            panelRect.y + 52f * scale,
+            panelRect.width - 52f * scale,
+            22f * scale
         );
 
         float healthRatio =
@@ -303,16 +380,13 @@ public class BossHealth : MonoBehaviour
                 ? (float)currentHealth / maxHealth
                 : 0f;
 
-        DrawPanel(
-            new Rect(
-                healthBackground.x,
-                healthBackground.y,
-                healthBackground.width * healthRatio,
-                healthBackground.height
-            ),
+        OfficeHudTheme.DrawProgressBar(
+            healthBackground,
+            healthRatio,
             isStunned
-                ? new Color(1f, 0.85f, 0.2f, 1f)
-                : new Color(0.9f, 0.18f, 0.18f, 1f)
+                ? OfficeHudTheme.Gold
+                : OfficeHudTheme.Red,
+            maxHealth
         );
 
         if (!isDefeated)
@@ -320,61 +394,81 @@ public class BossHealth : MonoBehaviour
             return;
         }
 
-        bossStyle.fontSize = 44;
+        OfficeHudTheme.DrawRect(
+            new Rect(0f, 0f, Screen.width, Screen.height),
+            new Color(0.02f, 0.04f, 0.06f, 0.55f)
+        );
+
+        Rect clearPanel = new Rect(
+            Screen.width * 0.5f - 260f * scale,
+            Screen.height * 0.5f - 105f * scale,
+            520f * scale,
+            210f * scale
+        );
+
+        OfficeHudTheme.DrawPanel(
+            clearPanel,
+            OfficeHudTheme.Cyan,
+            false
+        );
+
+        bossStyle.fontSize =
+            Mathf.RoundToInt(42f * scale);
+        bossStyle.normal.textColor =
+            OfficeHudTheme.Cyan;
 
         GUI.Label(
             new Rect(
-                0f,
-                Screen.height * 0.5f - 70f,
-                Screen.width,
-                70f
+                clearPanel.x + 20f * scale,
+                clearPanel.y + 34f * scale,
+                clearPanel.width - 40f * scale,
+                72f * scale
             ),
-            "보스 처치!",
+            bossName + " 처치!",
             bossStyle
         );
 
-        bossStyle.fontSize = 22;
+        bossStyle.fontSize =
+            Mathf.RoundToInt(20f * scale);
+        bossStyle.normal.textColor =
+            OfficeHudTheme.Ink;
 
         GUI.Label(
             new Rect(
-                0f,
-                Screen.height * 0.5f,
-                Screen.width,
-                44f
+                clearPanel.x + 20f * scale,
+                clearPanel.y + 122f * scale,
+                clearPanel.width - 40f * scale,
+                45f * scale
             ),
-            "다음 스테이지로 이동 중...",
+            stageNumber == StageProfileCatalog.LastStageNumber
+                ? "퇴사 절차 마무리 중..."
+                : "퇴사를 위해.... 다음으로 이동 중....",
             bossStyle
         );
-    }
-
-    private GUIStyle CreateStyle(
-        int fontSize,
-        TextAnchor alignment
-    )
-    {
-        GUIStyle style = new GUIStyle(GUI.skin.label);
-
-        style.font = uiFont != null
-            ? uiFont
-            : GUI.skin.font;
-
-        style.fontSize = fontSize;
-        style.fontStyle = FontStyle.Bold;
-        style.alignment = alignment;
-        style.normal.textColor = Color.white;
-
-        return style;
-    }
-
-    private static void DrawPanel(Rect rect, Color color)
-    {
-        Color previousColor = GUI.color;
-        GUI.color = color;
-        GUI.DrawTexture(rect, Texture2D.whiteTexture);
-        GUI.color = previousColor;
     }
 
     private void PlayBossAnimation(string stateName)
+    {
+        if (bossVisualAnimator != null)
+        {
+            if (stateName == stunnedStateName)
+            {
+                bossVisualAnimator.PlayStunned();
+            }
+            else if (stateName == defeatedStateName)
+            {
+                bossVisualAnimator.PlayDefeated();
+            }
+            else
+            {
+                bossVisualAnimator.PlayIdle();
+            }
+        }
+
+        PlayLegacyBossAnimation(stateName);
+    }
+
+    private void PlayLegacyBossAnimation(string stateName)
     {
         if (
             bossAnimator == null ||
