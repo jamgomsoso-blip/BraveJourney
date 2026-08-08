@@ -860,7 +860,7 @@ public sealed class BossComicCutscene : MonoBehaviour
                         Text("저는 이미\n충분히 버텼습니다.", .035f, .555f, .095f, .105f, 17),
                         Text("그 말을 벌써\n3년째 들었습니다.", .685f, .535f, .105f, .105f, 17)
                     }
-                    : VictoryTexts("주임전은 끝났다.", "다음은 대리다!", .07f, .06f, .18f, .12f, .70f, .69f, .17f, .12f);
+                    : VictoryTexts("주임은 끝났다.", "다음은 대리다!", .07f, .06f, .18f, .12f, .70f, .69f, .17f, .12f);
 
             case 2:
                 return phase == ComicPhase.Intro
@@ -868,7 +868,7 @@ public sealed class BossComicCutscene : MonoBehaviour
                     {
                         Text("네가 나가서\n어디 갈 수 있을 것 같아?", .09f, .075f, .22f, .16f, 19),
                         Text("밖은 여기보다\n훨씬 무서워.", .76f, .17f, .16f, .13f, 18),
-                        Text("적어도 여기는\n아니겠죠.", .065f, .60f, .16f, .13f, 18)
+                        Text("적어도 여기보다는\n좋겠죠.", .065f, .60f, .16f, .13f, 18)
                     }
                     : new[]
                     {
@@ -885,7 +885,7 @@ public sealed class BossComicCutscene : MonoBehaviour
                         Text("그게 대체\n언제입니까?", .15f, .475f, .07f, .05f, 14),
                         Text("조금만 더\n하면 돼.", .50f, .49f, .075f, .05f, 14)
                     }
-                    : VictoryTexts("과장전은 끝났다.", "다음은 차장이다!", .64f, .05f, .16f, .11f, .77f, .65f, .14f, .11f);
+                    : VictoryTexts("과장은 끝났다.", "다음은 차장이다!", .64f, .05f, .16f, .11f, .77f, .65f, .14f, .11f);
 
             case 4:
                 return phase == ComicPhase.Intro
@@ -906,7 +906,7 @@ public sealed class BossComicCutscene : MonoBehaviour
                         Text("제 인생에는\n중요합니다.", .65f, .055f, .17f, .12f, 18),
                         Text("회사엔 돈보다\n책임감이 중요해!", .235f, .70f, .15f, .13f, 17)
                     }
-                    : VictoryTexts("부장전은 끝났다.", "다음은 부사장이다!", .30f, .06f, .15f, .13f, .80f, .50f, .17f, .10f);
+                    : VictoryTexts("부장은 끝났다.", "다음은 부사장이다!", .30f, .06f, .15f, .13f, .80f, .50f, .17f, .10f);
 
             case 6:
                 return phase == ComicPhase.Intro
@@ -931,7 +931,7 @@ public sealed class BossComicCutscene : MonoBehaviour
                         Text("월급 올려주지!", .18f, .055f, .24f, .13f, 24),
                         Text("설마…?", .21f, .445f, .07f, .055f, 16),
                         Text("0.1%!\n좋지? 가서 일해!", .895f, .445f, .085f, .105f, 15),
-                        Text("그 돈은 대표님이\n가지십시오.", .025f, .77f, .11f, .075f, 15),
+                        Text("그 돈은 대표님이나\n가지십시오.", .025f, .77f, .11f, .075f, 15),
                         Text("어디 가서\n후회하지 마!", .82f, .77f, .12f, .09f, 16)
                     }
                     : new[]
