@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D playerRigidbody;
     private Animator playerAnimator;
+    private PlayerVisualAnimator playerVisualAnimator;
     private Animator doubleJumpEffectAnimator;
     private CapsuleCollider2D playerCollider;
     private Camera mainCamera;
@@ -109,6 +110,8 @@ public class PlayerController : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+        playerVisualAnimator =
+            PlayerVisualAnimator.EnsureOn(gameObject);
         playerCollider = GetComponent<CapsuleCollider2D>();
         mainCamera = Camera.main;
 
@@ -123,6 +126,15 @@ public class PlayerController : MonoBehaviour
         {
             doubleJumpEffectAnimator =
                 effectTransform.GetComponent<Animator>();
+
+            if (
+                playerVisualAnimator != null &&
+                playerVisualAnimator.HasVisuals
+            )
+            {
+                effectTransform.gameObject.SetActive(false);
+                doubleJumpEffectAnimator = null;
+            }
         }
 
         if (playerCollider != null)
@@ -495,6 +507,8 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        playerVisualAnimator?.SetFacingDirection(1f);
+
         playerRigidbody.linearVelocity =
             new Vector2(
                 moveSpeed,
@@ -505,6 +519,10 @@ public class PlayerController : MonoBehaviour
     private void HandleBossMovement()
     {
         float horizontalInput = ReadBossHorizontalInput();
+
+        playerVisualAnimator?.SetFacingDirection(
+            horizontalInput
+        );
 
         float horizontalVelocity =
             horizontalInput * bossMoveSpeed;
@@ -589,6 +607,7 @@ public class PlayerController : MonoBehaviour
 
         bossWasMoving = false;
         StopBossRunToIdle();
+        playerVisualAnimator?.SetFacingDirection(1f);
         PlayAnimationState(bossIdleStateName, true);
 
         Debug.Log("BOSS BATTLE START");
@@ -889,6 +908,7 @@ public class PlayerController : MonoBehaviour
         }
 
         currentAnimationStateName = stateName;
+        playerVisualAnimator?.PlayState(stateName, restart);
         return true;
     }
 

@@ -33,6 +33,7 @@ public class BossHealth : MonoBehaviour
     private Collider2D bossCollider;
     private Color normalColor = Color.white;
     private int stageNumber = 1;
+    private bool useComicCutscene;
 
     public bool IsDefeated => isDefeated;
     public bool IsStunned => isStunned;
@@ -48,6 +49,8 @@ public class BossHealth : MonoBehaviour
             stageNumber = profile.StageNumber;
             maxHealth = profile.BossHealth;
             bossName = profile.BossName;
+            useComicCutscene =
+                BossComicCutscene.SupportsStage(stageNumber);
         }
 
         currentHealth = maxHealth;
@@ -364,7 +367,7 @@ public class BossHealth : MonoBehaviour
                 panelRect.width - 48f * scale,
                 34f * scale
             ),
-            "BOSS  ·  " + bossName + bossState,
+            bossName + bossState,
             bossStyle
         );
 
@@ -389,7 +392,10 @@ public class BossHealth : MonoBehaviour
             maxHealth
         );
 
-        if (!isDefeated)
+        if (
+            !isDefeated ||
+            useComicCutscene
+        )
         {
             return;
         }

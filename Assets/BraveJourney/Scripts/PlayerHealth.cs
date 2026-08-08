@@ -111,6 +111,17 @@ public class PlayerHealth : MonoBehaviour
             playerRigidbody.linearVelocity =
                 Vector2.zero;
         }
+
+        StageProfile profile =
+            StageProfileCatalog.GetCurrentOrDefault();
+        BossComicCutscene cutscene =
+            BossComicCutscene.EnsureForScene(gameObject);
+
+        cutscene.ShowDefeat(
+            profile,
+            uiFont,
+            null
+        );
     }
 
     private void RestartGame()
@@ -124,7 +135,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.depth = isGameOver ? -100 : 0;
+        GUI.depth = 0;
         float scale = OfficeHudTheme.Scale;
         float heartSize = 32f * scale;
         float panelWidth =
@@ -175,67 +186,5 @@ public class PlayerHealth : MonoBehaviour
             );
         }
 
-        if (!isGameOver)
-        {
-            return;
-        }
-
-        OfficeHudTheme.DrawRect(
-            new Rect(
-                0f,
-                0f,
-                Screen.width,
-                Screen.height
-            ),
-            new Color(0f, 0f, 0f, 0.78f)
-        );
-
-        Rect gameOverPanel = new Rect(
-            Screen.width * 0.5f - 230f * scale,
-            Screen.height * 0.5f - 105f * scale,
-            460f * scale,
-            210f * scale
-        );
-
-        OfficeHudTheme.DrawPanel(
-            gameOverPanel,
-            OfficeHudTheme.Red,
-            false
-        );
-
-        GUIStyle gameOverStyle =
-            OfficeHudTheme.CreateTextStyle(
-                uiFont,
-                Mathf.RoundToInt(46f * scale),
-                TextAnchor.MiddleCenter,
-                OfficeHudTheme.Red
-            );
-
-        GUI.Label(
-            new Rect(
-                gameOverPanel.x + 20f * scale,
-                gameOverPanel.y + 35f * scale,
-                gameOverPanel.width - 40f * scale,
-                70f * scale
-            ),
-            "퇴사 실패",
-            gameOverStyle
-        );
-
-        gameOverStyle.fontSize =
-            Mathf.RoundToInt(21f * scale);
-        gameOverStyle.normal.textColor =
-            OfficeHudTheme.Ink;
-
-        GUI.Label(
-            new Rect(
-                gameOverPanel.x + 20f * scale,
-                gameOverPanel.y + 120f * scale,
-                gameOverPanel.width - 40f * scale,
-                48f * scale
-            ),
-            "R - 다시 출근하기",
-            gameOverStyle
-        );
     }
 }

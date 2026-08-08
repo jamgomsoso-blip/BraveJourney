@@ -9,6 +9,10 @@ public sealed class OfficePixelAssetImporter : AssetPostprocessor
         "Assets/BraveJourney/Resources/Office2D/";
     private const string BossSpritePath =
         "Assets/BraveJourney/Resources/Boss2D/";
+    private const string PlayerSpritePath =
+        "Assets/BraveJourney/Resources/Player2D/";
+    private const string ComicAssetPath =
+        "Assets/BraveJourney/Resources/Comics/";
 
     private void OnPreprocessTexture()
     {
@@ -18,11 +22,17 @@ public sealed class OfficePixelAssetImporter : AssetPostprocessor
             assetPath.StartsWith(OfficeBackgroundPath);
         bool isBossSprite =
             assetPath.StartsWith(BossSpritePath);
+        bool isPlayerSprite =
+            assetPath.StartsWith(PlayerSpritePath);
+        bool isComicAsset =
+            assetPath.StartsWith(ComicAssetPath);
 
         if (
             !isPixelAsset &&
             !isOfficeBackground &&
-            !isBossSprite
+            !isBossSprite &&
+            !isPlayerSprite &&
+            !isComicAsset
         )
         {
             return;
@@ -31,8 +41,11 @@ public sealed class OfficePixelAssetImporter : AssetPostprocessor
         TextureImporter importer =
             (TextureImporter)assetImporter;
 
+        importer.textureShape =
+            TextureImporterShape.Texture2D;
         importer.textureType =
             TextureImporterType.Sprite;
+        importer.sRGBTexture = true;
         importer.spriteImportMode =
             SpriteImportMode.Single;
         importer.spritePixelsPerUnit =
@@ -51,7 +64,7 @@ public sealed class OfficePixelAssetImporter : AssetPostprocessor
         importer.maxTextureSize =
             isPixelAsset
                 ? 64
-                : isBossSprite
+                : isBossSprite || isPlayerSprite
                     ? 512
                     : 2048;
         importer.npotScale =

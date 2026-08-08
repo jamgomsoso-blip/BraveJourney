@@ -9,6 +9,7 @@ public class StageTransition : MonoBehaviour
     private BossHealth bossHealth;
     private bool isTransitioning;
     private bool isEnding;
+    private bool hasRequestedVictoryComic;
     private float transitionTimer;
 
     public bool IsEnding => isEnding;
@@ -72,6 +73,30 @@ public class StageTransition : MonoBehaviour
         }
 
         if (!bossHealth.IsDefeated)
+        {
+            return;
+        }
+
+        if (hasRequestedVictoryComic)
+        {
+            return;
+        }
+
+        hasRequestedVictoryComic = true;
+
+        BossComicCutscene cutscene =
+            BossComicCutscene.EnsureForScene(gameObject);
+
+        cutscene.ShowVictory(
+            StageProfileCatalog.GetCurrentOrDefault(),
+            uiFont,
+            StartTransition
+        );
+    }
+
+    private void StartTransition()
+    {
+        if (isTransitioning || isEnding)
         {
             return;
         }
@@ -191,7 +216,7 @@ public class StageTransition : MonoBehaviour
 
         GUI.Label(
             quotePanel,
-            "노무사에 신고하겠습니다!",
+            "나는 자유를 찾았다. 그리고 나의 통장도….",
             quoteStyle
         );
 

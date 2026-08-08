@@ -19,7 +19,19 @@ public class BossStartTrigger : MonoBehaviour
         );
 
         StageTransition.EnsureForScene(gameObject);
+        BossComicCutscene cutscene =
+            BossComicCutscene.EnsureForScene(gameObject);
         BossHazardController.EnsureOnBoss(bossObject);
+
+        StageProfile profile =
+            StageProfileCatalog.GetCurrentOrDefault();
+        BossHealth bossHealth =
+            bossObject.GetComponent<BossHealth>();
+
+        cutscene.ShowPrologue(
+            profile,
+            bossHealth != null ? bossHealth.UiFont : null
+        );
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +62,32 @@ public class BossStartTrigger : MonoBehaviour
 
         hasStarted = true;
 
+        StageProfile profile =
+            StageProfileCatalog.GetCurrentOrDefault();
+        BossHealth bossHealth = bossObject != null
+            ? bossObject.GetComponent<BossHealth>()
+            : null;
+        BossComicCutscene cutscene =
+            BossComicCutscene.EnsureForScene(gameObject);
+
+        cutscene.ShowIntro(
+            profile,
+            bossHealth != null ? bossHealth.UiFont : null,
+            () => BeginBossBattle(playerController)
+        );
+
+        gameObject.SetActive(false);
+    }
+
+    private void BeginBossBattle(
+        PlayerController playerController
+    )
+    {
+        if (playerController == null)
+        {
+            return;
+        }
+
         if (bossObject != null)
         {
             bossObject.SetActive(true);
@@ -58,7 +96,5 @@ public class BossStartTrigger : MonoBehaviour
         playerController.StartBossBattle();
 
         Debug.Log("보스전 구간 진입");
-
-        gameObject.SetActive(false);
     }
 }
