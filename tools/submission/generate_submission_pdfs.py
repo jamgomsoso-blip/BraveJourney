@@ -672,9 +672,9 @@ def build_ai_report(styles) -> Path:
         ),
         Spacer(1, 6 * mm),
         callout(
-            "<b>음악 라이선스 확인 사항</b><br/>YouTube Audio Library는 YouTube 영상 사용에 대한 안내가 중심이므로, "
-            "게임 자체의 공개 배포에 사용할 권리는 제출 전에 트랙별 라이선스 또는 권리자 허락 범위를 다시 확인해야 합니다. "
-            "이 문서는 음악의 소유권을 주장하지 않으며 작곡가 Rod Kim을 명시합니다.",
+            "<b>음악 라이선스</b><br/>Conspiracy Theory와 Final Boss Battle은 YouTube Studio 오디오 보관함에서 "
+            "제공되는 YouTube 오디오 보관함 라이선스 트랙입니다. 저작자 표시는 필수가 아니며, "
+            "본 프로젝트에서는 게임 내 BGM으로 포함해 사용합니다. 음악 파일 자체를 게임과 별도로 제공하거나 배포하지 않습니다.",
             styles,
             color=PALE_RED,
             accent=RED,

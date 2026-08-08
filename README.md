@@ -63,4 +63,4 @@
 - `Conspiracy Theory`, `Final Boss Battle` — Rod Kim, YouTube Audio Library Soundtrack
 - Unity 공식 패키지 — 버전은 `Packages/manifest.json`과 `Packages/packages-lock.json`에 고정
 
-> 음악은 YouTube Audio Library 안내가 영상 사용 중심이므로, 게임 공개 배포 권한은 제출 전 트랙별 라이선스 또는 권리자 허락 범위를 다시 확인해야 합니다.
+> 두 BGM은 YouTube Studio 오디오 보관함 라이선스 트랙으로 사용했으며, 저작자 표시는 필수가 아닙니다. 음악 파일 자체를 게임과 별도로 제공·배포하지 않습니다.
