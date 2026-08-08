@@ -248,6 +248,13 @@ public sealed class PlayerVisualAnimator : MonoBehaviour
                 effectPosition = new Vector3(-0.65f, 0.18f, 0f);
                 break;
 
+            case "Slide":
+                effectName = "RunDust";
+                effectIndex = frameIndex % EffectFrameCount;
+                effectScale = 0.42f;
+                effectPosition = new Vector3(-0.5f, 0.11f, 0f);
+                break;
+
             case "FrontFlip":
                 effectName = "DoubleJump";
                 effectIndex =
@@ -462,6 +469,7 @@ public sealed class PlayerVisualAnimator : MonoBehaviour
             case "Idle":
             case "Run":
             case "Sprint":
+            case "Slide":
             case "Jump":
             case "FrontFlip":
                 return true;
