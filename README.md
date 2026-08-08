@@ -1,8 +1,18 @@
-# BraveJourney
+<h1 align="center">BraveJourney</h1>
 
-> 사표 한 장을 들고 사무실 장애물과 직급 보스를 돌파하는 2D 액션 러너
+<p align="center"><b>사표 한 장을 들고 사무실 장애물과 직급 보스를 돌파하는 2D 액션 러너</b></p>
+<p align="center">NAN 2026 · NHN Game × AI 해커톤 사전과제</p>
 
-[브라우저에서 플레이](https://jamgomsoso-blip.github.io/BraveJourney/) · [게임 소개 PDF](output/pdf/BraveJourney_Game_Guide.pdf) · [AI 활용 기술 PDF](output/pdf/BraveJourney_AI_Usage_Report.pdf)
+<p align="center">
+  <a href="https://jamgomsoso-blip.github.io/BraveJourney/"><strong>🎮 브라우저에서 플레이</strong></a> ·
+  <a href="output/pdf/BraveJourney_Game_Guide.pdf">📄 게임 소개 PDF</a> ·
+  <a href="output/pdf/BraveJourney_AI_Usage_Report.pdf">🤖 AI 활용 기술 PDF</a> ·
+  <a href="https://youtu.be/OBhKmkYCxyU">▶ 플레이 영상</a>
+</p>
+
+<p align="center">
+  <img src="Assets/BraveJourney/Resources/Comics/Prologue.png" alt="BraveJourney 프롤로그" width="900">
+</p>
 
 ## 게임 소개
 
@@ -14,13 +24,14 @@
 
 | 구간 | 키 | 기능 |
 |---|---|---|
+| 컷신 | `Enter` | 다음 컷 / 보스전 시작 |
 | 러닝 | `W` | 점프 / 공중에서 한 번 더 눌러 2단 점프 |
 | 러닝 | `E` | 누르는 동안 슬라이드 |
 | 공통 | `Space` | 패링 |
 | 보스전 | `←` `→` | 좌우 이동 |
 | 보스전 | `W` 또는 `↑` | 점프 / 2단 점프 |
 | 보스전 | `E` 또는 `↓` | 슬라이드 |
-| 보스전 | `A` | 스턴된 보스 가까이에서 KickC 공격 |
+| 보스전 | `A` | 스턴된 보스 가까이에서 발차기 공격 |
 | 패배 | `R` | 현재 스테이지 다시 시작 |
 | 최종 엔딩 | `R` | Stage01부터 다시 시작 |
 
