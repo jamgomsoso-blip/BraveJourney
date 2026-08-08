@@ -1,0 +1,66 @@
+# BraveJourney
+
+> 사표 한 장을 들고 사무실 장애물과 직급 보스를 돌파하는 2D 액션 러너
+
+[브라우저에서 플레이](https://jamgomsoso-blip.github.io/BraveJourney/) · [게임 소개 PDF](output/pdf/BraveJourney_Game_Guide.pdf) · [AI 활용 기술 PDF](output/pdf/BraveJourney_AI_Usage_Report.pdf)
+
+## 게임 소개
+
+끝나지 않는 야근에 지친 주인공이 사표를 들고 회사의 직급 보스들을 차례로 돌파하는 Unity WebGL 게임입니다. 각 스테이지는 약 30~35초의 오피스 러닝 구간과 패링 중심 보스전으로 구성됩니다.
+
+진행 순서: `주임 → 대리 → 과장 → 차장 → 부장 → 부사장 → 대표`
+
+## 조작법
+
+| 구간 | 키 | 기능 |
+|---|---|---|
+| 러닝 | `W` | 점프 / 공중에서 한 번 더 눌러 2단 점프 |
+| 러닝 | `E` | 누르는 동안 슬라이드 |
+| 공통 | `Space` | 패링 |
+| 보스전 | `←` `→` | 좌우 이동 |
+| 보스전 | `W` 또는 `↑` | 점프 / 2단 점프 |
+| 보스전 | `E` 또는 `↓` | 슬라이드 |
+| 보스전 | `A` | 스턴된 보스 가까이에서 KickC 공격 |
+| 패배·엔딩 | `R` | Stage01부터 다시 시작 |
+
+보스 투사체를 `Space`로 반사하면 보스가 스턴됩니다. 스턴 중 보스 가까이에서 `A`를 누르면 피해가 적용되며, 한 번의 스턴에는 한 번만 피해를 줄 수 있습니다.
+
+## 실행 방법
+
+### 웹 플레이
+
+1. [GitHub Pages](https://jamgomsoso-blip.github.io/BraveJourney/)를 Chrome 또는 Edge로 엽니다.
+2. 첫 로딩이 끝나면 게임 화면을 한 번 클릭합니다.
+3. 키보드로 플레이합니다. 소리가 들리지 않으면 브라우저 음소거를 해제합니다.
+
+### Unity에서 실행
+
+1. Unity Hub에서 이 저장소 폴더를 엽니다.
+2. Unity `6000.3.16f1`을 사용합니다.
+3. `Assets/BraveJourney/Scenes/Stage01.unity`를 연 뒤 Play를 누릅니다.
+
+`Library`, `Temp`, `Builds` 등 Unity가 다시 생성하는 폴더는 저장소에서 제외되어 있습니다. 전체 게임 소스와 원본 에셋은 `Assets`, `Packages`, `ProjectSettings`에 포함되어 있습니다.
+
+## 주요 구조
+
+- `PlayerController`, `PlayerPunch`, `PlayerHealth`: 이동, 2단 점프, 슬라이드, 패링, 근접 공격, 하트·패배
+- `BossHealth`, `BossShooter`, `Projectile`: 보스 체력·스턴, 발사 중지, 투사체 반사
+- `StageProfileCatalog`, `StageCourseBuilder`, `StageHazard`: 7개 스테이지와 장애물·공격 패턴
+- `BossComicCutscene`, `StageTransition`: 프롤로그, 인트로·승리·패배 컷신, 스테이지 전환
+- `PlayerVisualAnimator`, `BossVisualAnimator`: 2D 프레임 애니메이션
+
+## 제출 문서
+
+- [게임 소개 및 설명 문서](output/pdf/BraveJourney_Game_Guide.pdf)
+- [AI 활용 기술 문서](output/pdf/BraveJourney_AI_Usage_Report.pdf)
+- 플레이 영상: 30~60초 실제 플레이 영상 촬영 후 YouTube 링크 추가 예정
+
+## 외부 에셋 및 라이선스
+
+- [Pixel Prototype Player Sprites](https://deadrevolver.itch.io/pixel-prototype-player-sprites) — Dead Revolver, CC0 1.0
+- NanumGothic — SIL Open Font License 1.1 (`Assets/BraveJourney/Fonts/OFL.txt`)
+- SongMyung — SIL Open Font License 1.1 (`Assets/BraveJourney/Fonts/SongMyung-OFL.txt`)
+- `Conspiracy Theory`, `Final Boss Battle` — Rod Kim, YouTube Audio Library Soundtrack
+- Unity 공식 패키지 — 버전은 `Packages/manifest.json`과 `Packages/packages-lock.json`에 고정
+
+> 음악은 YouTube Audio Library 안내가 영상 사용 중심이므로, 게임 공개 배포 권한은 제출 전 트랙별 라이선스 또는 권리자 허락 범위를 다시 확인해야 합니다.
