@@ -21,7 +21,7 @@ public sealed class StageCourseBuilder : MonoBehaviour
 
     [Header("Course Timing")]
     [SerializeField] private float runnerSpeed = 12f;
-    [SerializeField] private float targetRunDuration = 34f;
+    [SerializeField] private float targetRunDuration = 23f;
     [SerializeField] private float bossSpacing = 12f;
     [SerializeField] private float groundSurfaceY = -3.5f;
 

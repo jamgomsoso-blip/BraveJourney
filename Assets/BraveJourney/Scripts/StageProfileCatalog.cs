@@ -30,6 +30,8 @@ public static class StageProfileCatalog
 {
     public const int FirstStageNumber = 1;
     public const int LastStageNumber = 7;
+    private const float TargetRunDuration = 23f;
+    private const float CourseTimingMargin = 1f;
 
     public static bool TryGetCurrent(out StageProfile profile)
     {
@@ -400,13 +402,29 @@ public static class StageProfileCatalog
         StageHazardTheme[] bossHazardThemes
     )
     {
+        float adjustedRunDuration = Mathf.Min(
+            runDuration,
+            TargetRunDuration
+        );
+
+        obstacleTimes = FitScheduleToDuration(
+            obstacleTimes,
+            runDuration,
+            adjustedRunDuration
+        );
+        runnerHazardTimes = FitScheduleToDuration(
+            runnerHazardTimes,
+            runDuration,
+            adjustedRunDuration
+        );
+
         return new StageProfile
         {
             StageNumber = stageNumber,
             StageTitle = stageTitle,
             BossName = bossName,
             BossHealth = bossHealth,
-            RunDuration = runDuration,
+            RunDuration = adjustedRunDuration,
             ObstacleTimes = obstacleTimes,
             RunnerHazardTimes = runnerHazardTimes,
             RunnerHazardPattern = runnerHazardPattern,
@@ -424,6 +442,59 @@ public static class StageProfileCatalog
             BossHazardPattern = bossHazardPattern,
             BossHazardThemes = bossHazardThemes
         };
+    }
+
+    private static float[] FitScheduleToDuration(
+        float[] sourceTimes,
+        float sourceDuration,
+        float targetDuration
+    )
+    {
+        if (
+            sourceTimes == null ||
+            sourceTimes.Length == 0 ||
+            sourceDuration <= targetDuration
+        )
+        {
+            return sourceTimes;
+        }
+
+        float durationRatio = targetDuration / sourceDuration;
+        int targetCount = Mathf.Clamp(
+            Mathf.RoundToInt(sourceTimes.Length * durationRatio),
+            1,
+            sourceTimes.Length
+        );
+        float sourceRange = Mathf.Max(
+            sourceDuration - CourseTimingMargin * 2f,
+            0.1f
+        );
+        float targetRange = Mathf.Max(
+            targetDuration - CourseTimingMargin * 2f,
+            0.1f
+        );
+        float[] result = new float[targetCount];
+
+        for (int index = 0; index < targetCount; index++)
+        {
+            int sourceIndex = targetCount == 1
+                ? 0
+                : Mathf.RoundToInt(
+                    index *
+                    (sourceTimes.Length - 1f) /
+                    (targetCount - 1f)
+                );
+            float normalizedTime = Mathf.Clamp01(
+                (sourceTimes[sourceIndex] - CourseTimingMargin) /
+                sourceRange
+            );
+
+            result[index] =
+                CourseTimingMargin +
+                normalizedTime * targetRange;
+        }
+
+        return result;
     }
 
     private static float[] CreateDenseObstacleSchedule(
