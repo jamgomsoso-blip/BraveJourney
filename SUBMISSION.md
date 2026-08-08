@@ -13,7 +13,7 @@
 - 길이: 30~60초
 - 내용: 실제 게임 플레이 화면 그대로
 - 공개 범위: 공개 또는 일부 공개
-- YouTube 링크: https://youtu.be/OBhKmkYCxyU
+- YouTube 링크: https://youtu.be/hNZlRZPIoc8
 
 아래 제출 문서에도 같은 링크를 반영했습니다.
 
