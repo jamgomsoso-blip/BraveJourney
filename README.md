@@ -7,7 +7,7 @@
   <a href="https://jamgomsoso-blip.github.io/BraveJourney/"><strong>🎮 브라우저에서 플레이</strong></a> ·
   <a href="output/pdf/BraveJourney_Game_Guide.pdf">📄 게임 소개 PDF</a> ·
   <a href="output/pdf/BraveJourney_AI_Usage_Report.pdf">🤖 AI 활용 기술 PDF</a> ·
-  <a href="https://youtu.be/OBhKmkYCxyU">▶ 플레이 영상</a>
+  <a href="https://youtu.be/hNZlRZPIoc8">▶ 플레이 영상</a>
 </p>
 
 <p align="center">
@@ -65,7 +65,7 @@
 
 - [게임 소개 및 설명 문서](output/pdf/BraveJourney_Game_Guide.pdf)
 - [AI 활용 기술 문서](output/pdf/BraveJourney_AI_Usage_Report.pdf)
-- 플레이 영상: [YouTube에서 보기](https://youtu.be/OBhKmkYCxyU)
+- 플레이 영상: [YouTube에서 보기](https://youtu.be/hNZlRZPIoc8)
 
 ## 외부 에셋 및 라이선스
 
