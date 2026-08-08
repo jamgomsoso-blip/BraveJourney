@@ -26,11 +26,11 @@
 |---|---|---|
 | 컷신 | `Enter` | 다음 컷 / 보스전 시작 |
 | 러닝 | `W` | 점프 / 공중에서 한 번 더 눌러 2단 점프 |
-| 러닝 | `E` | 누르는 동안 슬라이드 |
+| 러닝 | `E` | 누르는 동안 슬라이딩 |
 | 공통 | `Space` | 패링 |
 | 보스전 | `←` `→` | 좌우 이동 |
 | 보스전 | `W` | 점프 / 2단 점프 |
-| 보스전 | `E` | 슬라이드 |
+| 보스전 | `E` | 슬라이딩 |
 | 보스전 | `A` | 스턴된 보스 가까이에서 발차기 공격 |
 | 패배 | `R` | 현재 스테이지 다시 시작 |
 | 최종 엔딩 | `R` | Stage01부터 다시 시작 |
@@ -55,7 +55,7 @@
 
 ## 주요 구조
 
-- `PlayerController`, `PlayerPunch`, `PlayerHealth`: 이동, 2단 점프, 슬라이드, 패링, 근접 공격, 하트·패배
+- `PlayerController`, `PlayerPunch`, `PlayerHealth`: 이동, 2단 점프, 슬라이딩, 패링, 근접 공격, 하트·패배
 - `BossHealth`, `BossShooter`, `Projectile`: 보스 체력·스턴, 발사 중지, 투사체 반사
 - `StageProfileCatalog`, `StageCourseBuilder`, `StageHazard`: 7개 스테이지와 장애물·공격 패턴
 - `BossComicCutscene`, `StageTransition`: 프롤로그, 인트로·승리·패배 컷신, 스테이지 전환
