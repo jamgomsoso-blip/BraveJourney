@@ -1,0 +1,15 @@
+.gps-record .gps-setup { padding: 14px 0 6px; border-top: 1px solid #c9b7a6; }
+.gps-record .gps-rules { margin: 10px 0 20px; }
+.gps-record .gps-options[role=group] { gap: 6px; margin: 10px 0 14px; }
+.gps-record .gps-options button { min-height: 38px; }
+.gps-record .gps-map { display: block; margin: 0; padding: 0; }
+.gps-record .gps-map img { display: block; width: 100%; height: auto; border: 1px solid #a4b6a8; box-sizing: border-box; background: #eff4ee; }
+.gps-record .gps-map figcaption { font-size: .82rem; line-height: 1.5; padding: 6px 0 0; color: #514746; }
+.gps-record .gps-case { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(0,1fr); align-items: center; gap: 16px; }
+.gps-record .gps-case[hidden] { display: none !important; }
+.gps-record .gps-result h4 { color: #254f41; margin-bottom: 6px; }
+.gps-record .gps-result p, .gps-record .gps-build p:last-child { margin-bottom: 0; }
+.gps-record .gps-build { border-top: 1px solid #c9b7a6; padding-top: 15px; }
+.gps-record .gps-build strong { font-weight: 700; }
+@media (max-width: 760px) { .gps-record .gps-case { grid-template-columns: 1fr; gap: 11px; } }
+@media (max-width: 450px) { .gps-record .gps-options button { font-size: .82rem; padding-inline: 8px; } }
