@@ -1,0 +1,17 @@
+[data-photo-open] { cursor: zoom-in; }
+[data-photo-open]:focus-visible { outline: 3px solid #ecae55; outline-offset: 2px; }
+.photo-badge-host { position: relative; }
+.photo-badge { position: absolute; right: 7px; top: 7px; z-index: 1; width: 25px; height: 25px; display: grid; place-items: center; pointer-events: none; background: rgba(20,25,26,.84); border: 1px solid rgba(255,255,255,.52); border-radius: 50%; color: white; }
+.photo-badge svg { width: 14px; height: 14px; }
+html.photo-view-open { overflow: hidden; }
+#photo-viewer { box-sizing: border-box; position: fixed; inset: 0; margin: 0; width: 100%; height: 100%; height: 100dvh; max-width: none; max-height: none; border: 0; padding: 0; overflow: hidden; scrollbar-gutter: auto; box-shadow: none; color: #f9f8f3; background: #131718; color-scheme: dark; }
+#photo-viewer[open] { display: flex; flex-direction: column; }
+#photo-viewer::backdrop { background: #131718; }
+#photo-viewer .photo-tools { display: flex; align-items: center; justify-content: flex-end; flex: none; gap: 8px; padding: max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px 12px; border-bottom: 1px solid #383e3e; }
+#photo-viewer button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 5px 14px; border: 1px solid #747c7d; border-radius: 6px; background: #252b2c; color: #fff; font: 600 14px/1.35 system-ui,sans-serif; cursor: pointer; }
+#photo-viewer button:focus-visible { outline: 3px solid #edbb76; outline-offset: 2px; }
+#photo-viewer .photo-stage { display: flex; flex: 1 1 0; min-height: 0; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y pinch-zoom; }
+#photo-viewer .photo-surface { position: relative; flex: none; margin: auto; overflow: hidden; }
+#photo-viewer .photo-surface img { display: block; position: absolute; inset: 0; max-width: none; max-height: none; width: 100%; height: 100%; margin: 0; border: 0; border-radius: 0; object-fit: contain; }
+#photo-viewer .photo-note { flex: none; box-sizing: border-box; width: 100%; max-height: 20vh; overflow: auto; text-align: center; color: #eee; margin: 0; padding: 9px 16px max(10px,env(safe-area-inset-bottom)); font: 400 14px/1.5 system-ui,sans-serif; }
+@media print { #photo-viewer, .photo-badge { display: none !important; } }
