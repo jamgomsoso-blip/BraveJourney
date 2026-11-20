@@ -20,23 +20,23 @@
     <div class="hero-art"><img class="room" src="assets/office.webp" alt=""><div class="cast" aria-hidden="true"><img class="heir-a" src="assets/heir-1.webp" alt=""><img class="heir-b" src="assets/heir-2.webp" alt=""></div><span class="art-caption">금광 경영 타이쿤 <i></i> 경영실과 두 후계자의 원화</span></div>
     <div class="wrap hero-inner"><div class="hero-copy"><p class="overline light">홍승찬의 게임기획 포트폴리오</p>
       <h1 id="cover-title">플레이어는 다음에<br><em>무엇을 할까?</em></h1>
-      <p class="hero-desc">던전앤파이터에서는 미션을 끝낸 유저가 보상을 찾는 과정을 따라갔습니다. 직접 만든 게임에서는 첫 보스까지 달려 보고, 공격을 알아볼 수 있는 순간을 조정했습니다.</p>
+      <p class="hero-desc">던전앤파이터의 이벤트 보상을 분석했습니다. 제가 기획한 게임 세 편에서는 전투와 레벨, 경제 규칙을 어떻게 정했는지 담았습니다.</p>
       <div class="actions"><a class="button warm" href="#dnf">던파 역기획 읽기</a><a class="button glass" href="#games">직접 만든 게임</a></div>
     </div></div>
   </section>
   <section class="feature" id="dnf" aria-labelledby="dnf-title"><div class="wrap">
     <div class="section-heading"><div><p class="overline"><span class="notch"></span>개인 이벤트 역기획</p><h2 id="dnf-title">던전앤파이터 윈터 페스티벌</h2></div><a class="paper-link" data-pdf href="docs/dnf-winter.pdf" download="홍승찬_던전앤파이터_이벤트_역기획서.pdf">역기획서 PDF <small>12쪽</small></a></div>
-    <p class="intro">06시 초기화를 가정한 예시입니다. 일일 미션을 05:59:59에 끝내고 ‘받기’를 누르기 전에 06시가 되면, 보상은 어디로 갈까요?</p>
+    
     <div class="switcher" data-tabs>
       <div class="tabs" aria-label="던전앤파이터 역기획 내용"><a href="#reward">보상 수령 과정</a><a href="#events">네 이벤트의 연결</a><a href="#verify">검증 계획</a></div>
       <section id="reward" class="sheet" data-panel><div class="reward-layout">
         <figure class="mission-figure"><img loading="lazy" src="assets/dnf-missions.webp" width="378" height="270" alt="모예와 함께 아라드 탐험! 이벤트 창에 표시된 일일·주간 미션과 받기 버튼"><figcaption>모예와 함께 아라드 탐험! · 일상 탐험 화면</figcaption></figure>
-        <div class="reward-body"><h3>미션 완료와 보상 수령 사이</h3><p>모예의 탐험 포인트 보상은 자동으로 우편에 옵니다. 같은 창에서 일일·주간 미션 보상은 직접 받아야 합니다.</p>
+        <div class="reward-body"><h3>모예의 일일·주간 미션 보상은 언제 우편으로 올까?</h3><p>같은 창의 탐험 포인트 보상은 각 단계의 40·80·100%에 도달할 때마다 자동으로 발송됩니다.</p>
           <div class="comparison"><div class="flow"><h4>현행 규칙</h4><ol><li>미션 완료</li><li>‘받기’ 클릭</li><li>우편 수령</li></ol><p>일일은 매일 06시, 주간은 목요일 06시에 미수령 보상이 초기화됩니다.</p></div>
           <div class="flow proposal"><h4>제가 제안한 규칙</h4><ol><li>미션 완료</li><li>자동 발송</li><li>우편 수령</li></ol><p>완료 시각으로 회차를 정합니다. 발송이 늦어져도 우편은 한 통입니다.</p></div></div>
         </div></div>
         <details class="fold sim"><summary>가상 예시로 06시 초기화 시험하기</summary><div>
-          <p>초기화 1초 전 완료한 미션을 두 방식으로 따라갑니다.</p>
+          
           <div class="sim-board" aria-live="polite" aria-atomic="true"><strong id="clock">05:59:59 · 미션 완료</strong><dl><div><dt>현행</dt><dd id="old-state">완료·미수령 상태입니다. ‘받기’를 누를 수 있습니다.</dd></div><div><dt>제안</dt><dd id="new-state">이전 회차의 완료 시각과 지급 ID를 기록하고 발송을 대기합니다.</dd></div></dl></div>
           <button type="button" class="button green sim-step" hidden>06:00 초기화 적용</button><noscript><p>6시가 되면 현행의 미수령 건은 사라집니다. 제안에서는 이전 회차의 대기 건을 유지하고, 재접속해도 같은 ID로 한 번만 지급합니다.</p></noscript>
         </div></details>
@@ -45,12 +45,12 @@
       <section id="events" class="sheet" data-panel><h3>네 행사가 플레이를 잇는 방식</h3>
         <dl class="event-list">
           <div><dt>윈터 부스트 업</dt><dd>트레이닝 4단계에서 무기에 마법을 부여하고, 6단계에서 장비를 무기고에 등록합니다.</dd></div>
-          <div><dt>겨울맞이 8일간의 여정</dt><dd>누적 7일 차에는 무기, 8일 차에는 서약 결정이 기다립니다. 무기를 받은 사람은 다음 날도 돌아올까요?</dd></div>
-          <div><dt>모예와 함께 아라드 탐험!</dt><dd>일일·주간 미션은 직접 ‘받기’, 탐험 포인트 40·80·100%는 자동 우편입니다.</dd></div>
-          <div><dt>르이르와 수상한 랜턴</dt><dd>모예 주간 미션의 티켓 100개로 한 번 입장합니다. 열린 제단 슬롯마다 소울도 하나씩 필요합니다.</dd></div>
+          <div><dt>겨울맞이 8일간의 여정</dt><dd>무기는 누적 출석 7일 차에 받습니다. 서약 결정까지 받으려면 하루 더 출석해야 합니다.</dd></div>
+          <div><dt>모예와 함께 아라드 탐험!</dt><dd>주간 미션에서 ‘최후의 조율자’를 20회 클리어하고 보상을 받으면 랜턴그리드 티켓 100개를 얻습니다.</dd></div>
+          <div><dt>르이르와 수상한 랜턴</dt><dd>모예에서 받은 티켓에 더해 열린 제단 슬롯마다 몬스터 소울을 하나씩 놓으면 랜턴그리드에 한 번 입장할 수 있습니다.</dd></div>
         </dl><div class="event-shots"><figure><img loading="lazy" src="assets/dnf-training.webp" alt="캐릭터 성장 트레이닝에서 보이는 단계별 안내"><figcaption>윈터 부스트 업 · 트레이닝 안내</figcaption></figure><figure><img loading="lazy" src="assets/dnf-lantern.webp" alt="랜턴그리드 안의 캐릭터와 보상 오브젝트"><figcaption>르이르와 수상한 랜턴 · 랜턴그리드</figcaption></figure></div></section>
-      <section id="verify" class="sheet" data-panel><h3>발송 성공과 실제 수령을 따로 셉니다</h3><p class="panel-intro">개선안 검증 계획</p>
-        <div class="qa-grid"><div><h4>초기화 직전</h4><p>06시 전에 완료했다면 이후에 발송해도 이전 회차 보상이어야 합니다. 일일·주간을 각각 시험합니다.</p></div><div><h4>재접속과 중복</h4><p>완료 신호를 다시 보내거나 재접속해도 같은 계정·미션·회차에는 우편 한 통만 도착해야 합니다.</p></div><div><h4>실제 수령률</h4><p>기한 안에 꺼낸 건수 ÷ 완료 건수. 기한은 우편 만료와 아이템 삭제 중 이른 시각입니다.</p></div></div>
+      <section id="verify" class="sheet" data-panel><h3>발송 성공과 실제 수령을 따로 셉니다</h3>
+        <div class="qa-grid"><div><h4>초기화 직전</h4><p>일일·주간 미션을 각각 갱신 직전에 완료하고 발송을 늦춥니다. 지급 기록의 회차가 완료 시각과 맞는지 봅니다.</p></div><div><h4>재접속과 중복</h4><p>같은 계정에서 완료 신호를 두 번 보내고 재접속합니다. 같은 미션·회차의 우편이 한 통인지 셉니다.</p></div><div><h4>실제 수령률</h4><p>기한 안에 꺼낸 건수 ÷ 완료 건수. 기한은 우편 만료와 아이템 삭제 중 이른 시각입니다.</p></div></div>
         <details class="fold"><summary>추가로 확인할 부작용</summary><div><p>수동·자동 집단의 재료 소비량과 던전 입장 횟수를 비교합니다. 거래소를 함께 쓰므로 가격과 거래량은 별도로 관찰합니다.</p></div></details>
       </section>
     </div>
@@ -64,17 +64,17 @@
         <a href="#mine"><img loading="lazy" src="assets/office.webp" alt=""><span><small>Unity · 경영 시뮬레이션</small><b>금광 경영 타이쿤</b></span></a>
       </div>
       <article class="game-panel" id="runner" data-panel>
-        <div class="case-head"><div><p class="byline">BraveJourney · 1인 기획·개발 · 웹 빌드</p><h3>첫 보스를 11초 일찍 만나게 했습니다</h3></div></div>
-        <div class="game-layout"><div><p class="lead">사표를 든 사원이 일곱 직급의 보스를 만나는 러너입니다. 첫 구간을 직접 달려 보니, 핵심인 패링을 해 보기까지 34초가 걸렸습니다.</p>
-          <dl class="decisions"><div><dt>레벨 길이</dt><dd>달리기 구간을 줄이고 장애물 등장 시점을 옮겼습니다. 같은 구간을 다시 달려 첫 보스까지 23초가 걸리는 것을 확인했습니다.</dd></div>
+        <div class="case-head"><div><p class="byline">BraveJourney · 1인 기획·개발 · 웹 빌드</p><h3>사표를 든 사원 앞에 일곱 직급의 보스가 나타납니다</h3></div></div>
+        <div class="game-layout"><div>
+          <dl class="decisions"><div><dt>레벨 길이</dt><dd>패링을 일찍 써볼 수 있도록 달리기 구간을 줄이고 장애물 등장 시점을 옮겼습니다. 직접 다시 달렸을 때 첫 보스까지 걸린 시간은 34초에서 23초로 줄었습니다.</dd></div>
           <div><dt>패링 피드백</dt><dd>적이 쏜 붉은 투사체는 패링에 성공하면 청록색으로 바뀌어 보스에게 돌아갑니다. 공격과 대사가 겹쳐 타이밍을 놓치는 장면을 확인했습니다.</dd></div>
           <div><dt>제작 범위</dt><dd>열 개로 잡았던 스테이지를 일곱 개로 줄였습니다. 줄인 시간은 매 스테이지에서 반복해서 보게 되는 캐릭터의 달리기 동작에 썼습니다.</dd></div></dl>
           <div class="links"><a class="button green" href="https://jamgomsoso-blip.github.io/BraveJourney/" target="_blank" rel="noopener">웹에서 플레이</a><a href="https://youtu.be/hNZlRZPIoc8" target="_blank" rel="noopener">플레이 영상</a><a href="https://github.com/jamgomsoso-blip/BraveJourney" target="_blank" rel="noopener">GitHub</a></div></div>
           <div class="evidence"><figure><img loading="lazy" src="assets/runner-attack.webp" alt="Unity 빌드에서 보스가 붉은 투사체를 던지는 장면"><figcaption>보스가 공격을 던진 순간</figcaption></figure><figure><img loading="lazy" src="assets/runner-parry.webp" alt="패링 후 청록색 투사체가 보스 쪽으로 돌아가는 장면"><figcaption>패링 성공 후 되돌아가는 투사체</figcaption></figure></div></div>
       </article>
       <article class="game-panel" id="boss" data-panel>
-        <div class="case-head"><div><p class="byline">BraveJourney Unreal · 전투 규칙 기획 · 제작 중</p><h3>대사가 끝나면 첫 공격부터 보여야 합니다</h3></div></div>
-        <div class="game-layout"><div><p class="lead">사원과 사장의 대결을 3인칭 보스전으로 만들고 있습니다. 컷신이 끝났을 때 전투는 이미 시작됐지만, 카메라는 아직 주인공 뒤로 돌아오는 중이었습니다.</p>
+        <div class="case-head"><div><p class="byline">BraveJourney Unreal · 전투 규칙 기획 · 제작 중</p><h3>퇴사를 결심한 사원이 사장실 문을 엽니다</h3></div></div>
+        <div class="game-layout"><div><p class="lead">사장실 대화가 끝나자마자 첫 공격이 시작됐습니다. 그런데 카메라가 아직 사원 등 뒤로 돌아오는 중이라 사장의 동작을 보기 어려웠습니다.</p>
           <dl class="decisions"><div><dt>전투 진입</dt><dd>전투 카메라로 돌아올 때만 카메라 지연을 풀었습니다. 수정한 빌드에서는 전투 시작 0.10초 뒤 주인공의 등 너머로 사장의 전신이 보였습니다.</dd></div>
           <div><dt>두 가지 공략</dt><dd>주먹과 발차기로 체력을 깎거나, 공격을 세 번 패링해 그로기를 만든 뒤 사표를 던질 수 있습니다. 근접 명중 없이도 패링 아홉 번과 사표 세 번으로 이기는 경로를 확인했습니다.</dd></div>
           <div><dt>공격 예고</dt><dd>굴착기가 찍을 자리는 원 안쪽을 옅게, 경계는 진하게 표시했습니다. 레미콘이 만든 장판은 머무는 동안 이동 속도를 낮추고 피해를 줍니다.</dd></div></dl>
@@ -82,18 +82,18 @@
           <div class="evidence"><figure><img loading="lazy" src="assets/unreal-camera.webp" alt="전투 시작 시 플레이어 등 뒤에서 보스를 바라보는 카메라"><figcaption>사장실 대화 직후의 전투 시점</figcaption></figure><figure><img loading="lazy" src="assets/unreal-win.webp" alt="사표 투척으로 승리한 뒤 나타난 빌드 화면"><figcaption>사표를 던지는 경로로 재현한 승리 화면</figcaption></figure></div></div>
       </article>
       <article class="game-panel" id="mine" data-panel>
-        <div class="case-head"><div><p class="byline">금광 경영 타이쿤 · 개인 경제·시스템 기획 · 제작 중</p><h3>빌린 돈으로 첫 광산에 얼마까지 입찰할까?</h3></div></div>
-        <div class="game-layout"><div><p class="lead">두 후계자가 40일 동안 광산을 경영하는 게임을 기획했습니다. 첫 자금은 빚이고 매장량은 불확실합니다. 입찰가를 높일수록 낙찰 뒤 광부에게 줄 임금과 상환할 돈이 줄어듭니다.</p>
-          <dl class="decisions"><div><dt>입찰 전</dt><dd>광산에 관한 단서를 모은 뒤 감당할 수 있는 입찰가를 정합니다. 낙찰은 시작점이고, 채굴을 지속할 운영비도 함께 고려하게 했습니다.</dd></div>
+        <div class="case-head"><div><p class="byline">금광 경영 타이쿤 · 개인 경제·시스템 기획 · 제작 중</p><h3>두 후계자가 빌린 돈으로 첫 광산에 입찰합니다</h3></div></div>
+        <div class="game-layout"><div><p class="lead">후계자를 가리는 데 주어진 시간은 40일입니다. 입찰할 때는 광산의 정확한 매장량을 알 수 없습니다.</p>
+          <dl class="decisions"><div><dt>입찰 전</dt><dd>광산의 단서를 모아 입찰가를 정합니다. 비싸게 낙찰받을수록 광부에게 줄 임금과 빚을 갚을 돈이 줄어듭니다.</dd></div>
           <div><dt>채굴 후</dt><dd>금을 바로 팔아 원금을 갚을지, 시세를 기다리거나 장비에 다시 투자할지 고릅니다. 파산은 조기 종료, 최종 판정까지 동률이면 가주 미선출로 정했습니다.</dd></div>
-          <div><dt>현재 빌드</dt><dd>경영실에 두 후계자의 원화를 적용하고 1920×1080과 1366×768에서 대화창과 인물이 겹치는지 확인했습니다. 40일 경제 계산과 경매 경쟁, 채무 제재는 다음 구현 범위입니다.</dd></div></dl></div>
+          <div><dt>현재 빌드</dt><dd>1920×1080과 1366×768에서 대화창이 두 인물을 가리지 않는지 확인했습니다. 경제 계산과 경매 경쟁, 채무 제재는 다음 구현 범위입니다.</dd></div></dl></div>
           <div class="evidence"><figure class="mine-display"><div><img class="mine-room" loading="lazy" src="assets/office.webp" alt=""><img class="mine-one" loading="lazy" src="assets/heir-1.webp" alt=""><img class="mine-two" loading="lazy" src="assets/heir-2.webp" alt=""></div><figcaption>경영실 배경과 두 후계자 · 게임에 사용한 원화 조합</figcaption></figure></div></div>
       </article>
     </div>
   </div></section>
   <section class="profile" id="about" aria-labelledby="about-title"><div class="wrap profile-inner">
     <div class="profile-name"><img loading="lazy" src="assets/profile.webp" alt="홍승찬"><div><p class="overline">기획자 소개</p><h2 id="about-title">홍승찬</h2></div></div>
-    <div class="profile-copy"><p>건설 현장에서 일하며 현장과 본사가 같은 노임 자료를 두 번씩 맞추는 모습을 봤습니다. 마감 기준을 정리해 제안하고, AI를 활용해 사내 협업 시스템 CPMS를 직접 만들었습니다.</p><p>게임을 만들면서도 규칙이 화면에서 어떻게 읽히는지 직접 확인합니다. 첫 보스까지 시간을 재고, 대사를 건너뛴 뒤 첫 공격이 보이는지 다시 플레이합니다. 제가 게임기획으로 가져가고 싶은 작업 방식입니다.</p>
+    <div class="profile-copy"><p>건설 현장에서 현장과 본사가 같은 노임 자료를 두 번씩 맞추는 모습을 봤습니다. 마감 기준을 정리해 제안하고, AI를 활용해 사내 협업 시스템 CPMS를 만들었습니다. 직원들이 쓰다가 막힌 부분도 제가 받아 고쳤습니다.</p>
     <div class="links"><a href="mailto:jamgomsoso@gmail.com">jamgomsoso@gmail.com</a><a href="../portfolio/" target="_blank" rel="noopener">개발 PM 포트폴리오</a></div></div>
   </div></section>
 </main><footer><div class="wrap"><span>홍승찬 · 게임기획 포트폴리오</span><a href="#main">처음으로</a></div></footer>
