@@ -1010,45 +1010,152 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 .cp-review .review-list>div{display:grid;grid-template-columns:minmax(7.4rem,.33fr) 1fr;gap:.75rem;padding:.55rem 0;border-top:1px solid #d5c9bf}.cp-review .review-list dd{margin:0}
 @container(max-width:560px){.cp-review .review-pair,.cp-review .review-list>div{grid-template-columns:1fr}.cp-review .review-list>div{gap:.15rem}}
 .project-brief .field-brief-note{font:400 1rem/1.65 var(--body),sans-serif;margin:.75rem 0;padding:.7rem 0;border-top:1px solid #cdbdb7}.field-brief-note b{color:#654454}.field-brief-note .read-link{white-space:nowrap}</style><style>
-.dn-file{--paper:#fff9ec;--ink:#332934;--soft:#5c5059;--rule:#c8b8a3;--plum:#3c3040;--teal:#205e58;--rust:#814321;container-type:inline-size;color:var(--ink);font-family:var(--body),sans-serif;background:var(--paper);border:1px solid #a49382;box-shadow:3px 3px 0 #493747;line-height:1.65;letter-spacing:-.022em;word-break:keep-all;overflow-wrap:anywhere;}
-.dn-file *{box-sizing:border-box}.dn-file :is(p,h3,h4,ol,dl,dd,figure){margin:0}.dn-file h3,.dn-file h4{font-family:var(--pxface),var(--body),sans-serif;line-height:1.35;letter-spacing:-.04em;text-wrap:pretty}.dn-file h3{font-size:clamp(22px,3.6cqw,34px)}.dn-file h4{font-size:clamp(20px,3cqw,27px)}
-.dn-file .dn-label{font:700 .76rem/1.45 var(--body),sans-serif;letter-spacing:.025em;color:var(--teal);margin-bottom:6px}
-.dn-opening{display:grid;grid-template-columns:.86fr 1.14fr;background:#2c3041;color:#fff5de;min-width:0}.dn-cover-art{min-width:0;display:grid;align-content:center;background:#242a36}.dn-cover-art img{display:block;width:100%;height:100%;max-height:225px;object-fit:cover;object-position:52% 50%}.dn-opening-copy{padding:clamp(16px,3.2cqw,30px)}.dn-opening-copy h3{color:#fff5de;font-size:clamp(26px,4.15cqw,39px)}.dn-opening-copy>p:not(.dn-label){color:#f7ecdf;font-size:.97rem;line-height:1.65;margin:10px 0 6px}.dn-opening-copy .dn-label{color:#f4c88a}.dn-file .dn-plain{font-size:.82rem;color:#f7d59c;text-decoration:underline;text-underline-offset:3px}
-.dn-facts{padding:9px clamp(12px,3cqw,27px);background:#efe2ce;color:#463644;display:flex;gap:6px 16px;justify-content:space-between;align-items:center;flex-wrap:wrap;font-size:.79rem}.dn-facts a{color:#55424a;text-underline-offset:3px}.dn-facts b{margin-left:4px}
-.dn-section{padding:clamp(17px,3.3cqw,32px);border-top:1px solid var(--rule)}.dn-file .dn-heading{margin-bottom:14px}.dn-heading h3,.dn-entry h4{color:var(--ink)}.dn-heading>p:not(.dn-label){font-size:.95rem;color:var(--soft);margin-top:6px}
-.dn-branches{border:1px solid #9d877e;background:#fffdf7}.dn-branch{display:grid;grid-template-columns:minmax(95px,.68fr) 2.5fr;align-items:stretch}.dn-branch+.dn-branch{border-top:1px solid var(--rule)}.dn-kind{padding:9px 12px;display:flex;flex-direction:column;justify-content:center;background:#efe5d8}.dn-kind small{font-size:.74rem;color:#5e4c55}.dn-kind b{line-height:1.38;color:#382e39}.dn-file .dn-nodes,.dn-file .dn-milestones{padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.dn-file .dn-nodes li{display:grid;align-content:center;justify-content:center;text-align:center;position:relative;min-height:54px;padding:7px 12px;color:#493b45;line-height:1.35;font-weight:650;font-size:clamp(.84rem,2.05cqw,1rem)}.dn-nodes li+li:before,.dn-milestones li+li:before{content:'→';position:absolute;left:0;top:50%;transform:translate(-50%,-50%);color:#7b6a74;font:700 1.1rem/1 sans-serif}.dn-file .dn-nodes li.dn-wait{color:var(--rust)}.dn-file .dn-nodes li.dn-auto{color:var(--teal)}
-.dn-aside,.dn-measure{background:#e9eee3;border-left:3px solid var(--teal);padding:10px 14px;margin-top:13px;color:#334d42}.dn-aside>strong,.dn-measure>strong,.dn-finding>strong{font-size:.84rem}.dn-aside p,.dn-measure p,.dn-finding p,.dn-foot{font-size:.92rem;line-height:1.65}.dn-foot{color:var(--soft)}.dn-file .dn-sources{display:flex;gap:5px 14px;flex-wrap:wrap;margin-top:10px}.dn-sources a{color:#325651;text-decoration:underline;text-underline-offset:3px;font-size:.79rem}.dn-file a:focus-visible,.dn-file button:focus-visible,.dn-file summary:focus-visible{outline:3px solid #ad7137;outline-offset:2px}
-.dn-switch{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:17px}.dn-switch button{border:1px solid #b8a694;border-radius:1px;background:#f5eddd;color:#3e303c;cursor:pointer;padding:8px 4px;font:650 clamp(.77rem,1.8cqw,.95rem)/1.4 var(--body),sans-serif;min-height:40px}.dn-switch button[aria-pressed=true]{background:#3c3040;color:#ffe2a8;border-color:#3c3040;box-shadow:inset 0 -3px #f3bf72}.dn-entry[hidden]{display:none!important}.dn-evidence{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:center;margin:12px 0}.dn-file figure{background:#252936;border:1px solid #786876;color:#fff6e4;min-width:0}.dn-file figure img{display:block;width:100%;height:auto;cursor:zoom-in}.dn-file .dn-portrait{display:grid;justify-items:center;background:#e0e7ef}.dn-file .dn-portrait img{width:auto;max-width:100%;max-height:210px}.dn-file figcaption{width:100%;background:#302d38;color:#faedd9;font-size:.76rem;line-height:1.45;padding:6px 9px}.dn-finding>strong{color:var(--teal)}.dn-finding p{margin-top:3px;color:#493c43}
-.dn-file .dn-milestones{margin:13px 0 8px;border:1px solid #b9ac95;background:#f2eadb}.dn-milestones li{position:relative;padding:10px 12px;display:grid;gap:2px;align-content:start}.dn-milestones b{color:#44363f;font-size:.96rem}.dn-milestones span,.dn-inputs span,.dn-result span{font-size:.81rem;line-height:1.5;color:#594e55}
-.dn-join{display:grid;grid-template-columns:minmax(0,1.35fr) auto minmax(0,.92fr);align-items:center;gap:7px;margin:12px 0 8px}.dn-inputs>div{padding:7px 12px;background:#f3ebdd;border:1px solid #b9ac95;display:grid}.dn-inputs>div+div{margin-top:6px}.dn-inputs b{font-size:.96rem}.dn-and{color:#624620;font-size:.76rem;font-weight:700;text-align:center}.dn-and:after{content:'→';display:block;font-size:1.3rem;line-height:1}.dn-result{display:grid;place-content:center;background:#dcece3;border:1px solid #6d9989;text-align:center;padding:15px 6px}.dn-result strong{color:#1c544d}.dn-result span{color:#31564c}.dn-ticket-proof{margin-top:10px;background:#f4ede0;padding:7px 11px}.dn-ticket-proof summary{font-size:.85rem;cursor:pointer;color:#4f3c42}.dn-ticket-proof figure{max-width:700px;margin:9px 0}
-.dn-boundary{display:flex;align-items:center;justify-content:center;gap:clamp(12px,5cqw,46px);padding:13px 10px;background:#352f3d;color:#ffedd8}.dn-clock{display:flex;flex-direction:column;text-align:center}.dn-clock b{font:700 clamp(1.35rem,3.7cqw,2rem)/1.2 monospace;letter-spacing:.025em;color:#ffce83}.dn-clock span{font-size:.82rem}.dn-line{color:#f6c47a}.dn-verdicts>div{display:grid;grid-template-columns:110px 1fr;border-bottom:1px solid var(--rule);align-items:start;padding:9px 0;gap:10px}.dn-verdicts dt{color:#744220;font-weight:750;font-size:.88rem}.dn-verdicts>div+div dt{color:var(--teal)}.dn-verdicts dd{font-size:.92rem;color:var(--ink)}.dn-proposal .dn-foot{margin-top:8px;font-size:.8rem}.dn-download{display:flex;align-items:center;justify-content:space-between;gap:5px 14px;flex-wrap:wrap;background:var(--plum);color:#fff1ce!important;text-decoration:underline;text-underline-offset:3px;padding:11px clamp(13px,3cqw,30px);font-weight:700}.dn-download span{font-weight:500;font-size:.8rem}.dn-file img[data-photo-open]{cursor:zoom-in}
-@container(max-width:550px){.dn-opening{grid-template-columns:1fr}.dn-cover-art img{height:128px;object-position:50% 44%;max-height:unset}.dn-opening-copy{padding:14px 16px}.dn-opening-copy h3 br{display:none}.dn-evidence{grid-template-columns:1fr;gap:8px}.dn-evidence figure{max-width:420px}.dn-branch{grid-template-columns:1fr}.dn-kind{flex-direction:row;justify-content:flex-start;align-items:center;gap:7px;padding:4px 8px}.dn-switch{grid-template-columns:1fr 1fr}.dn-nodes li{min-height:48px!important}.dn-verdicts>div{grid-template-columns:1fr;gap:2px}.dn-file .dn-milestones{grid-template-columns:1fr}.dn-milestones li{grid-template-columns:minmax(84px,.7fr) 1.3fr;gap:8px;padding:7px 10px}.dn-milestones li+li{border-top:1px solid #d6c7b0}.dn-milestones li+li:before{display:none}.dn-join{grid-template-columns:1fr}.dn-and:after{content:'↓'}.dn-clock b{font-size:1.23rem}.dn-file .dn-section{padding:15px 13px}}
-</style><style>
-[data-photo-open] { cursor: zoom-in; }
-[data-photo-open]:focus-visible { outline: 3px solid #ecae55; outline-offset: 2px; }
-.photo-badge-host { position: relative; }
-.photo-badge { position: absolute; right: 7px; top: 7px; z-index: 1; width: 25px; height: 25px; display: grid; place-items: center; pointer-events: none; background: rgba(20,25,26,.84); border: 1px solid rgba(255,255,255,.52); border-radius: 50%; color: white; }
-.photo-badge svg { width: 14px; height: 14px; }
-html.photo-view-open { overflow: hidden; }
-#photo-viewer { box-sizing: border-box; position: fixed; inset: 0; margin: 0; width: 100%; height: 100%; height: 100dvh; max-width: none; max-height: none; border: 0; padding: 0; overflow: hidden; scrollbar-gutter: auto; box-shadow: none; color: #f9f8f3; background: #131718; color-scheme: dark; }
-#photo-viewer[open] { display: flex; flex-direction: column; }
-#photo-viewer::backdrop { background: #131718; }
-#photo-viewer .photo-tools { display: flex; align-items: center; justify-content: flex-end; flex: none; gap: 8px; padding: max(8px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 8px 12px; border-bottom: 1px solid #383e3e; }
-#photo-viewer button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 5px 14px; border: 1px solid #747c7d; border-radius: 6px; background: #252b2c; color: #fff; font: 600 14px/1.35 system-ui,sans-serif; cursor: pointer; }
-#photo-viewer button:focus-visible { outline: 3px solid #edbb76; outline-offset: 2px; }
-#photo-viewer .photo-stage { display: flex; flex: 1 1 0; min-height: 0; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y pinch-zoom; }
-#photo-viewer .photo-surface { position: relative; flex: none; margin: auto; overflow: hidden; }
-#photo-viewer .photo-surface img { display: block; position: absolute; inset: 0; max-width: none; max-height: none; width: 100%; height: 100%; margin: 0; border: 0; border-radius: 0; object-fit: contain; }
-#photo-viewer .photo-note { flex: none; box-sizing: border-box; width: 100%; max-height: 20vh; overflow: auto; text-align: center; color: #eee; margin: 0; padding: 9px 16px max(10px,env(safe-area-inset-bottom)); font: 400 14px/1.5 system-ui,sans-serif; }
-@media print { #photo-viewer, .photo-badge { display: none !important; } }
+/* Event reverse-design article. All breakpoints follow the article's own width. */
+.dn-file,.dn-appendix{--dn-ink:#342c37;--dn-soft:#5d5059;--dn-line:#ccbcaa;--dn-paper:#fff9ed;--dn-plum:#382d3b;--dn-green:#1d5e53;container-type:inline-size;min-width:0;max-width:100%;font-family:var(--body),sans-serif;color:var(--dn-ink);line-height:1.58;word-break:keep-all;overflow-wrap:anywhere;text-align:start}
+.dn-file{background:var(--dn-paper);border:1px solid #9e8c7e;box-shadow:3px 3px #4c3948}
+.dn-file *,.dn-appendix *{box-sizing:border-box;min-width:0}
+.dn-file :is(p,h3,h4,ol,dl,dt,dd,figure),.dn-appendix :is(ol,dl,dd){margin:0}
+.dn-file :is(h3,h4){color:var(--dn-ink);font:400 clamp(1.52rem,3.4cqw,2.05rem)/1.32 var(--pxface),var(--body),sans-serif;letter-spacing:-.035em;text-wrap:balance}
+.dn-file h4{font-size:clamp(1.23rem,2.7cqw,1.56rem)}
+.dn-file p,.dn-file li,.dn-file dd,.dn-ledger p{font-size:1rem;line-height:1.6}
+.dn-file a,.dn-appendix a{text-decoration:underline;text-underline-offset:.2em}
+.dn-file :is(a,button,summary):focus-visible{outline:3px solid #c98036;outline-offset:2px}
+.dn-file p.dn-label{font-size:.875rem;line-height:1.45;color:var(--dn-green);font-weight:750;margin:0 0 .3rem}
+.dn-opening{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);background:#2e2c3b}
+.dn-file .dn-cover-art{background:#232833;border:0;display:grid;align-content:center}
+.dn-file .dn-cover-art img{display:block;width:100%;height:auto;object-fit:contain}
+.dn-opening-copy{padding:clamp(18px,3.5cqw,34px);align-self:center}
+.dn-opening-copy h3{font-size:clamp(1.65rem,3.8cqw,2.35rem);color:#fff2d2}
+.dn-opening-copy p.dn-label,.dn-opening-copy a{color:#f9cc8f}
+.dn-opening-copy p:not(.dn-label){color:#fff0e1;margin:.55rem 0 .6rem;max-width:35ch}
+.dn-opening-copy a,.dn-facts,.dn-sources a{font-size:.875rem}
+.dn-facts{padding:.55rem clamp(14px,3.3cqw,30px);background:#eee1cd;color:#4b3b49;display:flex;flex-wrap:wrap;gap:.25rem 1rem;align-items:baseline;justify-content:space-between}
+.dn-facts span{display:flex;gap:.15rem .5rem;flex-wrap:wrap}.dn-facts a{color:#56434e}
+.dn-section{padding:clamp(16px,3.3cqw,32px);border-top:1px solid var(--dn-line)}
+.dn-heading{margin-bottom:.85rem}
+.dn-routes{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:.45rem 0}
+.dn-route{grid-column:1;display:grid;grid-template-columns:minmax(0,1.3fr) 1.4rem minmax(0,1fr);align-items:center;background:#f3eadb;border:1px solid #bba794;padding:.6rem .65rem}
+.dn-route div,.dn-mail,.dn-track li,.dn-input,.dn-result,.dn-verdicts dd{display:grid;align-content:center}
+.dn-route strong,.dn-mail strong,.dn-track b,.dn-verdicts strong,.dn-input b,.dn-result b{font-size:1rem;line-height:1.45}
+.dn-route div span,.dn-mail>span:last-child,.dn-track li span,.dn-join div>span,.dn-verdicts dd span{font-size:.9375rem;line-height:1.5;color:var(--dn-soft)}
+.dn-route>b{padding:.45rem .5rem;font-size:.9375rem;text-align:center;border:1px solid #ad8973;color:#713f24;background:#fcf0de;line-height:1.45}
+.dn-route>b.dn-auto{color:#205c50;background:#e5f0e6;border-color:#95ac99}.dn-arrow{color:#70616b;text-align:center}
+.dn-mail{position:relative;grid-column:2;grid-row:1 / span 2;place-content:center;text-align:center;background:#423746;color:#fff5e0;margin-left:1.5rem;padding:.7rem .5rem;border:1px solid #413240}
+.dn-mail:before{position:absolute;content:'';top:25%;bottom:25%;right:calc(100% + .75rem);width:.75rem;border:solid #86756c;border-width:1px 1px 1px 0}
+.dn-mail:after{position:absolute;content:'';right:100%;width:.74rem;top:50%;border-top:1px solid #86756c}
+.dn-mail>span:last-child{color:#fae4c6}.dn-envelope{font:1.5rem/1.05 sans-serif;color:#f4ca82}
+.dn-file .dn-note{margin:.8rem 0 0;max-width:72ch}
+.dn-file .dn-sources{display:flex;flex-wrap:wrap;gap:.22rem 1rem;margin-top:.5rem}.dn-sources a{color:#305d55}
+.dn-boundary{display:grid;grid-template-columns:auto auto minmax(.5rem,1fr) auto;align-items:center;gap:clamp(8px,2cqw,18px);background:var(--dn-plum);color:#fff2db;padding:.85rem clamp(12px,2.2cqw,22px)}
+.dn-boundary div{display:grid;text-align:center}.dn-boundary time{font:700 clamp(1.2rem,2.8cqw,1.62rem)/1.2 ui-monospace,monospace;color:#ffd18c;white-space:nowrap}.dn-boundary div span,.dn-clock-tag{font-size:.875rem}.dn-clock-line{position:relative;border-top:1px solid #e7bc8b}.dn-clock-line:after{content:'';position:absolute;right:1px;top:-3px;border:solid #e7bc8b;border-width:1px 1px 0 0;width:5px;height:5px;transform:rotate(45deg)}
+.dn-verdicts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid #ad9888;border-top:0}
+.dn-verdicts>div{padding:.7rem .85rem;background:#f4e9da}.dn-verdicts>div+div{border-left:1px solid #ad9888;background:#e6ede2}.dn-verdicts dt{font-weight:750;font-size:.875rem;color:#794521;margin-bottom:.18rem}.dn-verdicts>div+div dt{color:#205b50}.dn-verdicts dd span{margin-top:.15rem}
+.dn-switch{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 0 1rem;gap:.25rem}
+.dn-switch button{border:1px solid #b6a28e;color:#3c303c;background:#f1e8d8;font:650 .95rem/1.45 var(--body),sans-serif;min-height:44px;padding:.4rem .3rem;cursor:pointer;white-space:normal;word-break:keep-all;overflow-wrap:anywhere}
+.dn-switch button[aria-pressed=true]{background:var(--dn-plum);color:#ffe2aa;border-color:var(--dn-plum);box-shadow:inset 0 -3px #eab773}
+.dn-entry[hidden]{display:none!important}.dn-evidence{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(0,1fr);align-items:center;gap:clamp(12px,2.5cqw,25px);margin:.65rem 0}
+.dn-file figure{border:1px solid #7c6a74;background:#262a37;position:relative}
+.dn-file figure img{display:block;height:auto;width:100%;object-fit:contain;cursor:zoom-in}
+.dn-file .dn-portrait{text-align:center;background:#dfe8ed}.dn-file .dn-portrait img{display:block;height:185px;margin:auto}
+.dn-file figcaption{padding:.38rem .6rem;background:#322f39;color:#fff2dd;font-size:.875rem;line-height:1.45;text-align:left}
+.dn-file .dn-track{list-style:none;padding:0 0 0 .4rem;display:grid;gap:0}
+.dn-track li{position:relative;border-left:2px solid #b59f87;padding:.38rem .5rem .45rem 1rem}.dn-track li:before{content:'';width:.55rem;height:.55rem;position:absolute;top:.82rem;left:0;transform:translateX(calc(-50% - 1px));background:#785a55;box-shadow:0 0 0 2px var(--dn-paper)}
+.dn-track li:last-child:before{background:var(--dn-green)}
+.dn-file .dn-question{padding:.55rem .7rem;background:#e8ece0;color:#304b42}.dn-question b{color:var(--dn-green);margin-inline-end:.4rem}
+.dn-join{display:grid;justify-items:stretch;gap:.1rem}.dn-input,.dn-result{border:1px solid #baaa96;padding:.4rem .7rem;background:#f4ecdc}.dn-plus{color:#786556;text-align:center;font:bold .9rem/1.1 sans-serif}.dn-result{margin-top:.2rem;background:#dfebe1;border-color:#87a28d;color:#275748}
+.dn-file .dn-ticket-proof{margin:.65rem 0 0;padding:.4rem .7rem;background:#f2eadb;border:1px solid #d5c6b2}.dn-ticket-proof summary{cursor:pointer;font-size:.94rem;color:#54424b}.dn-ticket-proof figure{margin-top:.5rem}
+.dn-file .dn-download{padding:.75rem clamp(14px,3.3cqw,30px);background:var(--dn-plum);color:#ffedc8;display:flex;justify-content:space-between;gap:.6rem;align-items:center;font-weight:700}
+.dn-appendix .dn-ledger{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}
+.dn-ledger section{min-width:0;padding-top:.7rem;border-top:2px solid #ad9382}
+.dn-ledger .dn-amounts{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:.5rem}
+.dn-amounts div{display:grid;align-content:center;background:#ece2d0;padding:.5rem .65rem;color:var(--dn-ink)}
+.dn-amounts div:last-child{color:#205d50;background:#e1ece0}.dn-amounts b{font-size:1.13rem}
+.dn-amounts i{font-style:normal}
+.dn-appendix .dn-add,.dn-appendix .dn-expiry,.dn-appendix .dn-observe{padding:0;margin:0;list-style:none}
+.dn-add>div,.dn-expiry li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:.5rem;padding:.27rem .55rem;background:#f3ead9;border-bottom:1px solid #d2c0a7}
+.dn-add>div:last-child{background:#e1ece0;font-weight:700}.dn-add dd{text-align:end}
+.dn-observe div+div{margin-top:.55rem}.dn-observe dt{font-weight:700}.dn-expiry span,.dn-observe dd{color:#564850}.dn-appendix .dn-ledger p{font-size:1rem;line-height:1.6;margin:.45rem 0}
+.dn-appendix .dn-ledger h4{font:700 1.1rem/1.45 var(--body),sans-serif;margin:0 0 .65rem;color:var(--dn-ink)}
+@container (max-width:40rem){
+ .dn-opening,.dn-evidence,.dn-appendix .dn-ledger{grid-template-columns:minmax(0,1fr)}
+ .dn-file .dn-cover-art{max-height:170px;overflow:hidden;align-content:center}.dn-file .dn-cover-art img{max-height:170px;object-fit:cover;object-position:50% 40%}
+ .dn-opening-copy{padding:1rem}.dn-evidence figure{width:100%;max-width:32rem}.dn-appendix .dn-ledger{gap:.95rem}
+ .dn-switch{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@container (max-width:29rem){
+ .dn-section{padding:.85rem .75rem}.dn-file .dn-heading h3,.dn-file .dn-opening-copy h3{text-wrap:pretty}
+ .dn-routes{grid-template-columns:minmax(0,1fr);gap:.35rem}
+ .dn-route{grid-template-columns:minmax(0,1.35fr) 1.2rem minmax(0,1fr);padding:.45rem .5rem}
+ .dn-mail{grid-column:1;grid-row:auto;margin:.45rem 0 0;display:flex;align-items:center;justify-content:center;gap:.18rem .5rem;flex-wrap:wrap;padding:.45rem}
+ .dn-mail:before{top:auto;bottom:100%;left:50%;right:auto;width:0;height:.45rem;border:0;border-left:1px solid #86756c}.dn-mail:after{display:none}
+ .dn-envelope{font-size:1.2rem}.dn-boundary{grid-template-columns:auto minmax(0,1fr) auto;gap:.3rem .55rem;padding:.55rem .65rem}
+ .dn-clock-tag{grid-column:1/-1;text-align:center}.dn-verdicts{grid-template-columns:1fr}.dn-verdicts>div+div{border:0;border-top:1px solid #ad9888}
+ .dn-verdicts>div{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:.3rem;padding:.55rem .6rem}
+}
+</style>
+<style id="dnf-simulator-readability">
+.reward-lab.dnr-sim,.dnr-specs{container-type:inline-size;min-width:0;word-break:keep-all;overflow-wrap:anywhere}
+.reward-lab.dnr-sim{position:relative}
+.reward-lab.dnr-sim .read-out{position:absolute;inset:0 0 auto;width:auto;height:auto;margin:0;overflow:hidden;clip-path:inset(50%);pointer-events:none}
+.dnr-sim .lab-heading h3{margin:0;text-wrap:balance;letter-spacing:normal}
+.dnr-sim .lab-premise{min-height:0;margin-block:.8rem;line-height:1.6}
+.dnr-sim .lab-lanes{min-height:0;margin-block-start:.85rem}
+.dnr-sim .lab-lanes [data-lane]{min-width:0}
+.dnr-sim .lab-lanes strong{line-height:1.4}
+.dnr-sim .lab-lanes p{font-size:1rem;line-height:1.6;margin:0}
+.dnr-sim .lab-controls{gap:.65rem}
+.dnr-sim button,.dnr-specs summary{white-space:normal;overflow-wrap:anywhere;word-break:keep-all}
+.dnr-sim .step-keys button,.dnr-sim .scenario-keys button,.dnr-sim [data-advance]{font-size:.94rem;line-height:1.35;min-height:42px}
+.dnr-specs{margin-inline:0}
+.dnr-specs summary{font-weight:700}
+.dnr-specs .design-fold-body>p{font-size:1rem;line-height:1.65}
+.dnr-rules,.dnr-checks,.dnr-checks dl{margin:0;padding:0}
+.dnr-rules>div{display:grid;grid-template-columns:minmax(8.5rem,24%) minmax(0,1fr);gap:.85rem;padding:.7rem 0;border-block-end:1px solid #d6bfb3}
+.dnr-specs dt,.dnr-specs dd{margin:0;min-width:0}
+.dnr-rules dt,.dnr-checks h4{color:#633548;font-weight:700}
+.dnr-rules span,.dnr-checks h4 span{font-family:ui-monospace,monospace;font-size:.9em}
+.dnr-rules dd,.dnr-checks dd{font-size:1rem;line-height:1.6;color:#412d36}
+.dnr-checks{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:.65rem}
+.dnr-checks li{background:#fff8ee;color:#412d36;border:1px solid #d4bdb1;padding:.75rem;min-width:0}
+.dnr-checks h4{margin:0 0 .45rem;font-size:1rem}
+.dnr-checks dl>div{display:grid;grid-template-columns:2.2rem minmax(0,1fr);gap:.35rem;align-items:baseline}
+.dnr-checks dt{font-size:.91rem;color:#704e56}
+.dnr-specs .dnr-threshold{padding:.6rem .8rem;background:#f2e6d6}
+.dnr-metrics dd>p{margin:.15em 0;color:#654951;line-height:1.55}
+@container(max-width:28rem){
+  .dnr-rules>div{grid-template-columns:minmax(0,1fr);gap:.2rem}
+  .dnr-sim .lab-controls [data-advance]{margin-inline-start:0}
+}
+@container(max-width:23.5rem){
+  .dnr-sim .scenario-keys{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dnr-sim .lab-lanes{grid-template-columns:minmax(0,1fr);gap:.65rem}
+  .dnr-sim .lab-lanes>div,.dnr-sim .lab-lanes>div+div{padding:0;border:0}
+  .dnr-sim .lab-lanes>div+div{border-top:1px solid #78546a;padding-top:.65rem}
+}
+</style>
 
-</style></head>
+<style id="korean-mobile-type">
+@media (max-width:650px) {
+ .top nav a {font-size:.875rem; line-height:1.5; min-height:32px; padding:3px 1px}
+ .hero .hero-title .bio {word-break:keep-all; overflow-wrap:break-word; line-height:1.58}
+ .quest-brief .field-more {font-size:.875rem; line-height:1.5; word-break:keep-all; overflow-wrap:break-word}
+}
+@media (max-width:520px) {
+ .top .top-inner {display:grid; grid-template-columns:minmax(0,1fr); justify-items:start; gap:2px; padding:6px 0 2px}
+ .top .logo {font-size:.85rem}
+ .top nav {width:100%; display:flex; justify-content:space-between; gap:4px}
+ .quest-brief {grid-template-columns:minmax(0,1fr)}
+ .quest-brief h2,.quest-brief p,.quest-brief .field-more {grid-area:auto; min-width:0}
+ .quest-brief .field-more {justify-self:start}
+}
+</style>
+</head>
 <body><a class="skip" href="#main-content">본문으로 건너뛰기</a><header class="top" id="home"><div class="wrap top-inner"><a class="logo" href="#home"><span aria-hidden="true">✦</span> SAVE SLOT</a><nav aria-label="주 메뉴"><a href="#about">경력과 도전 과정</a><a href="#game-dev">게임 개발의 이해</a><a href="#projects">프로젝트</a></nav></div></header>
 <main id="main-content" tabindex="-1">
 <section class="hero" aria-label="홍승찬 소개"><div class="wrap field-layout"><div class="hero-title">
   <p class="byline">홍승찬 · 게임 개발 PM 포트폴리오</p>
   <h1><span>모든 걸 도전하는</span> 남자</h1>
-  <p class="bio">2011년 3월 육군 병사로 입대해 상병 때 부사관에 지원했습니다. 특전사 의무부사관으로 전역한 뒤 휴대폰 판매를 시작했고, 부사장이 되어 매장을 운영했습니다. 코로나19로 회사를 그만둔 뒤 건설 현장에 일용직으로 들어갔습니다. 현장 관리자가 된 뒤에는 매달 25일이면 현장과 본사가 같은 공수를 두 번씩 확인하는 걸 봤습니다. 그 일을 줄이려고 사내 시스템 CPMS를 만들었습니다.</p>
+  <p class="bio">2011년 3월 병사로 입대해 상병 때 부사관에 지원했습니다. 특전사 의무부사관으로 전역한 뒤 휴대폰 판매를 시작해 부사장으로 매장을 운영했습니다. 코로나19로 퇴사하고 건설 현장 일용직으로 다시 시작했습니다. 현장 관리자가 된 뒤에는 매달 25일 현장과 본사가 같은 공수를 두 번 맞추는 일을 줄이려고 CPMS를 만들었습니다.</p>
   <a class="field-more" href="#about">경력과 도전 과정</a>
  </div></div></section>
 <nav class="career-road" data-home-only="" aria-label="경력별 기록"><div class="road-grid"><a class="road-stop" href="#career-service" aria-label="특전사 의무부사관 복무 기록 읽기"><span class="career-avatar" aria-hidden="true" data-role="medic"></span><span class="road-label">특전사</span></a><a class="road-stop" href="#career-sales" aria-label="매장 부사장 경력 읽기"><span class="career-avatar" aria-hidden="true" data-role="sales"></span><span class="road-label">매장 부사장</span></a><a class="road-stop" href="#career-field" aria-label="현장 일용직 시절 읽기"><span class="career-avatar" aria-hidden="true" data-role="worker"></span><span class="road-label">현장 일용직</span></a><a class="road-stop" href="#log-cpms" aria-label="현장 관리자와 CPMS 기록 읽기"><span class="career-avatar" aria-hidden="true" data-role="manager"></span><span class="road-label">현장 관리자</span></a><a class="road-stop" href="#case-jjajukka" aria-label="짜주까 우수상 기록 열기"><span class="career-avatar" aria-hidden="true" data-role="award"></span><span class="road-label">해커톤 우수상</span></a></div></nav><section class="home-quest" data-home-only="" aria-labelledby="home-game-title"><div class="wrap quest-layout">
@@ -1158,68 +1265,71 @@ html.photo-view-open { overflow: hidden; }
 
 <article class="story story-dnf zone" id="log-dnf-winter" tabindex="-1" data-world="scroll"><div class="wrap"><header class="story-head"><p class="label">던전앤파이터 · 이벤트 역기획<img class="pixel-icon" alt="" data-sprite="scroll"></p><h2>던전앤파이터 윈터 페스티벌</h2><p class="credits">던전앤파이터 윈터 페스티벌 · 개인 이벤트 역기획 · 2026.11.20 공식 안내 확인</p></header><div class="dn-file">
 <header class="dn-opening">
- <div class="dn-cover-art"><img data-photo="dn-festival" alt="던전앤파이터 공식 2026 윈터 페스티벌 대표 화면"></div>
- <div class="dn-opening-copy"><p class="dn-label">PC 던전앤파이터 · 이벤트 역기획</p><h3>미션은 끝냈는데,<br>보상은 왜 사라질까?</h3><p>모예의 미션 창에서는 같은 플레이어가 두 가지 방식으로 보상을 받습니다. 저는 그 차이가 가장 선명해지는 오전 6시의 우편함부터 살펴봤습니다.</p><a class="dn-plain" href="https://df.nexon.com/pg/winterfestival26?intro=yes" target="_blank" rel="noopener noreferrer">공식 페스티벌 페이지 ↗</a></div>
+ <figure class="dn-cover-art"><img data-photo="dn-festival" alt="던전앤파이터 2026 윈터 페스티벌 공식 대표 화면"></figure>
+ <div class="dn-opening-copy"><p class="dn-label">던전앤파이터 · 이벤트 역기획</p><h3>미션을 끝냈는데, <br>보상은 어디에 있을까?</h3><p>모예의 미션 창에는 두 가지 지급 방식이 있습니다. 차이는 오전 6시에 드러납니다.</p><a href="https://df.nexon.com/pg/winterfestival26?intro=yes" target="_blank" rel="noopener noreferrer">공식 페스티벌 페이지 ↗</a></div>
 </header>
-<div class="dn-facts"><span>분석한 개별 행사 <b>11.12 점검 후 ~ 12.31 점검 전</b></span><a href="https://df.nexon.com/community/news/event/list" target="_blank" rel="noopener noreferrer">대표 배너 표기는 12.18까지 ↗</a></div>
+<div class="dn-facts"><span>네 행사 기간 <b>2026.11.12 점검 후 ~ 12.31 점검 전</b></span><a href="https://df.nexon.com/community/news/event/list" target="_blank" rel="noopener noreferrer">대표 배너는 12.18까지 ↗</a></div>
 <section class="dn-section dn-compare">
- <div class="dn-heading"><p class="dn-label">보상 지급 규칙</p><h3>같은 창에서 우편이 갈리는 순간</h3></div>
- <div class="dn-branches">
-  <div class="dn-branch"><div class="dn-kind"><small>현행</small><b>일일·주간 미션</b></div><ol class="dn-nodes"><li>미션 완료</li><li class="dn-wait">직접 ‘받기’</li><li>캐릭터 우편</li></ol></div>
-  <div class="dn-branch"><div class="dn-kind"><small>현행</small><b>탐험 포인트</b></div><ol class="dn-nodes"><li>각 단계 게이지<br><b>40·80·100%</b></li><li class="dn-auto">즉시 자동 발송</li><li>캐릭터 우편</li></ol></div>
+ <header class="dn-heading"><p class="dn-label">모예 · 현행 규칙</p><h3>우편은 언제 발송될까?</h3></header>
+ <div class="dn-routes" aria-label="미션 보상과 탐험 포인트 보상의 지급 경로">
+  <div class="dn-route"><div><strong>일일·주간 미션</strong><span>미션 완료</span></div><span class="dn-arrow" aria-hidden="true">→</span><b class="dn-manual">직접 ‘받기’</b></div>
+  <div class="dn-route"><div><strong>탐험 포인트</strong><span>각 단계의 40·80·100% 도달</span></div><span class="dn-arrow" aria-hidden="true">→</span><b class="dn-auto">자동 발송</b></div>
+  <div class="dn-mail"><span class="dn-envelope" aria-hidden="true">✉</span><strong>캐릭터 우편함</strong><span>도착 후 15일 보관</span></div>
  </div>
- <div class="dn-aside"><strong>‘받기’를 놓치면</strong><p>일일 미션은 매일 오전 6시, 주간 미션은 목요일 오전 6시에 미수령 보상이 초기화됩니다. 이미 도착한 우편은 15일간 보관되며, 아이템에는 별도 삭제 시각이 적용됩니다.</p></div>
+ <p class="dn-note">일일 미션은 매일 06시, 주간 미션은 목요일 06시에 갱신됩니다. 그때까지 ‘받기’를 누르지 않은 미션 보상은 초기화됩니다.</p>
  <p class="dn-sources"><a href="https://df.nexon.com/pg/expedition" target="_blank" rel="noopener noreferrer">모예 이벤트 유의사항 ↗</a><a href="https://df.nexon.com/customer/faq?cat1=70&amp;cat2=1004" target="_blank" rel="noopener noreferrer">캐릭터 우편 FAQ ↗</a></p>
 </section>
+<section class="dn-section dn-proposal">
+ <header class="dn-heading"><p class="dn-label">개선 제안 · 모예 일일·주간 미션</p><h3>‘받기’ 대신 완료 시각으로</h3></header>
+ <div class="dn-boundary" aria-label="일일 미션 경계 시각 예시"><span class="dn-clock-tag">일일 미션 예시</span><div><time>05:59:59</time><span>미션 완료</span></div><span class="dn-clock-line" aria-hidden="true"></span><div><time>06:00:00</time><span>새 회차 시작</span></div></div>
+ <dl class="dn-verdicts"><div><dt>현행</dt><dd><strong>‘받기’ 전이면 초기화</strong><span>지난 회차의 우편은 오지 않습니다.</span></dd></div><div><dt>제안</dt><dd><strong>완료한 회차로 자동 발송</strong><span>서버에 기록한 완료 시각을 기준으로 삼습니다. 재접속하거나 발송을 재시도해도 우편은 한 통입니다.</span></dd></div></dl>
+ <p class="dn-note">두 방식 모두 아이템은 우편함에서 꺼냅니다. 개선 효과는 완료한 미션 중 기한 안에 꺼낸 비율로 확인합니다.</p>
+</section>
 <section class="dn-section dn-atlas" data-event-guide>
- <div class="dn-heading"><p class="dn-label">공식 화면으로 본 네 행사</p><h3>플레이어의 행동과 보상</h3></div>
- <div class="dn-switch" role="group" aria-label="분석할 이벤트 선택"><button type="button" data-event-pick="0" aria-pressed="true">윈터 부스트 업</button><button type="button" data-event-pick="1" aria-pressed="false">8일간의 여정</button><button type="button" data-event-pick="2" aria-pressed="false">모예의 탐험</button><button type="button" data-event-pick="3" aria-pressed="false">수상한 랜턴</button></div>
+ <header class="dn-heading"><p class="dn-label">이벤트 화면 분석</p><h3>네 행사에서 플레이어가 하는 일</h3></header>
+ <div class="dn-switch" role="group" aria-label="살펴볼 이벤트"><button type="button" data-event-pick="0" aria-pressed="true">윈터 부스트 업</button><button type="button" data-event-pick="1" aria-pressed="false">8일간의 여정</button><button type="button" data-event-pick="2" aria-pressed="false">모예의 탐험</button><button type="button" data-event-pick="3" aria-pressed="false">수상한 랜턴</button></div>
  <div aria-live="polite">
-  <article class="dn-entry" data-event-note="0"><h4>만렙을 받아도 장비는 직접 다뤄야 한다</h4>
-   <div class="dn-evidence"><figure><img data-photo="dn-boost" alt="공식 트레이닝 시뮬레이션의 8단계 진행 표시와 장비 마법 부여 안내"><figcaption>윈터 부스트 업 공식 안내 · 트레이닝 시뮬레이션</figcaption></figure>
-   <div class="dn-finding"><strong>제가 본 설계 의도</strong><p>레벨을 올리는 시간은 줄이고, 무기에 보주를 쓰고 상의를 무기고에 넣는 조작은 남겼습니다. 지급 이후에도 혼자 장비를 다룰 수 있는지 보려면 훈련을 끝낸 캐릭터의 첫 던전 입장까지 봐야 합니다.</p></div></div>
-   <ol class="dn-milestones"><li><b>캡슐로 지정</b><span>역대 최고 명성 104,292 미만</span></li><li><b>트레이닝 진입</b><span>115레벨 미만은 즉시 115레벨</span></li><li><b>8단계 실습</b><span>4단계 마법 부여 · 6단계 무기고 등록</span></li></ol>
-   <p class="dn-sources"><a href="https://df.nexon.com/pg/winterboostup" target="_blank" rel="noopener noreferrer">윈터 부스트 업 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=847" target="_blank" rel="noopener noreferrer">단계별 보상표 ↗</a></p>
+  <article class="dn-entry" data-event-note="0">
+   <h4>장비를 받고, 쓰는 법을 익힌다</h4>
+   <div class="dn-evidence"><figure><img data-photo="dn-boost" alt="공식 트레이닝 시뮬레이션에서 4단계 무기 마법 부여를 안내하는 화면"><figcaption>트레이닝 4단계 · 무기 마법 부여</figcaption></figure>
+    <ol class="dn-track"><li><b>캐릭터 지정</b><span>역대 최고 명성 104,292 미만</span></li><li><b>트레이닝 진입</b><span>115레벨 미만이면 즉시 115레벨</span></li><li><b>8단계 실습</b><span>4단계 마법 부여 · 6단계 무기고 등록</span></li></ol></div>
+   <p class="dn-question"><b>확인할 점</b> 훈련을 마친 캐릭터가 첫 던전에 들어가는가?</p>
+   <p class="dn-sources"><a href="https://df.nexon.com/pg/winterboostup" target="_blank" rel="noopener noreferrer">공식 이벤트 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=847" target="_blank" rel="noopener noreferrer">단계별 보상표 ↗</a></p>
   </article>
-  <article class="dn-entry" data-event-note="1" hidden><h4>무기를 받은 다음 날에도 돌아올까?</h4>
-   <div class="dn-evidence"><figure><img data-photo="dn-attend" alt="겨울맞이 8일간의 여정 공식 보상 카드에서 7일차 무기와 8일차 서약 결정을 나란히 표시한 부분"><figcaption>겨울맞이 8일간의 여정 · 누적 7일차와 8일차</figcaption></figure>
-   <div class="dn-finding"><strong>제가 본 설계 의도</strong><p>7일 차 무기 뒤에 하루를 더 출석해야 받을 수 있는 보상이 있습니다. 7일을 채운 계정 중 하루 더 참여할 기회가 남은 계정만 골라야 마지막 날 복귀를 비교할 수 있습니다.</p></div></div>
-   <ol class="dn-milestones"><li><b>세리아방 입장</b><span>계정 누적 출석 · 매일 06시 기준</span></li><li><b>누적 7일</b><span>태초 레거시 무기 선택 상자</span></li><li><b>누적 8일</b><span>태초 서약 결정 선택 상자</span></li></ol>
-   <p class="dn-foot">중간에 하루 빠져도 누적 일수는 유지됩니다. 보상은 이벤트 창에서 ‘받기’를 누른 뒤 우편에서 꺼냅니다.</p>
-   <p class="dn-sources"><a href="https://df.nexon.com/pg/eightgift" target="_blank" rel="noopener noreferrer">겨울맞이 8일간의 여정 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=852" target="_blank" rel="noopener noreferrer">일차별 아이템 설명 ↗</a></p>
+  <article class="dn-entry" data-event-note="1" hidden>
+   <h4>무기를 받은 다음 날, 보상이 하나 더 있다</h4>
+   <div class="dn-evidence"><figure><img data-photo="dn-attend" alt="출석 7일 차 무기와 8일 차 서약 결정이 나란히 표시된 공식 보상표"><figcaption>누적 출석 7일 차와 8일 차 보상</figcaption></figure>
+    <ol class="dn-track"><li><b>세리아방 입장</b><span>계정당 하루 한 번 · 빠진 날이 있어도 누적</span></li><li><b>7일 차 · 무기</b><span>태초 레거시 무기 선택 상자</span></li><li><b>8일 차 · 서약 결정</b><span>태초 서약 결정 선택 상자</span></li></ol></div>
+   <p class="dn-question"><b>확인할 점</b> 7일 차 참여자 중 하루 더 출석할 기회가 있었던 사람은 얼마나 돌아왔을까?</p>
+   <p class="dn-sources"><a href="https://df.nexon.com/pg/eightgift" target="_blank" rel="noopener noreferrer">공식 이벤트 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=852" target="_blank" rel="noopener noreferrer">일차별 보상표 ↗</a></p>
   </article>
-  <article class="dn-entry" data-event-note="2" hidden><h4>미션을 끝낸 시각과 우편을 받은 시각</h4>
-   <div class="dn-evidence"><figure class="dn-portrait"><img data-photo="dn-moye" alt="모예의 일상 탐험 공식 화면의 일일 미션과 주간 미션 목록"><figcaption>모예와 함께 아라드 탐험! · 일상 탐험 미션 창</figcaption></figure>
-   <div class="dn-finding"><strong>제가 발견한 문제</strong><p>일일 미션을 오전 5시 59분 59초에 끝내도, ‘받기’를 누르기 전에 6시가 되면 그 회차 보상이 초기화됩니다. 완료 건수만 봐서는 이 사람이 계시를 받았는지 알 수 없습니다.</p></div></div>
-   <ol class="dn-milestones"><li><b>일일 미션 예시</b><span>던파 일일 미션 클리어</span></li><li><b>미션 창에서 받기</b><span>해당 회차 06시 초기화 전</span></li><li><b>우편에서 꺼내기</b><span>[Event]종말의 계시 250개</span></li></ol>
-   <p class="dn-sources"><a href="https://df.nexon.com/pg/expedition" target="_blank" rel="noopener noreferrer">모예 미션 안내 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=841" target="_blank" rel="noopener noreferrer">일일·주간 보상표 ↗</a></p>
+  <article class="dn-entry" data-event-note="2" hidden>
+   <h4>일일 미션을 끝내고 계시 250개를 꺼낸다</h4>
+   <div class="dn-evidence"><figure class="dn-portrait"><img data-photo="dn-moye" alt="모예의 일상 탐험에서 일일·주간 미션의 진행과 보상을 확인하는 창"><figcaption>모예와 함께 아라드 탐험! · 일상 탐험</figcaption></figure>
+    <ol class="dn-track"><li><b>‘던파 일일 미션 클리어’ 달성</b></li><li><b>미션 창에서 ‘받기’</b><span>해당 회차 06시 초기화 전</span></li><li><b>캐릭터 우편함에서 수령</b><span>[Event]종말의 계시 250개</span></li></ol></div>
+   <p class="dn-question"><b>확인할 점</b> 미션을 완료한 사람은 어디에서 수령을 놓치는가?</p>
+   <p class="dn-sources"><a href="https://df.nexon.com/pg/expedition" target="_blank" rel="noopener noreferrer">공식 이벤트 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=841" target="_blank" rel="noopener noreferrer">일일·주간 보상표 ↗</a></p>
   </article>
-  <article class="dn-entry" data-event-note="3" hidden><h4>티켓 100장이 한 판이 되는 조건</h4>
-   <div class="dn-evidence"><figure><img data-photo="dn-lantern" alt="르이르 공식 이벤트에서 NPC 대화, 몬스터 소울 배치, 던전 전투로 이어지는 참여 방법"><figcaption>르이르와 수상한 랜턴 · 랜턴그리드 던전 참여 방법</figcaption></figure>
-   <div class="dn-finding"><strong>제가 본 설계 의도</strong><p>모예의 주간 보상은 다음 행사의 입장료가 됩니다. 티켓을 받았는데 입장하지 않은 계정을 볼 때는 제단 배치를 마쳤는지도 함께 봐야 합니다.</p></div></div>
-   <div class="dn-join" aria-label="티켓과 제단 배치를 모두 갖추면 입장 가능"><div class="dn-inputs"><div><b>티켓 100개</b><span>모예 주간 조율자 20회 클리어 후 ‘받기’</span></div><div><b>열린 제단 슬롯 모두 배치</b><span>슬롯마다 몬스터 소울 1개</span></div></div><span class="dn-and">둘 다 충족</span><div class="dn-result"><strong>랜턴그리드 1회</strong><span>티켓 100개 소모<br>피로도 소모 없음</span></div></div>
-   <p class="dn-foot">배치한 소울은 입장 뒤에도 남습니다. 소울은 합성할 때 소모됩니다.</p>
-   <details class="dn-ticket-proof"><summary>모예 주간 보상표의 티켓 100개 확인</summary><figure><img data-photo="dn-ticket" alt="모예 공식 보상표의 랜턴그리드 던전 티켓 100개와 최후의 조율자 20회 클리어 조건"><figcaption>모예 주간 미션 보상표 · 티켓은 12월 31일 06시 일괄 삭제</figcaption></figure></details>
-   <p class="dn-sources"><a href="https://df.nexon.com/pg/leuirmysteriouslantern" target="_blank" rel="noopener noreferrer">랜턴그리드 입장 규칙 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=841" target="_blank" rel="noopener noreferrer">모예 주간 보상표 ↗</a></p>
+  <article class="dn-entry" data-event-note="3" hidden>
+   <h4>티켓 100장이 있어도 제단을 채워야 한다</h4>
+   <div class="dn-evidence"><figure><img data-photo="dn-lantern" alt="공식 르이르 이벤트의 제단 소울 배치 및 랜턴그리드 던전 참여 안내"><figcaption>르이르와 수상한 랜턴 · 던전 입장 조건</figcaption></figure>
+    <div class="dn-join" aria-label="두 입장 조건을 모두 충족해야 합니다"><div class="dn-input"><b>티켓 100개</b><span>모예 주간 ‘최후의 조율자’ 20회 클리어 후 ‘받기’</span></div><span class="dn-plus" aria-hidden="true">＋</span><div class="dn-input"><b>제단 슬롯 모두 채우기</b><span>열린 슬롯마다 몬스터 소울 1개</span></div><div class="dn-result"><b>↓ 랜턴그리드 1회 입장</b><span>티켓 100개 소모 · 피로도 소모 없음</span></div></div></div>
+   <p class="dn-question"><b>확인할 점</b> 티켓을 받은 뒤 입장하지 않은 계정은 제단 배치를 마쳤는가?</p>
+   <details class="dn-ticket-proof"><summary>티켓 지급 조건 원문 보기</summary><figure><img data-photo="dn-ticket" alt="모예 주간 조율자 20회 클리어 보상으로 랜턴그리드 던전 티켓 100개를 명시한 공식 보상표"><figcaption>티켓 삭제 시각 · 12월 31일 06시</figcaption></figure></details>
+   <p class="dn-sources"><a href="https://df.nexon.com/pg/leuirmysteriouslantern" target="_blank" rel="noopener noreferrer">공식 이벤트 ↗</a><a href="https://df.nexon.com/POP/common/event/event_reward_item.php?id=841" target="_blank" rel="noopener noreferrer">모예 주간 보상표 ↗</a></p>
   </article>
  </div>
 </section>
-<section class="dn-section dn-proposal">
- <div class="dn-heading"><p class="dn-label">개선 제안 · 모예 일일·주간 미션</p><h3>완료한 회차의 보상은 우편으로</h3><p>제가 바꾸려는 부분은 미션 완료와 우편 발송 사이의 ‘받기’ 한 단계입니다. 우편함에서 아이템을 꺼내는 절차는 유지합니다.</p></div>
- <div class="dn-boundary"><div class="dn-clock"><b>05:59:59</b><span>일일 미션 완료</span></div><span class="dn-line" aria-hidden="true">→</span><div class="dn-clock"><b>06:00:00</b><span>새 회차 시작</span></div></div>
- <dl class="dn-verdicts"><div><dt>현행 규칙</dt><dd>‘받기’ 전이면 이전 회차 보상이 초기화됩니다.</dd></div><div><dt>제안의 기대 동작</dt><dd>서버가 기록한 완료 시각으로 이전 회차를 정하고, 발송이 늦거나 재접속해도 우편 한 통만 보냅니다.</dd></div></dl>
- <div class="dn-measure"><strong>효과를 판단할 기준</strong><p>비교할 값은 <b>기한 안에 우편에서 꺼낸 완료 건 ÷ 전체 미션 완료 건</b>입니다. 발송이 빨라지면 15일 보관 기한도 먼저 끝날 수 있습니다. 비교 가능한 회차의 우편 만료와 아이템 삭제를 함께 확인한 뒤 효과를 판단합니다.</p></div>
- <p class="dn-foot">위 시각은 경계 조건을 검토하기 위한 예시입니다. 수신 캐릭터 선택과 포인트 적립 시점은 운영 정책 확인 항목입니다.</p>
-</section>
-<a class="dn-download" data-dnf-pdf download="DNF_Winter_2026.pdf">역기획서 PDF 내려받기 <span>본문 28쪽 · 공식 화면 및 도식 4쪽</span></a>
-</div><details class="reader-fold"><summary>보상 수령 시뮬레이션</summary><section class="reward-lab" data-reward-lab data-scenario="boundary" data-step="1" aria-label="모예 미션 보상 시뮬레이션" id="dnf-reward">
- <header class="lab-heading"><div><p class="lab-overline">모예 일일·주간 미션</p><h3>완료한 미션의 보상을 따라가 보기</h3></div><span class="lab-emblem" aria-hidden="true"><i></i></span></header>
- <div class="scenario-keys" role="group" aria-label="검토할 상황"><button data-scenario-pick="boundary">06시 초기화</button><button data-scenario-pick="normal">일반 수령</button><button data-scenario-pick="retry">지연·재접속</button><button data-scenario-pick="character">캐릭터 전환</button></div>
- <p class="lab-premise" data-premise></p>
- <div class="lab-display"><div class="lab-time"><small>현재 장면</small><b data-clock>06:00:00</b></div><div class="lab-lanes"><div data-lane><small></small><strong></strong><p></p></div><div data-lane><small></small><strong></strong><p></p></div></div></div>
- <div class="lab-controls"><div class="step-keys" role="group" aria-label="장면 선택"><button data-step-pick="0">조건 달성</button><button data-step-pick="1">회차 초기화</button><button data-step-pick="2">발송 결과 확인</button></div><button type="button" data-advance>발송 결과 확인</button></div>
- <p data-result-live class="read-out" aria-live="polite" aria-atomic="true"></p>
-</section></details><p class="case-summary">자동 우편도 열지 않으면 만료됩니다. 더 일찍 보내면 기한도 일찍 끝납니다. 그래서 제안의 효과는 보낸 통수가 아니라, 완료한 미션 가운데 우편 만료나 아이템 삭제 전에 실제로 꺼낸 비율로 확인하려고 합니다.</p><div class="specs-actions"><a href="#case-dnf-winter/rules">지급 규칙 8개 보기</a><a href="#case-dnf-winter/tests">테스트 계획 8건 보기</a><a href="#case-dnf-winter/metrics">효과 측정 방법</a></div><details class="reader-fold"><summary>장비를 받은 뒤, 실제로 던전에 들어가기까지</summary><section class="xdoc" aria-label="윈터 페스티벌 성장 구조와 보상 분석" data-module="event"><header><h3>장비를 받은 뒤, 실제로 던전에 들어가기까지</h3><p>PC 던전앤파이터를 처음 시작하는 유저 한 명을 기준으로 장비 지정, 출석, 미션 보상, 던전 입장을 이어 봤습니다. 부스트 업은 지정 캐릭터가 기준이고, 출석·모예·랜턴은 계정이 기준입니다. 2026년 11월 20일 공식 행사 안내와 보상표를 대조했습니다. 아래 재료 수량은 공개된 지급량으로 계산했습니다.</p></header><a class="xpdf" data-dnf-pdf="" download="DNF_Winter_2026.pdf">전체 역기획서 PDF 내려받기 · 본문 28쪽과 도식 별첨 4쪽</a><details open=""><summary>행사 기간·계정 한도와 보관 기한</summary><div class="xdoc-body"><div class="xdoc-table"><table><thead><tr><th scope="col">구분</th><th scope="col">참여와 마감</th></tr></thead><tbody><tr><th scope="row">표시 기간</th><td>행사 목록의 2026 WINTER FESTIVAL 표시는 11월 12일~12월 18일, 분석한 네 이벤트는 11월 12일~12월 31일입니다.</td></tr><tr><th scope="row">부스트 업</th><td>캡슐로 지정하며 전체 전직용 1명과 버퍼용 1명입니다. 트레이닝 보상은 인벤토리에 바로 지급합니다. 공간이 부족해 우편으로 받으면 12월 31일 점검 전까지 보관합니다. 챌린지·가이드는 ‘받기’ 후 우편으로 지급하며 보관 기간은 15일입니다.</td></tr><tr><th scope="row">8일 여정</th><td>세리아방 입장으로 계정당 하루 한 번 출석합니다. 06시가 기준이고 중간에 빠져도 누적합니다. ‘받기’로 받은 우편은 15일간 보관합니다.</td></tr><tr><th scope="row">모예</th><td>기초 미션은 미션별로 행사 중 계정당 한 번입니다. 일일은 매일 06시, 주간은 목요일 06시에 바뀝니다. 미션 보상과 단계 보상의 지급 방식이 다릅니다.</td></tr><tr><th scope="row">랜턴</th><td>일일·주간은 각각 매일 06시·목요일 06시 기준입니다. 누적 미션은 행사 중 초기화하지 않습니다. 우편 보관 15일과 아이템별 사용 기한을 각각 적용합니다.</td></tr></tbody></table></div><p>‘115레벨 달성 상자(부스트 업 전용)’를 예로 들면 우편에 두는 기한은 15일, 상자 사용 기한은 트레이닝 완료 후 30일입니다. 안에 든 종말의 계시 700개에는 기간 제한이 없습니다. 상자 보관과 개봉한 구성품의 기한을 한 날짜로 묶지 않았습니다.</p></div></details><details><summary>지정 캐릭터 한 명이 처음 배우는 것</summary><div class="xdoc-body"><p>윈터 부스트 업의 지정 기준은 캐릭터의 <strong>역대 최고 명성 104,292 미만</strong>입니다. 전체 전직용 한 자리와 버퍼용 한 자리가 있고, 행사 중에는 지정을 바꾸거나 지정 캐릭터를 삭제할 수 없습니다. 115레벨 미만 캐릭터는 트레이닝에 입장하면 바로 115레벨이 됩니다.</p><figure><img loading="lazy" decoding="async" width="1024" height="491" alt="무기 마법 부여 과제와 상단 단계별 보상이 보이는 트레이닝 화면" data-photo="event-0"><figcaption>트레이닝 4단계. 상단은 현재 단계와 보상, 오른쪽 가이드는 지금 할 무기 마법 부여를 안내합니다.</figcaption></figure><div class="xdoc-table"><table><thead><tr><th scope="col">단계</th><th scope="col">플레이어가 하는 일</th><th scope="col">받거나 직접 쓰는 것</th></tr></thead><tbody><tr><th scope="row">1</th><td>트레이닝 준비</td><td>전설 속의 전승 무기와 유니크 장비 11부위. 딜러 무기는 12강화·8재련, 버퍼 무기는 8재련입니다.</td></tr><tr><th scope="row">2</th><td>전투 시뮬레이션 I</td><td>교환할 수 없는 크리쳐·칭호·오라 각 1종</td></tr><tr><th scope="row">3</th><td>전투 시뮬레이션 II</td><td>부스트 업 회복 포션 250개, 투신의 함성 포션 [이벤트] 30개, 특제 속성 강화 포션 10개</td></tr><tr><th scope="row">4</th><td>마법 부여</td><td>부스트 업 무기 스페셜 보주를 무기에 씁니다. 딜러는 모든 속성 강화 +15, 버퍼는 힘·지능·체력·정신력 +100입니다.</td></tr><tr><th scope="row">5</th><td>전투 시뮬레이션 III</td><td>레어 아티팩트 3종. 딜러는 속성을 선택합니다.</td></tr><tr><th scope="row">6</th><td>무기고 등록</td><td>딜러는 용의 불을 뿜는 갑주, 버퍼는 때 묻지 않은 정화 상의로 등록을 익힙니다.</td></tr><tr><th scope="row">7</th><td>전투 시뮬레이션 IV</td><td>코인 20개, 데릴라의 수리 쿠폰(전부위) 5개, 마스터 계약 패키지 7일</td></tr><tr><th scope="row">8</th><td>세리아방 체험</td><td>[Event]종말의 계시 1,000개, 무색 큐브 조각 1,000개, 부스트 업 장비 지원 상자 Ⅲ</td></tr></tbody></table></div><h4>장비를 받은 다음</h4><p>최후의 조율자 입장은 115레벨과 명성 13,632부터입니다. 처음 들어갈 때는 계시와 피로도도 갖춰야 합니다. 레벨업은 건너뛰어도 트레이닝에서 마법 부여와 무기고 등록을 직접 하게 한 점을 눈여겨봤습니다. 안내가 사라진 뒤에도 같은 캐릭터가 두 조작을 하고 첫 던전에 들어가는지가 제가 확인하고 싶은 지점입니다.</p><p><strong>검사할 경계</strong>　장비 인벤토리 여유가 23칸 미만이면 준비를 생략하고 1단계 보상을 인벤토리에 즉시 지급합니다. 22칸과 23칸에서 이 차이를 확인하고, 일반 트레이닝 보상의 공간 부족 우편 처리와 혼동되지 않는지, 미완료 미션이 남아 있을 때와 전부 마친 뒤 이동 제한이 달라지는지도 확인 대상으로 잡았습니다.</p></div></details><details><summary>누적 8일 동안 무엇을 받고, 언제 다시 오는가</summary><div class="xdoc-body"><p>세리아방에 들어가면 계정당 하루 한 번 출석이 쌓입니다. 중간에 하루 빠져도 누적 일수는 유지됩니다. 오전 5시 59분과 6시 이후에 각각 입장하면 같은 날짜여도 다른 출석일입니다. 출석을 채운 날의 보상은 이벤트 창에서 ‘받기’를 눌러 우편으로 보냅니다.</p><figure><img loading="lazy" decoding="async" width="1024" height="862" alt="겨울맞이 8일간의 여정에서 일차별 아이템과 지원 상자를 함께 보여주는 보상 화면" data-photo="event-1"><figcaption>일차별 보상. 일곱 번째에 무기, 마지막에 서약 결정이 배치되어 있습니다.</figcaption></figure><div class="xdoc-table"><table><thead><tr><th scope="col">누적 출석</th><th scope="col">주요 지급 아이템</th><th scope="col">개봉·사용 결과</th></tr></thead><tbody><tr><th scope="row">1일</th><td>[Event]115레벨 세트 에픽 장비 풀세트 상자</td><td>선택한 에픽 장비 풀세트와 변환서 11장</td></tr><tr><th scope="row">2일</th><td>[Event]태초 악세서리 선택 상자</td><td>세트·부위를 고른 악세서리, 변환서와 프라임 스텔라 1개 상자</td></tr><tr><th scope="row">3일</th><td>[Event]에픽 계시의 서</td><td>에픽 빛의 서약 12종 중 1종. 모두 보유하면 따스한 안개의 기억</td></tr><tr><th scope="row">4일</th><td>피로도 156 회복의 비약</td><td>사용 캐릭터 피로도 156 회복</td></tr><tr><th scope="row">5일</th><td>[Event]에픽 서약 결정 선택 상자</td><td>에픽 서약 결정 1종</td></tr><tr><th scope="row">6일</th><td>순수한 황금 증폭서 [이벤트] 3개</td><td>차원의 능력 선택 후 +3~+6 중 확률로 증폭. 기존 강화 수치는 사라집니다.</td></tr><tr><th scope="row">7일</th><td>[Event]태초 레거시 무기 선택 상자</td><td>선택한 무기 타입의 태초 레거시 무기 상자</td></tr><tr><th scope="row">8일</th><td>[Event]태초 서약 결정 선택 상자</td><td>선택 세트의 태초 서약 결정과 변환서, 태초 서약 결정 조각 100개 상자, 미광의 소울 100개</td></tr></tbody></table></div><p>일차별 보상과 별개로 매일 받는 지원 상자에는 계시 1,500개와 [Event]응축된 안개의 기억(겨울맞이 8일간의 여정) 1개가 들어 있습니다. 여덟 상자를 전부 열면 계시 12,000개, 기억을 전부 쓰면 안개 서약 경험치 240만입니다.</p><h4>7일·8일·14일을 나란히 놓아 보니</h4><p>매일 접속한다고 가정하면 7일은 한 주 안에 끝나고, 8일은 무기를 받은 다음 하루를 더 출석해야 마지막 서약 결정을 받습니다. 14일로 늘리면 같은 마지막 보상까지 현재보다 6일이 더 필요합니다. 왜 정확히 8일을 택했는지는 공개된 규칙에서 확인되지 않습니다. 7일을 채운 계정 가운데 행사 종료 전 출석 기회가 남은 계정만 골라 8일 차 복귀를 세고, 상자를 받은 뒤에도 던전을 돌았는지 따로 보겠습니다.</p></div></details><details><summary>계시 12,000개는 던전 몇 회분인가</summary><div class="xdoc-body"><p>최후의 조율자 기본 입장에는 [Event]종말의 계시 49개와 피로도 8이 듭니다. 출석 지원 상자를 전부 열었을 때의 지급량을 <strong>기본 입장료</strong>로 환산했습니다.</p><div class="xdoc-table"><table><thead><tr><th scope="col">지급·조건</th><th scope="col">계산</th><th scope="col">뜻</th></tr></thead><tbody><tr><th scope="row">출석 상자 1개</th><td>1,500 = 49 × 30 + 30</td><td>기본 입장료 30회분과 계시 30개</td></tr><tr><th scope="row">출석 상자 8개</th><td>12,000 = 49 × 244 + 44</td><td>8일간 남은 몫을 합치면 244회분과 44개</td></tr><tr><th scope="row">조율자 10회 클리어</th><td>1,000 − 49 × 10 = 510</td><td>10회 모두 기본 입장료를 냈다는 가정에서 계시 510개가 더 남습니다.</td></tr><tr><th scope="row">가이드 장비·서약 목표 각각</th><td>[Event]영롱한 조율의 추 3개 + 계시 750개</td><td>조율의 경계 에픽 모드 1회의 기본 입장 재료와 같습니다.</td></tr></tbody></table></div><p>244회는 실제 플레이 횟수가 아닙니다. 피로도는 따로 들고, 반복 클리어로 주어지는 보너스 입장에는 계시가 들지 않습니다. 상자 세 개를 받아 둘만 열었다면 실제 획득량은 4,500개가 아니라 3,000개입니다.</p><h4>어느 보상이 어느 캐릭터 몫인가</h4><p>부스트 업 지정 캐릭터 한 명이 목표를 모두 마쳤을 때, 트레이닝 8단계 1,000개와 챌린지 다섯 목표 5,000개, 가이드 2,000개를 합하면 계시 8,000개입니다. 가이드의 계시 750개 두 묶음은 이 8,000개에 이미 들어 있습니다. 별도 완료 선물의 계시 300개는 공식 보상표에 ‘종말의 숭배자’ 입장용으로 표시되어 있습니다. 캡슐로 115레벨을 달성한 캐릭터의 별도 상자 700개도 위 합계와 구분했습니다.</p><p>세 가지 명성 목표는 71,179·73,993·104,292입니다. 목표를 달성할 때마다 계시 1,000개를 받습니다. 이벤트로 세트와 무기를 갖춰도 추가 강화·증폭, 세팅과 공략 숙련은 남습니다. 레이드의 클리어 인정 범위와 이벤트 버프가 적용되는 모드도 따로 봐야 합니다. 미카엘라는 싱글·매칭·일반·하드 클리어를 인정하지만 해당 이벤트 버프는 싱글·매칭에 적용됩니다.</p></div></details><details><summary>모예의 주간 보상에서 랜턴 제단으로</summary><div class="xdoc-body"><figure><img loading="lazy" decoding="async" width="378" height="270" alt="모예와 함께 아라드 탐험의 일일·주간 미션 창" data-photo="event-2"><figcaption>모예 일상 탐험. 일일 미션은 왼쪽, 주간 미션은 오른쪽에 있고 미션마다 진행 횟수와 보상이 따로 보입니다.</figcaption></figure><p>모예에서 최후의 조율자를 주간 20회 클리어하고 ‘받기’를 누르면 랜턴그리드 던전 티켓 100개가 옵니다. 계정 기준으로 받은 그 수량이 랜턴 1회 입장분입니다. 먼저 열린 제단 슬롯마다 소울 하나씩을 놓아야 합니다.</p><div class="xdoc-gallery"><figure><img loading="lazy" decoding="async" width="285" height="195" alt="제단에 몬스터 소울을 배치한 게임 화면" data-photo="event-3"><figcaption>제단 하나에 소울 하나를 놓습니다.</figcaption></figure><figure><img loading="lazy" decoding="async" width="285" height="195" alt="소울 목록 아래 기대 보상과 배율이 표시된 게임 화면" data-photo="event-4"><figcaption>배치한 소울의 종류·등급에 따라 기대 보상이 달라집니다.</figcaption></figure><figure><img loading="lazy" decoding="async" width="285" height="195" alt="세트 우선과 배율 우선 배치 선택 화면" data-photo="event-5"><figcaption>원하는 세트 또는 배율을 우선하도록 정합니다.</figcaption></figure></div><p>입장에는 피로도가 들지 않습니다. 소울은 합성할 때만 소모되고, 합성 뒤 남는 소울이 열린 제단보다 적어지면 합성할 수 없습니다. 레전더리 코어가 보장하는 것은 레전더리 이상, 에픽 코어가 보장하는 것은 에픽 이상입니다. 원하는 특정 부위를 몇 판 안에 얻을지는 이 규칙으로 계산할 수 없습니다.</p><p>일반 히든 상점의 티켓 20개 상자는 주 5회까지 살 수 있습니다. 고급 히든 상점의 5개 상자에는 주간 제한이 없습니다. 두 상점 모두 확률로 등장하고 등장할 때 품목별 1개만 살 수 있어서, 주간 구매 한도를 곧바로 주간 획득량으로 잡지 않았습니다.</p></div></details><details><summary>계정귀속 재료가 시장에 닿는 경로</summary><div class="xdoc-body"><p>출석 상자는 계정 안에서 옮길 수 있지만 얻은 장비에는 거래·해체 제한이 있습니다. 첫날 에픽 세트는 해체 재료가 나오지 않고, 둘째 날 태초 악세서리를 해체해도 프라임 스텔라와 큐브 조각을 얻을 수 없습니다. 변환서를 사용해 다시 열어도 변환서와 프라임 스텔라는 추가 지급되지 않습니다.</p><p>계시를 받고 평소와 같은 던전을 돌았다면 원래 쓰던 입장 재료를 아낀 셈입니다. 한 판을 더 돌았다면 거래 가능한 전리품의 공급도 달라질 수 있습니다. 예를 들어 최후의 조율자에서 확률로 열리는 조율의 균열에서는 광휘의 소울 결정을 일정 확률로 얻습니다. 이 결정은 한 번 거래한 뒤 계정귀속이 됩니다.</p><div class="xdoc-table"><table><thead><tr><th scope="col">구분하고 싶은 변화</th><th scope="col">비교할 기록</th></tr></thead><tbody><tr><th scope="row">평소 입장료 대체</th><td>총 입장 수, 이벤트 계시 소비량, 계시 교환에 쓴 광휘의 소울 결정 수</td></tr><tr><th scope="row">추가 플레이와 공급</th><td>계정당 추가 입장과 거래 가능 드롭 수량, 거래소 가격·거래량</td></tr><tr><th scope="row">골드 소비</th><td>쿠폰 사용 횟수와 별도로, 수리와 강화 등에 실제로 쓴 골드</td></tr></tbody></table></div><p>같은 재료가 인벤토리에서 합쳐지면 출석 상자에서 얻은 몫만 떼어 추적하기 어렵습니다. 출처 기록이 없다면 수동 수령 집단과 자동 발송 집단의 전체 재료 소비량부터 비교합니다. 두 집단은 같은 거래소를 쓰므로 시장 가격은 별도의 관찰값으로 둡니다.</p></div></details><details><summary>네 가지 설계 의도를 확인하는 방법</summary><div class="xdoc-body"><div class="xdoc-table"><table><thead><tr><th scope="col">설계 질문</th><th scope="col">누구를 기준으로 무엇을 볼지</th></tr></thead><tbody><tr><th scope="row">만렙을 받은 뒤 스스로 첫 전투에 들어가나</th><td>트레이닝 진입 캐릭터 중 완료 비율, 완료한 지정 캐릭터 중 최후의 조율자에 입장한 비율을 차례로 봅니다. 시작 명성과 기존 115레벨 여부를 나눕니다.</td></tr><tr><th scope="row">마지막 출석이 실제 플레이로 이어지나</th><td>해당 일차 보상을 받을 수 있는 계정 중 수령 비율과 수령 후 콘텐츠 참여율을 봅니다. 7일→8일 복귀는 8일 차 출석 기회가 남은 계정만 계산합니다.</td></tr><tr><th scope="row">재료를 받아 다음 성장 목표를 달성하나</th><td>지급·수령·소비·만료량을 각각 세고 수령 집단 중 다음 명성·콘텐츠에 도달한 비율을 봅니다. 기존 보유 재료와 장비 운, 플레이 시간은 따로 고려합니다.</td></tr><tr><th scope="row">늘어난 플레이가 시장 공급을 바꾸나</th><td>계정당 추가 입장·거래 가능 전리품과 전체 거래량·가격·골드 소모를 함께 봅니다. 같은 기간 업데이트나 다른 행사도 영향을 줍니다.</td></tr></tbody></table></div><p>태초 악세서리 선택 상자는 출석 2일 차, 모예 탐험 포인트 3단계 100%, 랜턴그리드 누적 미션 보상에 걸려 있습니다. 한 캐릭터로 세 상자를 열면 원하는 세트의 서로 다른 부위를 고를 수 있습니다. 이후 어떤 세팅을 고르는지, 받은 재료를 어느 콘텐츠에 쓰는지까지 봐야 지원 효과를 설명할 수 있습니다.</p></div></details><details><summary>제안을 적용한다면 남겨야 할 기록</summary><div class="xdoc-body"><p>설계한 지급 규칙 8개와 기능 테스트 8건을 실제로 판정하려면 한 회차가 어디에서 끊겼는지 구분할 수 있어야 합니다. 그래서 계정·미션·회차별 완료 한 건에서 시작해 다음 기록을 이어 보기로 했습니다.</p><div class="xdoc-table"><table><thead><tr><th scope="col">시점</th><th scope="col">기록 제안</th><th scope="col">판정할 수 있는 것</th></tr></thead><tbody><tr><th scope="row">운영 설정</th><td>미션 조건과 한도, 보상·귀속, 회차 기준과 아이템 삭제일</td><td>수동·자동 두 그룹에 같은 보상과 같은 한도가 적용됐는지</td></tr><tr><th scope="row">조건 달성</th><td>서버 완료 시각과 캐릭터, 규칙 버전과 실험군</td><td>06시 경계 전후 어느 회차를 끝냈는지</td></tr><tr><th scope="row">우편 발송</th><td>지급 ID, 수신 캐릭터·우편 ID, 발송 결과와 재시도 횟수</td><td>재접속·응답 지연 뒤 한 건만 발송됐는지</td></tr><tr><th scope="row">수령·사용</th><td>우편 수령·만료 시각, 사용·삭제 수량과 손실 사유</td><td>기한 내에 꺼냈는지, 재료를 실제로 썼는지</td></tr><tr><th scope="row">후속 플레이</th><td>콘텐츠 입장, 재료 사용량, 거래 가능 드롭, 포인트 전후값</td><td>추가 플레이와 공급량, 포인트 중복 여부</td></tr></tbody></table></div><h4>완료 신호, 우편 한 통, 실제 수령은 각각 한 번씩 센다</h4><p>예를 들어 ‘던파 일일 미션 클리어’ 보상은 계시 250개입니다. 기존에 놓친 완료 건이 10건이고 모두 발송에 성공한다고 가정하면 추가 발송량은 2,500개입니다. 이 숫자만으로 실제로 몇 개를 꺼내 썼는지는 알 수 없습니다. 수령 가능 기간이 끝난 회차만 모아, 완료 건 중 우편 만료와 아이템 삭제 중 이른 시각 전에 꺼낸 비율을 비교합니다.</p><p>모예 자동 우편은 적용 후 새로 시작하는 일일·주간 미션이 대상입니다. 수신 캐릭터의 선택권, 포인트가 붙는 시각, 행사 종료 직전 장애 건의 복구 방식은 세부 정책을 확인한 뒤 확정하도록 남겼습니다. 관찰 기간과 표본 수, 개선 목표치도 기존 수령·소비 기록을 확인한 뒤 정하는 계획입니다.</p></div></details></section></details></div></article>
+<a class="dn-download" data-dnf-pdf download="DNF_Winter_2026.pdf">전체 역기획서 PDF 내려받기 <span aria-hidden="true">↓</span></a>
+</div><details class="reader-fold"><summary>보상 수령 시뮬레이션</summary><section class="reward-lab dnr-sim" data-reward-lab data-scenario="boundary" data-step="1" aria-label="모예 보상 수령 시뮬레이션" id="dnf-reward"><header class="lab-heading"><h3>모예 미션 보상 시뮬레이션</h3><span class="lab-emblem" aria-hidden="true"><i></i></span></header><div class="scenario-keys" role="group" aria-label="상황 선택"><button type="button" data-scenario-pick="boundary" aria-pressed="true">06시 초기화</button><button type="button" data-scenario-pick="normal" aria-pressed="false">일반 수령</button><button type="button" data-scenario-pick="retry" aria-pressed="false">지연·재접속</button><button type="button" data-scenario-pick="character" aria-pressed="false">캐릭터 전환</button></div><p class="lab-premise" data-premise>일일 미션을 오전 6시 초기화 1초 전에 마쳤다고 가정합니다.</p><div class="lab-display"><div class="lab-time"><small>현재 장면</small><b data-clock>06:00:00</b></div><div class="lab-lanes"><div data-lane><small>당시 규칙</small><strong>미수령 보상 초기화</strong><p>‘받기’ 전이어서 우편이 발송되지 않습니다.</p></div><div data-lane><small>자동 발송 제안</small><strong>이전 회차 보존</strong><p>새 회차가 열려도 발송을 이어갑니다.</p></div></div></div><div class="lab-controls"><div class="step-keys" role="group" aria-label="장면 선택"><button type="button" data-step-pick="0" aria-pressed="false">미션 완료</button><button type="button" data-step-pick="1" aria-pressed="true">회차 변경</button><button type="button" data-step-pick="2" aria-pressed="false">우편 확인</button></div><button type="button" data-advance>다음 장면 보기</button></div><p data-result-live class="read-out" aria-live="polite" aria-atomic="true"></p></section></details><div class="specs-actions"><a href="#case-dnf-winter/rules">지급 규칙</a><a href="#case-dnf-winter/tests">테스트 계획</a><a href="#case-dnf-winter/metrics">효과 측정 계획</a></div><details class="reader-fold"><summary>성장 재료와 보상 기한</summary><section class="xdoc dn-appendix" aria-label="성장 재료와 보상 기한" data-module="event">
+ <header><h3>성장 재료와 보상 기한</h3></header>
+ <div class="dn-ledger">
+  <section><h4>계시 12,000개는 몇 회분일까?</h4><div class="dn-amounts"><div><span>출석 상자 8개</span><b>1,500 × 8</b></div><i aria-hidden="true">＝</i><div><span>종말의 계시</span><b>12,000개</b></div></div><p>최후의 조율자 기본 입장료는 계시 49개입니다. 244회분을 내면 44개가 남습니다. 실제 입장에는 피로도도 8씩 들고, 보너스 입장에는 계시가 들지 않습니다.</p></section>
+  <section><h4>부스트 업 캐릭터 한 명이 받는 계시</h4><dl class="dn-add"><div><dt>훈련 8단계</dt><dd>1,000개</dd></div><div><dt>챌린지 5개 목표</dt><dd>5,000개</dd></div><div><dt>가이드</dt><dd>2,000개</dd></div><div><dt>합계</dt><dd>8,000개</dd></div></dl><p>숭배자 입장용 300개와 캡슐로 115레벨을 달성한 캐릭터의 상자 700개는 별도입니다.</p></section>
+  <section><h4>우편, 상자, 재료의 기한</h4><p>부스트 업 전용 ‘115레벨 달성 상자’를 따라가면 기한이 세 번 달라집니다.</p><ol class="dn-expiry"><li><b>우편에 보관</b><span>발송 후 15일</span></li><li><b>상자 사용</b><span>훈련 완료 후 30일</span></li><li><b>개봉한 계시 700개</b><span>기간 제한 없음</span></li></ol></section>
+  <section><h4>재료를 받아 한 판 더 했을까?</h4><dl class="dn-observe"><div><dt>입장료를 아낀 경우</dt><dd>평소 입장 수와 이벤트 계시 소비량을 함께 봅니다.</dd></div><div><dt>플레이가 늘어난 경우</dt><dd>추가 입장 수와 거래 가능한 전리품을 봅니다. 거래소 가격과 거래량은 별도로 관찰합니다.</dd></div></dl></section>
+ </div>
+</section></details></div></article>
 
 <article class="story story-one zone" id="log-goldmine" tabindex="-1" data-world="goldmine"><div class="wrap"><header class="story-head"><p class="label">금광 경영 타이쿤 · Unity<img class="pixel-icon" alt="" data-sprite="goldmine"></p><h2>금광 입찰가와 사채업자의 장부</h2><p class="credits">개인 게임 · PC 경영 데모 제작 중</p></header><p class="case-summary">빌린 돈으로 첫 광산에 얼마까지 써도 될까요? 이 질문에서 시작한 PC 경영 게임입니다. 지금은 Unity 경영실에 배경과 두 후계자 원화를 배치했습니다. 경매와 40일 경영, 연체 시 제재는 기획 단계입니다.</p><section class="heirs" data-heirs="" aria-label="금광 경영 타이쿤의 두 후계자">
 <header><h3>가주 자리를 두고 겨루는 두 후계자</h3><p>같은 광산을 맡아도 누구를 고르느냐에 따라 사람을 이끌고 정보를 얻는 방식이 달라집니다. 두 후계자의 능력은 이렇게 설계했습니다.</p></header>
@@ -1324,46 +1434,9 @@ function mountHud(container,record){
 
 'use strict';
 const dnEvents=document.querySelector('#log-dnf-winter .dn-file').outerHTML;
-const dnLab="<section class=\"reward-lab\" data-reward-lab data-scenario=\"boundary\" data-step=\"1\" aria-label=\"모예 미션 보상 시뮬레이션\">\n <header class=\"lab-heading\"><div><p class=\"lab-overline\">모예 일일·주간 미션<\/p><h3>완료한 미션의 보상을 따라가 보기<\/h3><\/div><span class=\"lab-emblem\" aria-hidden=\"true\"><i><\/i><\/span><\/header>\n <div class=\"scenario-keys\" role=\"group\" aria-label=\"검토할 상황\"><button data-scenario-pick=\"boundary\">06시 초기화<\/button><button data-scenario-pick=\"normal\">일반 수령<\/button><button data-scenario-pick=\"retry\">지연·재접속<\/button><button data-scenario-pick=\"character\">캐릭터 전환<\/button><\/div>\n <p class=\"lab-premise\" data-premise><\/p>\n <div class=\"lab-display\"><div class=\"lab-time\"><small>현재 장면<\/small><b data-clock>06:00:00<\/b><\/div><div class=\"lab-lanes\"><div data-lane><small><\/small><strong><\/strong><p><\/p><\/div><div data-lane><small><\/small><strong><\/strong><p><\/p><\/div><\/div><\/div>\n <div class=\"lab-controls\"><div class=\"step-keys\" role=\"group\" aria-label=\"장면 선택\"><button data-step-pick=\"0\">조건 달성<\/button><button data-step-pick=\"1\">회차 초기화<\/button><button data-step-pick=\"2\">발송 결과 확인<\/button><\/div><button type=\"button\" data-advance>발송 결과 확인<\/button><\/div>\n <p data-result-live class=\"read-out\" aria-live=\"polite\" aria-atomic=\"true\"><\/p>\n<\/section>";
-const dnSpecs="<div class=\"design-notes\"><details class=\"design-fold\"><summary>자동 발송에 필요한 여덟 가지 지급 규칙<\/summary><div class=\"design-fold-body\"><p>미션 조건, 보상량, 계정 한도, 귀속, 아이템 삭제일은 기존 규칙을 따른다.<\/p><dl class=\"design-list\"><dt>R1 · 적용 범위<\/dt><dd>적용 뒤 새로 시작한 모예 일일·주간 미션부터 완료 시 기존 보상 한 세트를 보낸다. 기초·단계 보상과 다른 이벤트에는 기존 규칙을 적용한다.<\/dd><dt>R2 · 한 회차 한 번<\/dt><dd>계정·미션·회차 조합에 지급 ID 하나를 부여한다. 완료 신호가 반복되거나 재시도해도 같은 ID를 쓴다.<\/dd><dt>R3 · 06시 회차 경계<\/dt><dd>서버에 기록된 완료 시각으로 회차를 정한다. 일일은 매일 06시, 주간은 목요일 06시에 바뀐다. 이전 회차에서 대기 중인 발송도 처리한다.<\/dd><dt>R4 · 받을 캐릭터<\/dt><dd>마지막 조건을 채운 캐릭터에게 보내는 안이다. 현행 ‘받기’로 수령 캐릭터를 고를 수 있는지, 완료 캐릭터를 특정할 수 있는지 먼저 확인한다.<\/dd><dt>R5 · 우편·아이템 기한<\/dt><dd>우편은 발송한 날부터 15일간 보관한다. 아이템에는 원래 삭제 시각이 적용된다. 자동 발송 시 우편 만료도 앞당겨질 수 있다.<\/dd><dt>R6 · 행사 끝 무렵의 장애<\/dt><dd>종료 전에 완료한 미션만 인정한다. 장애로 아이템 삭제일이 지나면 실패 기록을 남긴다. 복구 대상과 지급 방법은 추가 결정 사항이다.<\/dd><dt>R7 · 포인트와 단계 보상<\/dt><dd>포인트가 붙는 현행 시점을 확인한다. 각 단계의 40%, 80%, 100% 보상은 계정·단계·구간별로 각각 한 번만 지급한다.<\/dd><dt>R8 · 지연·재접속<\/dt><dd>서버 확인 전에는 ‘발송 중’, 확인 후 ‘발송 완료’로 표시한다. 재시도 때 최초의 지급 ID와 수신 캐릭터를 그대로 쓴다.<\/dd><\/dl><\/div><\/details><details class=\"design-fold\"><summary>기능 테스트 8건의 입력과 기대 결과<\/summary><div class=\"design-fold-body\"><p>자동 발송 제안을 구현한 뒤 확인할 테스트 계획이다.<\/p><ol class=\"design-checks\"><li><strong>기본 지급<\/strong><p>A 캐릭터로 미완료 일일 미션을 끝낸다.<\/p><p><b>기대 결과<\/b> 기존 보상 한 건. 발송 확인 뒤 A와 ‘발송 완료’를 표시한다.<\/p><\/li><li><strong>응답 지연<\/strong><p>발송 응답이 늦을 때 완료 신호를 다시 보내고 재접속한다.<\/p><p><b>기대 결과<\/b> 응답이 누락돼도 우편함에는 한 건만 도착한다.<\/p><\/li><li><strong>캐릭터 전환<\/strong><p>같은 계정의 A와 B에서 같은 회차의 완료 신호가 들어온다.<\/p><p><b>기대 결과<\/b> 한 건만 보내며 서버가 처음 인정한 건의 수신자를 유지한다.<\/p><\/li><li><strong>초기화 직전<\/strong><p>05:59:59 완료 후 발송 대기 중에 06시를 넘긴다. 목요일 경계도 확인한다.<\/p><p><b>기대 결과<\/b> 이전 회차 대기 건을 보존하고 새 회차와 분리한다.<\/p><\/li><li><strong>두 가지 기한<\/strong><p>수동 지연 발송과 자동 즉시 발송에서 만료 전후로 우편을 연다.<\/p><p><b>기대 결과<\/b> 각 발송일에서 15일을 센다. 우편 만료와 아이템 삭제를 각각 확인한다.<\/p><\/li><li><strong>행사 종료<\/strong><p>종료 직전 발송 실패 건을 다시 처리하고 종료 후 새 완료 신호를 보낸다.<\/p><p><b>기대 결과<\/b> 종료 전 실패 기록을 보존한다. 종료 후 완료는 지급 대상에서 제외한다. 복구 방식은 미정이다.<\/p><\/li><li><strong>단계 보상<\/strong><p>한 단계의 40%와 80%에 차례로 도달한 후 다시 처리한다.<\/p><p><b>기대 결과<\/b> 두 구간에 각각 한 건. 재시도로 추가 지급되는 보상은 0건이어야 한다.<\/p><\/li><li><strong>적용 범위<\/strong><p>범위 밖 미션과 전환 전 수령·미수령 건, 적용 후 새 회차를 비교한다.<\/p><p><b>기대 결과<\/b> 대상 밖은 원래 방식으로 처리하고, 적용 후 새 회차의 대상 미션부터 자동 발송한다.<\/p><\/li><\/ol><p>필수 통과 기준은 동일 회차 중복 지급 0건, 대상 밖 미션의 지급 방식 변경 0건, 포인트 중복 적립 0건이다. 수신자 정책과 복구 방식, 포인트 처리 시점을 확인한 뒤 해당 테스트의 기대 결과를 확정한다.<\/p><\/div><\/details><details class=\"design-fold\"><summary>보상이 실제로 손에 들어갔는지 재는 방법<\/summary><div class=\"design-fold-body\"><p>계정을 무작위로 나눠 수동 수령과 자동 발송을 비교하는 계획이다. 표본 규모와 관찰 기간은 기존 이용 기록을 확인한 뒤 정한다.<\/p><h4>초기화 손실률<\/h4><p><b>완료했지만 ‘받기’ 전 초기화로 소멸한 건수 ÷ 완료 건수<\/b><\/p><p>완료는 계정·미션·회차별로 한 건만 센다. 오래 발송 대기 중인 건은 따로 본다.<\/p><h4>실제 수령률<\/h4><p><b>우편 만료와 아이템 삭제 중 이른 시각 전에 꺼낸 건수 ÷ 완료 건수<\/b><\/p><p>양쪽 모두 수령 가능 시간이 지난 회차를 비교한다. 발송에 성공해도 우편을 열지 않았다면 실제 수령으로 세지 않는다.<\/p><h4>수령 위치 이해<\/h4><p><b>안내 없이 보상 위치와 수신자를 찾은 인원 ÷ 과업을 수행한 인원<\/b><\/p><p>소요 시간도 비교한다. 엉뚱한 캐릭터의 우편함을 찾는 사람이 늘면 수신자 표시를 손본다.<\/p><h4>재료 소비와 추가 공급<\/h4><p><b>집단별 계정당 재료 사용량·던전 입장 수·거래 가능한 전리품 수량<\/b><\/p><p>수령률과 함께 본다. 두 집단이 같은 거래소를 쓰므로 시장 가격과 거래량은 별도로 관찰한다.<\/p><\/div><\/details><\/div>";
-const rewardCases = {
-  boundary: {
-    channel: ['당시 이벤트 규칙', '자동 발송 제안'],
-    fixed: '오전 5시 59분 59초, 일일 미션의 마지막 조건을 채웠습니다. 1초 뒤면 회차가 바뀝니다. 일일 초기화는 매일 오전 6시, 주간 초기화는 목요일 오전 6시입니다.',
-    steps: [
-      ['05:59:59', '조건 달성', '‘받기’ 대기', '미션을 마쳤습니다. 이벤트 창에서 받을 수 있습니다.', '이전 회차로 기록', '서버의 완료 시각으로 지급할 회차를 정합니다.'],
-      ['06:00:00', '회차 초기화', '미수령 보상 소멸', '‘받기’를 누르기 전에 회차가 바뀌었습니다. 어제 미션의 우편은 오지 않습니다.', '이전 회차 발송 대기', '새 미션은 열리지만 이미 기록한 완료 건은 계속 처리합니다.'],
-      ['우편함', '발송 결과 확인', '도착한 우편 없음', '미션을 끝낸 사실만으로는 이 회차의 보상을 꺼낼 수 없습니다.', '이전 회차 우편 1통', '발송 확인 후 상태를 바꿉니다. 기한 안에 우편에서 직접 꺼내야 실제 수령입니다.']
-    ]
-  },
-  normal: {
-    channel: ['당시 이벤트 규칙', '자동 발송 제안'],
-    fixed: '이번에는 초기화까지 시간이 충분합니다. 미션을 마치고 우편에서 보상을 꺼내기까지, 당시 방식과 제가 제안한 방식에 어떤 차이가 있는지 볼 수 있습니다.',
-    steps: [
-      ['미션 창', '조건 달성', '‘받기’ 활성', '완료한 미션이 이벤트 창에서 기다립니다.', '발송 중', '새 회차에서 완료한 건에 지급 ID를 하나 붙입니다.'],
-      ['발송', '우편 도착', '‘받기’를 눌러 발송', '이벤트 창에서 버튼을 누르면 캐릭터 우편으로 보상이 갑니다.', '자동 발송 완료', '서버가 발송을 확인하면 상태와 수신 캐릭터를 표시합니다.'],
-      ['수령', '우편에서 꺼내기', '보상 수령', '캐릭터 우편함에서 보상을 꺼냅니다.', '보상 수령', '우편 보관 15일과 아이템 삭제 시각 중 먼저 오는 기한을 확인합니다. 일찍 보낸 만큼 우편 만료도 빨라질 수 있습니다.']
-    ]
-  },
-  retry: {
-    channel: ['제안한 서버 처리', '제안한 플레이어 화면'],
-    fixed: '발송 응답이 늦어 완료 신호가 다시 들어오고, 같은 계정이 재접속하는 테스트입니다. 아래는 설계한 기대 결과입니다.',
-    steps: [
-      ['완료', '첫 완료 신호', '지급 ID 생성', '계정·미션·회차와 최초 수신 캐릭터를 기록합니다.', '발송 중', '발송 확인 전까지 우편이 도착했다고 표시하지 않습니다.'],
-      ['재접속', '응답 지연·재시도', '같은 ID 재사용', '같은 완료 신호가 와도 기존 기록에서 발송 여부를 확인합니다.', '발송 중', '재접속해도 새로운 보상으로 표시하지 않습니다.'],
-      ['확인', '발송 응답 확인', '지급 1건', '재처리해도 동일 회차 보상은 한 번만 지급해야 합니다.', '우편 1통', '발송 완료와 수신 캐릭터를 확인합니다. 실제 수령은 우편을 꺼낸 시점입니다.']
-    ]
-  },
-  character: {
-    channel: ['제안한 서버 처리', '제안한 수신자 표시'],
-    fixed: '같은 계정의 A와 B에서 동일 회차 완료 신호가 들어오는 경우입니다. 최종 조건을 채운 캐릭터로 보내는 방안이며 현행 수신자 선택 가능 여부는 확인 과제로 남겼습니다.',
-    steps: [
-      ['A', 'A의 완료 인정', '최초 인정 건 기록', '이 예시에서는 서버가 A의 완료를 먼저 인정했습니다.', '수신 예정 A', '이 건의 수신자를 A로 고정하는 안입니다.'],
-      ['B', 'B의 신호 수신', '같은 회차 확인', '계정·미션·회차가 같으므로 새 지급 ID를 만들지 않습니다.', '수신 예정 A', '접속 캐릭터가 바뀌어도 최초 수신자를 유지합니다.'],
-      ['확인', '우편 위치 확인', '계정 기준 1건', '보상 한 세트에 대응하는 발송 한 건만 남깁니다.', 'A의 우편함 1통', 'B에서 신호가 들어온 뒤에도 A에게만 한 통이 도착해야 합니다.']
-    ]
-  }
-};
+const dnLab="<section class=\"reward-lab dnr-sim\" data-reward-lab data-scenario=\"boundary\" data-step=\"1\" aria-label=\"모예 보상 수령 시뮬레이션\"><header class=\"lab-heading\"><h3>모예 미션 보상 시뮬레이션<\/h3><span class=\"lab-emblem\" aria-hidden=\"true\"><i><\/i><\/span><\/header><div class=\"scenario-keys\" role=\"group\" aria-label=\"상황 선택\"><button type=\"button\" data-scenario-pick=\"boundary\" aria-pressed=\"true\">06시 초기화<\/button><button type=\"button\" data-scenario-pick=\"normal\" aria-pressed=\"false\">일반 수령<\/button><button type=\"button\" data-scenario-pick=\"retry\" aria-pressed=\"false\">지연·재접속<\/button><button type=\"button\" data-scenario-pick=\"character\" aria-pressed=\"false\">캐릭터 전환<\/button><\/div><p class=\"lab-premise\" data-premise>일일 미션을 오전 6시 초기화 1초 전에 마쳤다고 가정합니다.<\/p><div class=\"lab-display\"><div class=\"lab-time\"><small>현재 장면<\/small><b data-clock>06:00:00<\/b><\/div><div class=\"lab-lanes\"><div data-lane><small>당시 규칙<\/small><strong>미수령 보상 초기화<\/strong><p>‘받기’ 전이어서 우편이 발송되지 않습니다.<\/p><\/div><div data-lane><small>자동 발송 제안<\/small><strong>이전 회차 보존<\/strong><p>새 회차가 열려도 발송을 이어갑니다.<\/p><\/div><\/div><\/div><div class=\"lab-controls\"><div class=\"step-keys\" role=\"group\" aria-label=\"장면 선택\"><button type=\"button\" data-step-pick=\"0\" aria-pressed=\"false\">미션 완료<\/button><button type=\"button\" data-step-pick=\"1\" aria-pressed=\"true\">회차 변경<\/button><button type=\"button\" data-step-pick=\"2\" aria-pressed=\"false\">우편 확인<\/button><\/div><button type=\"button\" data-advance>다음 장면 보기<\/button><\/div><p data-result-live class=\"read-out\" aria-live=\"polite\" aria-atomic=\"true\"><\/p><\/section>";
+const dnSpecs="<div class=\"design-notes dnr-specs\"><details class=\"design-fold\"><summary>지급 규칙<\/summary><div class=\"design-fold-body\"><p>미션 조건과 보상량, 계정 한도, 귀속은 기존과 같습니다.<\/p><dl class=\"dnr-rules\"><div><dt><span>R1<\/span> 적용 범위<\/dt><dd>도입 후 시작한 모예 일일·주간 회차에 기존 보상 한 세트를 보냅니다. 기초·단계 보상과 다른 행사는 기존 방식을 따릅니다.<\/dd><\/div><div><dt><span>R2<\/span> 중복 방지<\/dt><dd>계정·미션·회차마다 지급 번호는 하나입니다. 재시도에도 같은 번호를 씁니다.<\/dd><\/div><div><dt><span>R3<\/span> 회차 경계<\/dt><dd>서버 완료 시각이 기준입니다. 일일은 매일 06시, 주간은 목요일 06시에 바뀌며 이전 회차의 발송은 이어갑니다.<\/dd><\/div><div><dt><span>R4<\/span> 수신 캐릭터<\/dt><dd>마지막 조건을 채운 캐릭터에게 보냅니다. 캐릭터 식별과 기존 ‘받기’의 수신자 선택 여부는 확인이 필요합니다.<\/dd><\/div><div><dt><span>R5<\/span> 보관 기한<\/dt><dd>우편은 발송일부터 15일, 아이템은 원래 삭제 시각까지입니다. 일찍 보내면 우편 만료도 빨라집니다.<\/dd><\/div><div><dt><span>R6<\/span> 행사 종료<\/dt><dd>종료 전에 완료한 건만 처리합니다. 장애로 삭제 시각을 넘기면 실패를 기록합니다. 복구 대상과 방법은 미정입니다.<\/dd><\/div><div><dt><span>R7<\/span> 단계 보상<\/dt><dd>계정·단계별 40%·80%·100% 보상은 구간마다 한 번씩 지급합니다. 포인트 적립 시점은 확인이 필요합니다.<\/dd><\/div><div><dt><span>R8<\/span> 발송 상태<\/dt><dd>서버 응답 전에는 ‘발송 중’, 확인 후에는 ‘발송 완료’를 표시합니다. 재접속해도 지급 번호와 수신자는 같습니다.<\/dd><\/div><\/dl><\/div><\/details><details class=\"design-fold\"><summary>테스트 계획<\/summary><div class=\"design-fold-body\"><p>구현 후 확인할 항목입니다. 수신자·장애 복구·포인트 정책을 정한 뒤 기대 결과를 확정합니다.<\/p><ol class=\"dnr-checks\"><li><h4><span>T1<\/span> 기본 지급<\/h4><dl><div><dt>조건<\/dt><dd>A가 일일 미션 완료<\/dd><\/div><div><dt>기대<\/dt><dd>우편 한 통. 서버 확인 후 ‘발송 완료’와 A 표시<\/dd><\/div><\/dl><\/li><li><h4><span>T2<\/span> 응답 지연<\/h4><dl><div><dt>조건<\/dt><dd>응답 누락 후 재시도·재접속<\/dd><\/div><div><dt>기대<\/dt><dd>같은 우편 한 통만 도착<\/dd><\/div><\/dl><\/li><li><h4><span>T3<\/span> 캐릭터 전환<\/h4><dl><div><dt>조건<\/dt><dd>같은 회차에 A·B의 완료 신호<\/dd><\/div><div><dt>기대<\/dt><dd>처음 인정한 캐릭터에게 한 통<\/dd><\/div><\/dl><\/li><li><h4><span>T4<\/span> 초기화 직전<\/h4><dl><div><dt>조건<\/dt><dd>05:59:59 완료 후 06시 도달<\/dd><\/div><div><dt>기대<\/dt><dd>이전 회차 대기 건 보존. 목요일 주간 경계도 확인<\/dd><\/div><\/dl><\/li><li><h4><span>T5<\/span> 두 기한<\/h4><dl><div><dt>조건<\/dt><dd>수동·자동 발송 후 만료 전후 우편 열기<\/dd><\/div><div><dt>기대<\/dt><dd>발송일부터 15일과 아이템 삭제 시각 각각 적용<\/dd><\/div><\/dl><\/li><li><h4><span>T6<\/span> 행사 종료<\/h4><dl><div><dt>조건<\/dt><dd>종료 전 실패 건과 종료 후 신규 완료<\/dd><\/div><div><dt>기대<\/dt><dd>실패 기록 보존, 종료 후 신규 건 지급 제외<\/dd><\/div><\/dl><\/li><li><h4><span>T7<\/span> 단계 보상<\/h4><dl><div><dt>조건<\/dt><dd>40%·80% 도달 후 재처리<\/dd><\/div><div><dt>기대<\/dt><dd>구간마다 한 건. 추가 지급 0건<\/dd><\/div><\/dl><\/li><li><h4><span>T8<\/span> 적용 범위<\/h4><dl><div><dt>조건<\/dt><dd>대상 밖·전환 전 수령 및 미수령·새 회차 비교<\/dd><\/div><div><dt>기대<\/dt><dd>도입 후 새 회차의 대상 미션만 자동 발송<\/dd><\/div><\/dl><\/li><\/ol><p class=\"dnr-threshold\"><strong>통과 기준<\/strong> 중복 지급, 대상 밖 변경, 포인트 중복 적립이 각각 0건.<\/p><\/div><\/details><details class=\"design-fold\"><summary>효과 측정 계획<\/summary><div class=\"design-fold-body\"><p>계정을 무작위로 나눠 수동 수령과 자동 발송을 비교합니다. 표본과 기간은 기존 이용 기록을 보고 정합니다.<\/p><dl class=\"dnr-rules dnr-metrics\"><div><dt>실제 수령률<\/dt><dd><strong>기한 안에 우편에서 꺼낸 건 ÷ 완료 건<\/strong><p>우편 만료와 아이템 삭제 중 이른 시각을 기준으로 봅니다.<\/p><\/dd><\/div><div><dt>초기화 손실률<\/dt><dd><strong>‘받기’ 전 초기화로 소멸한 건 ÷ 완료 건<\/strong><p>발송이 지연된 건은 따로 집계합니다.<\/p><\/dd><\/div><div><dt>수령 위치 이해<\/dt><dd><strong>도움 없이 수신자와 우편함을 찾은 인원 ÷ 참여 인원<\/strong><p>소요 시간과 잘못 연 우편함도 확인합니다.<\/p><\/dd><\/div><div><dt>재료와 입장권<\/dt><dd><strong>계정당 재료 사용량 · 던전 입장 수 · 거래 가능 전리품 수<\/strong><p>공유 거래소의 가격과 거래량은 별도로 관찰합니다.<\/p><\/dd><\/div><\/dl><p>완료는 계정·미션·회차별로 한 번만 셉니다. 수령 기한이 지난 회차끼리 비교합니다.<\/p><\/div><\/details><\/div>";
+const rewardCases = {"boundary":{"channel":["당시 규칙","자동 발송 제안"],"fixed":"일일 미션을 오전 6시 초기화 1초 전에 마쳤다고 가정합니다.","steps":[["05:59:59","미션 완료","‘받기’ 대기","이벤트 창에 보상이 열립니다.","완료 시각 기록","이전 회차로 지급 건을 만듭니다."],["06:00:00","회차 변경","미수령 보상 초기화","‘받기’ 전이어서 우편이 발송되지 않습니다.","이전 회차 보존","새 회차가 열려도 발송을 이어갑니다."],["우편함","우편 확인","우편 0통","이 회차의 보상은 사라졌습니다.","우편 1통","기한 안에 꺼내면 수령이 끝납니다."]]},"normal":{"channel":["당시 규칙","자동 발송 제안"],"fixed":"초기화 전에 일일 미션을 끝내고 보상을 받는 경우입니다.","steps":[["미션 창","미션 완료","‘받기’ 대기","이벤트 창에서 직접 받습니다.","발송 중","완료 건에 지급 번호를 붙입니다."],["발송","우편 발송","버튼으로 발송","‘받기’를 눌러 우편을 보냅니다.","자동 발송","서버 확인 후 수신 캐릭터를 표시합니다."],["우편함","보상 수령","우편에서 꺼내기","수령해야 아이템이 들어옵니다.","우편에서 꺼내기","일찍 보내면 15일 보관 기한도 일찍 끝납니다."]]},"retry":{"channel":["제안 · 서버","제안 · 플레이어 화면"],"fixed":"발송 응답이 늦어 같은 완료 신호가 다시 들어온 상황입니다.","steps":[["완료","미션 완료","지급 번호 생성","계정·미션·회차와 수신자를 기록합니다.","발송 중","서버의 응답을 기다립니다."],["재접속","재시도","기존 번호 조회","재접속해도 같은 발송 건을 확인합니다.","발송 중","대기 상태를 유지합니다."],["우편함","발송 확인","지급 1건","기존 번호로 처리를 마칩니다.","우편 1통","수신 캐릭터와 ‘발송 완료’를 표시합니다."]]},"character":{"channel":["제안 · 서버","제안 · 수신자 표시"],"fixed":"같은 계정의 A·B가 같은 회차에 완료 신호를 보냅니다. A의 완료가 먼저 인정된 예시입니다.","steps":[["A","A 완료","A로 기록","마지막 조건을 채운 A를 수신자로 정합니다.","수신 예정 A","A의 우편함으로 안내합니다."],["B","B 신호 도착","기존 지급 건 조회","같은 계정·미션·회차에 해당합니다.","수신 예정 A","B로 접속해도 수신자는 A입니다."],["우편함","우편 확인","지급 1건","같은 보상은 한 번만 보냅니다.","A의 우편함 1통","B의 우편함에는 오지 않습니다."]]}};
 function drawReward(root) {
   const scenario = rewardCases[root.dataset.scenario];
   const index = Number(root.dataset.step);
@@ -1994,141 +2067,4 @@ selectChapter(0);
 
 setupPM();activateReward(document);activateEvents(document);
 syncRoute();
-const celebration=document.querySelector("main [data-award]");if(celebration&&"IntersectionObserver" in window){const awardObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){celebrate(celebration);awardObserver.disconnect()}},{threshold:.4});awardObserver.observe(celebration)}</script><script>
-(() => {
-  const viewer = document.createElement('dialog');
-  viewer.id = 'photo-viewer';
-  viewer.setAttribute('aria-label', '사진 크게 보기');
-  viewer.innerHTML = `<div class="photo-tools"><button type="button" class="photo-zoom" aria-pressed="false">2배 확대</button><button type="button" class="photo-close" autofocus>닫기</button></div><div class="photo-stage"><div class="photo-surface"></div></div><p class="photo-note" id="photo-description"></p>`;
-  viewer.setAttribute('aria-describedby', 'photo-description');
-  document.body.append(viewer);
-  const stage = viewer.querySelector('.photo-stage');
-  const surface = viewer.querySelector('.photo-surface');
-  const note = viewer.querySelector('.photo-note');
-  const zoom = viewer.querySelector('.photo-zoom');
-  const close = viewer.querySelector('.photo-close');
-  const badgeIcon = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 6 6M7 10h6m-3-3v6"/></svg>';
-  const composite = '.mine-display > div';
-  const candidates = '.dn-file img';
-  let opener = null;
-  let ratio = 1;
-  let enlarged = false;
-
-  function description(item) {
-    return (item.closest('figure')?.querySelector('figcaption')?.textContent || item.getAttribute('alt') || '').trim();
-  }
-
-  function prepare(item) {
-    if (item.closest('#photo-viewer,a,button,summary,[aria-hidden="true"],[role="tab"]')) return;
-    const group = item.matches(composite);
-    if (!group && (!item.alt?.trim() || item.closest(composite))) return;
-    const label = description(item);
-    item.dataset.photoOpen = '';
-    item.tabIndex = 0;
-    item.setAttribute('role', 'button');
-    item.setAttribute('aria-haspopup', 'dialog');
-    item.setAttribute('aria-label', (item.alt || label) + ' 크게 보기');
-    const host = group ? item : item.parentElement;
-    if (!host.matches('figure,.quest-shot,.hud-monitor,.heir-portrait,.portrait,.mine-display > div') || host.querySelector(':scope > .photo-badge')) return;
-    if (getComputedStyle(host).position === 'static') host.classList.add('photo-badge-host');
-    const badge = document.createElement('span');
-    badge.className = 'photo-badge';
-    badge.setAttribute('aria-hidden', 'true');
-    badge.innerHTML = badgeIcon;
-    host.append(badge);
-  }
-
-  function scan(root) {
-    if (!(root instanceof Element) || root.closest('#photo-viewer')) return;
-    if (root.matches(candidates)) prepare(root);
-    root.querySelectorAll(candidates).forEach(prepare);
-  }
-
-  document.querySelectorAll(candidates).forEach(prepare);
-  new MutationObserver(changes => {
-    for (const change of changes) {
-      if (change.type === 'attributes') prepare(change.target);
-      else change.addedNodes.forEach(scan);
-    }
-  }).observe(document.body, {childList: true, subtree: true, attributes: true, attributeFilter: ['alt']});
-
-  function fit() {
-    if (!viewer.open || !stage.clientWidth || !stage.clientHeight) return;
-    const width = Math.min(stage.clientWidth, stage.clientHeight * ratio) * (enlarged ? 2 : 1);
-    surface.style.width = width + 'px';
-    surface.style.height = width / ratio + 'px';
-  }
-
-  function open(item) {
-    if (viewer.open) return;
-    const single = item instanceof HTMLImageElement;
-    const originals = single ? [item] : Array.from(item.querySelectorAll('img'));
-    if (!originals.length || originals.some(img => !(img.currentSrc || img.src))) return;
-    const frame = item.getBoundingClientRect();
-    ratio = single && item.naturalHeight ? item.naturalWidth / item.naturalHeight : frame.width / Math.max(1,frame.height);
-    opener = item;
-    note.textContent = description(item);
-    enlarged = false;
-    zoom.textContent = '2배 확대';
-    zoom.setAttribute('aria-pressed','false');
-    for (const source of originals) {
-      const image = new Image();
-      image.alt = single ? (source.alt || note.textContent) : '';
-      if (single) {
-        image.onload = () => {
-          if (image.parentNode === surface && image.naturalHeight) {
-            ratio = image.naturalWidth / image.naturalHeight;
-            fit();
-          }
-        };
-      } else {
-        const box = source.getBoundingClientRect();
-        const css = getComputedStyle(source);
-        Object.assign(image.style, {
-          inset: 'auto', left: (box.left-frame.left)/frame.width*100+'%', top: (box.top-frame.top)/frame.height*100+'%',
-          width: box.width/frame.width*100+'%', height: box.height/frame.height*100+'%',
-          objectFit: css.objectFit, objectPosition: css.objectPosition
-        });
-      }
-      image.src = source.currentSrc || source.src;
-      surface.append(image);
-    }
-    viewer.showModal();
-    document.documentElement.classList.add('photo-view-open');
-    fit();
-    stage.scrollTo(0,0);
-    close.focus({preventScroll:true});
-  }
-
-  function toggleZoom() {
-    enlarged = !enlarged;
-    zoom.textContent = enlarged ? '화면에 맞추기' : '2배 확대';
-    zoom.setAttribute('aria-pressed', String(enlarged));
-    fit();
-    stage.scrollTo((stage.scrollWidth-stage.clientWidth)/2,(stage.scrollHeight-stage.clientHeight)/2);
-  }
-
-  document.addEventListener('click', event => {
-    const item = event.target.closest('[data-photo-open]');
-    if (item) open(item);
-  });
-  document.addEventListener('keydown', event => {
-    const item = event.target.closest('[data-photo-open]');
-    if (item && !event.repeat && (event.key === 'Enter' || event.key === ' ')) {
-      event.preventDefault();
-      open(item);
-    }
-  });
-  zoom.addEventListener('click', toggleZoom);
-  close.addEventListener('click', () => viewer.close());
-  stage.addEventListener('click', event => { if (event.target === stage) viewer.close(); });
-  viewer.addEventListener('close', () => {
-    document.documentElement.classList.remove('photo-view-open');
-    if (opener?.isConnected) opener.focus({preventScroll:true});
-    opener = null;
-    surface.replaceChildren();
-  });
-  new ResizeObserver(fit).observe(stage);
-})();
-
-</script></body></html>
+const celebration=document.querySelector("main [data-award]");if(celebration&&"IntersectionObserver" in window){const awardObserver=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){celebrate(celebration);awardObserver.disconnect()}},{threshold:.4});awardObserver.observe(celebration)}</script></body></html>
