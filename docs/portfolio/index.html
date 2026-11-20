@@ -1564,7 +1564,7 @@ function stopFilm(){
  currentFilm.dispose();currentFilm=null;
 }
 function buildFilm(project){
- return '<section class="film" id="film" aria-label="도입 전후 업무 애니메이션"><header class="film-head"><div><span class="film-eyebrow">도입 전후</span><h3>'+safe(project.filmTitle)+'</h3></div><button type="button" id="film-play">재생</button></header><div class="film-steps" role="group" aria-label="업무 단계">'+project.scenes.map((scene,i)=>'<button type="button" aria-controls="film-board" data-scene="'+i+'"'+(scene.elapsed?' data-time-scene':'')+'>'+safe(scene.tab)+'</button>').join('')+'</div><div class="film-board" id="film-board"></div><div class="film-foot"><span>업무 흐름 재구성</span><span id="film-status" role="status"></span></div></section>';
+ return '<section class="film" id="film" aria-label="도입 전후 비교"><header class="film-head"><div><span class="film-eyebrow">도입 전후</span><h3>'+safe(project.filmTitle)+'</h3></div><button type="button" id="film-play">재생</button></header><div class="film-steps" role="group" aria-label="업무 단계">'+project.scenes.map((scene,i)=>'<button type="button" aria-controls="film-board" data-scene="'+i+'"'+(scene.elapsed?' data-time-scene':'')+'>'+safe(scene.tab)+'</button>').join('')+'</div><div class="film-board" id="film-board"></div><div class="film-foot"><span>업무 흐름 재구성</span><span id="film-status" role="status"></span></div></section>';
 }
 function sceneVisual(scene,stage,isAfter,kind){
  if(scene.elapsed){
@@ -1653,7 +1653,7 @@ function cpmsDetail(project){
  const board=byId('cpms-content-'+current).content.querySelector('.cv-work').cloneNode(true);
  selectWorkflow(board,'0');
  const nav='<nav class="version-nav" aria-label="CPMS 버전">'+routeButton(projects.find(p=>p.id==='cpms'),'버전 목록')+versions.map(v=>'<button type="button" data-route="'+v.id+'" aria-pressed="'+(v===project)+'">'+v.title+'</button>').join('')+'</nav>';
- const film='<details class="reader-fold"><summary>도입 전후 애니메이션</summary>'+buildFilm(project)+'</details>';
+ const film='<details class="reader-fold"><summary>도입 전후 비교</summary>'+buildFilm(project)+'</details>';
  const links=project.links.map(([label,url])=>'<a target="_blank" rel="noopener noreferrer" href="'+safe(url)+'">'+safe(label)+'</a>').join('');
  return '<div class="d-inner cv-case">'+nav+'<h2 class="d-name" id="detail-title" tabindex="-1">'+project.title+'</h2><h3 class="question">'+safe(project.mapTitle)+'</h3>'+board.outerHTML+film+(links?'<div class="xlinks">'+links+'</div>':'')+'<div class="detail-end"><span>다른 버전</span>'+routeButton(other,other.title)+'</div></div>';
 }
