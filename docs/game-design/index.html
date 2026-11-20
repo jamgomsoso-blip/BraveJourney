@@ -25,33 +25,33 @@
     </div></div>
   </section>
   <section class="feature" id="dnf" aria-labelledby="dnf-title"><div class="wrap">
-    <div class="section-heading"><div><p class="overline"><span class="notch"></span>개인 이벤트 역기획</p><h2 id="dnf-title">던전앤파이터 윈터 페스티벌</h2></div><a class="paper-link" data-pdf href="docs/dnf-winter.pdf" download="홍승찬_던전앤파이터_이벤트_역기획서.pdf">역기획서 PDF <small>28쪽</small></a></div>
-    <p class="intro">아침 5시 59분 59초에 미션을 끝냈습니다. ‘받기’를 누르기 전에 6시가 되면, 그 보상은 어디로 갈까요?</p>
+    <div class="section-heading"><div><p class="overline"><span class="notch"></span>개인 이벤트 역기획</p><h2 id="dnf-title">던전앤파이터 윈터 페스티벌</h2></div><a class="paper-link" data-pdf href="docs/dnf-winter.pdf" download="홍승찬_던전앤파이터_이벤트_역기획서.pdf">역기획서 PDF <small>12쪽</small></a></div>
+    <p class="intro">06시 초기화를 가정한 예시입니다. 일일 미션을 05:59:59에 끝내고 ‘받기’를 누르기 전에 06시가 되면, 보상은 어디로 갈까요?</p>
     <div class="switcher" data-tabs>
       <div class="tabs" aria-label="던전앤파이터 역기획 내용"><a href="#reward">보상 수령 과정</a><a href="#events">네 이벤트의 연결</a><a href="#verify">검증 계획</a></div>
       <section id="reward" class="sheet" data-panel><div class="reward-layout">
         <figure class="mission-figure"><img loading="lazy" src="assets/dnf-missions.webp" width="378" height="270" alt="모예와 함께 아라드 탐험! 이벤트 창에 표시된 일일·주간 미션과 받기 버튼"><figcaption>모예와 함께 아라드 탐험! · 일상 탐험 화면</figcaption></figure>
-        <div class="reward-body"><h3>미션 완료와 보상 수령 사이</h3><p>모예의 일일·주간 미션은 완료한 뒤 ‘받기’를 눌러야 우편이 옵니다. 같은 창의 탐험 포인트 단계 보상은 자동 발송됩니다. 두 규칙이 한 화면에 섞인 점에 주목했습니다.</p>
-          <div class="comparison"><div class="flow"><h4>현행 규칙</h4><ol><li>미션 완료</li><li>‘받기’ 클릭</li><li>우편 수령</li></ol><p>‘받기’ 전 초기화되면 해당 회차의 보상을 놓칩니다.</p></div>
-          <div class="flow proposal"><h4>제가 제안한 규칙</h4><ol><li>미션 완료</li><li>자동 발송</li><li>우편 수령</li></ol><p>완료한 회차와 수신 캐릭터를 먼저 기록해 두고, 발송이 늦어져도 같은 보상을 한 번만 보냅니다.</p></div></div>
+        <div class="reward-body"><h3>미션 완료와 보상 수령 사이</h3><p>모예의 탐험 포인트 보상은 자동으로 우편에 옵니다. 같은 창에서 일일·주간 미션 보상은 직접 받아야 합니다.</p>
+          <div class="comparison"><div class="flow"><h4>현행 규칙</h4><ol><li>미션 완료</li><li>‘받기’ 클릭</li><li>우편 수령</li></ol><p>일일은 매일 06시, 주간은 목요일 06시에 미수령 보상이 초기화됩니다.</p></div>
+          <div class="flow proposal"><h4>제가 제안한 규칙</h4><ol><li>미션 완료</li><li>자동 발송</li><li>우편 수령</li></ol><p>완료 시각으로 회차를 정합니다. 발송이 늦어져도 우편은 한 통입니다.</p></div></div>
         </div></div>
-        <details class="fold sim"><summary>05:59:59에 끝낸 미션으로 초기화 시험하기</summary><div>
-          <p>‘받기’를 누르지 않은 채 6시를 맞는 상황입니다. 역기획서의 경계 시각 테스트를 순서대로 확인할 수 있습니다.</p>
+        <details class="fold sim"><summary>가상 예시로 06시 초기화 시험하기</summary><div>
+          <p>초기화 1초 전 완료한 미션을 두 방식으로 따라갑니다.</p>
           <div class="sim-board" aria-live="polite" aria-atomic="true"><strong id="clock">05:59:59 · 미션 완료</strong><dl><div><dt>현행</dt><dd id="old-state">완료·미수령 상태입니다. ‘받기’를 누를 수 있습니다.</dd></div><div><dt>제안</dt><dd id="new-state">이전 회차의 완료 시각과 지급 ID를 기록하고 발송을 대기합니다.</dd></div></dl></div>
           <button type="button" class="button green sim-step" hidden>06:00 초기화 적용</button><noscript><p>6시가 되면 현행의 미수령 건은 사라집니다. 제안에서는 이전 회차의 대기 건을 유지하고, 재접속해도 같은 ID로 한 번만 지급합니다.</p></noscript>
         </div></details>
-        <details class="fold"><summary>자동 발송이 오히려 불리해지는 경우</summary><div><p>우편 보관 기간은 발송일부터 15일입니다. 자동으로 일찍 보내면 만료일도 앞당겨집니다. 그래서 ‘받기 전 초기화’로 놓친 건과 ‘우편함에서 만료’된 건을 따로 집계하도록 설계했습니다. 포인트 적립 시점과 복수 캐릭터의 수신 기준은 운영 정책을 확인해야 할 항목으로 남겼습니다.</p></div></details>
+        <details class="fold"><summary>자동 발송이 오히려 불리해지는 경우</summary><div><p>발송이 빨라지면 15일 보관 기한도 먼저 끝납니다. 미션 초기화로 놓친 보상과 우편 만료 건을 따로 셉니다. 수신 캐릭터와 포인트 적립 시점은 확인할 정책입니다.</p></div></details>
       </section>
-      <section id="events" class="sheet" data-panel><h3>보상을 얻고, 장비를 익히고, 던전에 쓰기까지</h3><p class="panel-intro">신규 유저가 받은 보상을 어디에 쓰는지 따라가며, 네 이벤트가 서로 어떤 역할을 하는지 정리했습니다.</p>
+      <section id="events" class="sheet" data-panel><h3>네 행사가 플레이를 잇는 방식</h3>
         <dl class="event-list">
-          <div><dt>윈터 부스트 업</dt><dd>115레벨에 도달한 뒤 트레이닝에서 마법 부여와 무기고 등록을 직접 해 봅니다. 안내가 끝난 뒤에도 같은 조작을 스스로 할 수 있는지가 제 관심사였습니다.</dd></div>
-          <div><dt>겨울맞이 8일간의 여정</dt><dd>세리아방에 들어온 날을 누적합니다. 7일 차 무기 보상을 받은 유저가 8일 차에도 돌아오는지 따로 살펴볼 수 있습니다.</dd></div>
-          <div><dt>모예와 함께 아라드 탐험!</dt><dd>일일·주간 미션과 탐험 포인트 단계 보상의 수령 방식이 다릅니다. 개선 범위는 일일·주간 미션의 완료 보상으로 좁혔습니다.</dd></div>
-          <div><dt>르이르와 수상한 랜턴</dt><dd>모예 주간 미션에서 얻은 티켓 100개가 랜턴그리드 입장으로 이어집니다. 티켓을 모으는 과정과 제단에 소울을 배치하는 선택을 연결해 봤습니다.</dd></div>
+          <div><dt>윈터 부스트 업</dt><dd>트레이닝 4단계에서 무기에 마법을 부여하고, 6단계에서 장비를 무기고에 등록합니다.</dd></div>
+          <div><dt>겨울맞이 8일간의 여정</dt><dd>누적 7일 차에는 무기, 8일 차에는 서약 결정이 기다립니다. 무기를 받은 사람은 다음 날도 돌아올까요?</dd></div>
+          <div><dt>모예와 함께 아라드 탐험!</dt><dd>일일·주간 미션은 직접 ‘받기’, 탐험 포인트 40·80·100%는 자동 우편입니다.</dd></div>
+          <div><dt>르이르와 수상한 랜턴</dt><dd>모예 주간 미션의 티켓 100개로 한 번 입장합니다. 열린 제단 슬롯마다 소울도 하나씩 필요합니다.</dd></div>
         </dl><div class="event-shots"><figure><img loading="lazy" src="assets/dnf-training.webp" alt="캐릭터 성장 트레이닝에서 보이는 단계별 안내"><figcaption>윈터 부스트 업 · 트레이닝 안내</figcaption></figure><figure><img loading="lazy" src="assets/dnf-lantern.webp" alt="랜턴그리드 안의 캐릭터와 보상 오브젝트"><figcaption>르이르와 수상한 랜턴 · 랜턴그리드</figcaption></figure></div></section>
-      <section id="verify" class="sheet" data-panel><h3>발송 성공과 실제 수령을 따로 셉니다</h3><p class="panel-intro">아래는 개선안을 적용할 때 쓸 테스트와 판정 기준입니다. 실제 서비스에 적용하거나 효과를 측정한 수치는 없습니다.</p>
-        <div class="qa-grid"><div><h4>초기화 직전</h4><p>05:59:59에 완료하고 06:00 이후에 발송해도 이전 회차의 보상이 도착해야 합니다. 일일과 목요일 주간 초기화를 각각 확인합니다.</p></div><div><h4>재접속과 중복</h4><p>완료 신호가 반복되거나 발송 중 재접속해도 한 계정의 같은 미션·회차에는 한 건만 도착해야 합니다.</p></div><div><h4>실제 수령률</h4><p>완료 건수 중 우편 만료와 아이템 삭제 시각 가운데 이른 시점 전에 보상을 꺼낸 비율을 비교합니다.</p></div></div>
-        <details class="fold"><summary>추가로 확인할 부작용</summary><div><p>재료가 더 많이 지급되면 던전 입장과 보상 공급도 달라질 수 있습니다. 수동 수령과 자동 발송 집단의 재료 소비량과 입장 횟수를 비교하고, 양쪽이 함께 쓰는 거래소의 가격과 거래량은 별도로 관찰하는 계획입니다.</p></div></details>
+      <section id="verify" class="sheet" data-panel><h3>발송 성공과 실제 수령을 따로 셉니다</h3><p class="panel-intro">개선안 검증 계획</p>
+        <div class="qa-grid"><div><h4>초기화 직전</h4><p>06시 전에 완료했다면 이후에 발송해도 이전 회차 보상이어야 합니다. 일일·주간을 각각 시험합니다.</p></div><div><h4>재접속과 중복</h4><p>완료 신호를 다시 보내거나 재접속해도 같은 계정·미션·회차에는 우편 한 통만 도착해야 합니다.</p></div><div><h4>실제 수령률</h4><p>기한 안에 꺼낸 건수 ÷ 완료 건수. 기한은 우편 만료와 아이템 삭제 중 이른 시각입니다.</p></div></div>
+        <details class="fold"><summary>추가로 확인할 부작용</summary><div><p>수동·자동 집단의 재료 소비량과 던전 입장 횟수를 비교합니다. 거래소를 함께 쓰므로 가격과 거래량은 별도로 관찰합니다.</p></div></details>
       </section>
     </div>
   </div></section>
